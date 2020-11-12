@@ -97,4 +97,10 @@ public class TimeManager : MonoBehaviour
 
         TimeText.text = timeHString + ":" + timeMinString;
     }
+
+    public void SetTime(int h, int min)
+    {
+        timeH = h;
+        timeMin = min;
+    }
 }
