@@ -7,12 +7,36 @@ public class HouseplantData : ScriptableObject
 {
     public string HouseplantName;
     public GameObject HouseplantPrefab;
+    public float Price;
+
+
     [Range(0, 100)]
     public float WaterRequirement;
     [Range(0, 50)]
     public float WaterReqDiff;
+    // Amount of water consumed per in-game hour
+    [Range(0, 1)]
+    public float WaterConsumption;
+
     [Range(0, 100)]
     public float LightRequirement;
     [Range(0, 50)]
     public float LightReqDiff;
+    // Amount of damage taken per in-game hour when the plant is not happy
+    [Range(0, 10)]
+    public float DamageRate;
+
+    //Size of decrease in stress when plant is happy
+    [Range(0, 1)]
+    public float StressRemoved;
+
+    //Size of increase in stress when plant is unhappy
+    [Range(0, 1)]
+    public float StressAdded;
+    [Range(0, 10)]
+    public float StressAddedOnDeath;
+
+    //Amount of health restored per in-game hour when the care requirements are met
+    [Range(0, 20)]
+    public float HealthRegenRate;
 }

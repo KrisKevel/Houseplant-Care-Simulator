@@ -11,11 +11,6 @@ public class StressUIManager : MonoBehaviour
         Events.OnUpdateStressUI += UpdateStress;
 
     }
-    
-    void Start()
-    {
-        
-    }
 
     private void OnDestroy()
     {
@@ -24,7 +19,6 @@ public class StressUIManager : MonoBehaviour
 
     private void UpdateStress(float stress)
     {
-        print(stress);
         gameObject.GetComponent<Image>().fillAmount = stress / 100;
     }
 }

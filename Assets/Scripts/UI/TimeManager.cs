@@ -5,6 +5,8 @@ using TMPro;
 
 public class TimeManager : MonoBehaviour
 {
+    public static TimeManager Instance;
+
     public TextMeshProUGUI TimeText;
     public int StartingTimeH;
     public int StartingTimeMin;
@@ -18,6 +20,8 @@ public class TimeManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        Instance = this;
+
         timeH = StartingTimeH;
         timeMin = StartingTimeMin;
     }
@@ -80,7 +84,7 @@ public class TimeManager : MonoBehaviour
         if(timeH < 10)
         {
             timeHString = "0" + timeH;
-        }
+        } 
         else
         {
             timeHString = timeH.ToString();
@@ -102,5 +106,10 @@ public class TimeManager : MonoBehaviour
     {
         timeH = h;
         timeMin = min;
+    }
+
+    public int GetCurrentTimeHours()
+    {
+        return timeMin;
     }
 }

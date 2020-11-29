@@ -7,4 +7,7 @@ public class Events
 {
     public static event Action<float> OnUpdateStressUI;
     public static void UpdateStressUI(float stress) => OnUpdateStressUI.Invoke(stress);
+
+    public static event Action<float> OnUpdateStressLevel;
+    public static void UpdateStressLevel(float stress) => OnUpdateStressLevel.Invoke(stress);
 }
