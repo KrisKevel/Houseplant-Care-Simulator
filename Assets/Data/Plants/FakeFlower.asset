@@ -14,7 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HouseplantName: FakeFlower
   HouseplantPrefab: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
+  Price: 0
   WaterRequirement: 50.6
-  WaterReqDiff: 20
+  WaterReqDiff: 25
+  WaterConsumption: 1
   LightRequirement: 0
   LightReqDiff: 0
+  DamageRate: 10
+  StressRemoved: 1
+  StressAdded: 1
+  StressAddedOnDeath: 0
+  HealthRegenRate: 20

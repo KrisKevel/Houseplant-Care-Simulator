@@ -10,4 +10,7 @@ public class Events
 
     public static event Action<float> OnUpdateStressLevel;
     public static void UpdateStressLevel(float stress) => OnUpdateStressLevel.Invoke(stress);
+
+    public static event Action OnOpenMenu;
+    public static void OpenMenu() => OnOpenMenu.Invoke();
 }
