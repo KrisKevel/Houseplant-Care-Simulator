@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class HouseplantHealth : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class HouseplantHealth : MonoBehaviour
 
     private bool _dead = false;
 
+    Ray ray;
+    RaycastHit hit;
+
     void Start()
     {
         _currentTimeH = TimeManager.Instance.GetCurrentTimeHours();
@@ -38,14 +42,37 @@ public class HouseplantHealth : MonoBehaviour
     {
         if (!_dead)
         {
+
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (!EventSystem.current.IsPointerOverGameObject())
+                {
+                    //In the future it's possible to use plant tag instead. (Tag every plant on Instantiation)
+                    if (hit.collider.name == "FakeFlower" && Input.GetMouseButton(0))
+                    {
+                        print("I was clicked");
+                        Events.PopUp(_currentWaterLevel);
+                    }
+                }
+            }
+
+            /*if (Input.GetMouseButton(0))
+            {
+                print("I was clicked");
+                Events.PopUp(_currentWaterLevel);
+                IncreaseWaterLevel();
+            }*/
+
+            if (Input.GetMouseButtonDown(1))
+            {
+                print(_currentWaterLevel);
+            }
+
             if (_currentTimeH != TimeManager.Instance.GetCurrentTimeHours())
             {
-                //Increase current water level
-                if (Input.GetMouseButton(0))
-                    IncreaseWaterLevel();
 
                 //Decrease the current water level
-                print("Current water level: " + _currentWaterLevel);
                 DecreaseWaterLevel();
 
                 _currentTimeH = TimeManager.Instance.GetCurrentTimeHours();
@@ -70,7 +97,6 @@ public class HouseplantHealth : MonoBehaviour
         if (_lastTimeHealthRemoved != _currentTimeH)
         {
             Health -= Houseplant.DamageRate;
-            print("Health: " + Health);
             if (Health < 0)
             {
                 _dead = true;
@@ -117,7 +143,7 @@ public class HouseplantHealth : MonoBehaviour
         }
         else
         {
-            _currentWaterLevel += 20;
+            _currentWaterLevel += 0.1f;
         }
     }
 
