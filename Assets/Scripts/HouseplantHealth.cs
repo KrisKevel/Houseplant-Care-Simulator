@@ -52,17 +52,10 @@ public class HouseplantHealth : MonoBehaviour
                     if (hit.collider.name == "FakeFlower" && Input.GetMouseButton(0))
                     {
                         print("I was clicked");
-                        Events.PopUp(_currentWaterLevel);
+                        Events.PopUp(this);
                     }
                 }
             }
-
-            /*if (Input.GetMouseButton(0))
-            {
-                print("I was clicked");
-                Events.PopUp(_currentWaterLevel);
-                IncreaseWaterLevel();
-            }*/
 
             if (Input.GetMouseButtonDown(1))
             {
@@ -135,7 +128,7 @@ public class HouseplantHealth : MonoBehaviour
         }
     }
 
-    private void IncreaseWaterLevel()
+    public void IncreaseWaterLevel()
     {
         if (_currentWaterLevel + 20 > 100)
         {
@@ -143,8 +136,12 @@ public class HouseplantHealth : MonoBehaviour
         }
         else
         {
-            _currentWaterLevel += 0.1f;
+            _currentWaterLevel += 0.01f;
         }
     }
 
+    public float GetWaterLevel()
+    {
+        return _currentWaterLevel;
+    }
 }

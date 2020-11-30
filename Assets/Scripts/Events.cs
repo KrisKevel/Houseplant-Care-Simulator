@@ -14,6 +14,6 @@ public class Events
     public static event Action OnOpenMenu;
     public static void OpenMenu() => OnOpenMenu.Invoke();
 
-    public static event Action<float> OnPopUp;
-    public static void PopUp(float moisture) => OnPopUp.Invoke(moisture);
+    public static event Action<HouseplantHealth> OnPopUp;
+    public static void PopUp(HouseplantHealth houseplant) => OnPopUp.Invoke(houseplant);
 }

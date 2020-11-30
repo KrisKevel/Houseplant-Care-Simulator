@@ -1,29 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
+using TMPro;
+using UnityEngine.EventSystems;
 
-public class MoistureMeter : MonoBehaviour
+public class MoistureMeter : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public TextMeshProUGUI MoistureLevel;
     public TextMeshProUGUI Status;
 
+    private HouseplantHealth _houseplant;
+
+    private bool _waterButtonPressed = false;
+    private bool _mouseIsOver = false;
 
     private void Awake()
     {
+        EventSystem.current.SetSelectedGameObject(gameObject);
+
         Events.OnPopUp += OpenMenu;
         gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        //Currently buggy
-        //HideIfClickedOutside(gameObject);
-
         if (Input.GetKeyDown("q"))
         {
             gameObject.SetActive(false);
         }
+
+        if (_waterButtonPressed)
+        {
+            _houseplant.IncreaseWaterLevel();
+        }
+
+        UpdateData();
     }
 
     private void OnDestroy()
@@ -31,14 +42,48 @@ public class MoistureMeter : MonoBehaviour
         Events.OnPopUp -= OpenMenu;
     }
 
-    public void OpenMenu(float moisture)
+    //https://answers.unity.com/questions/947856/how-to-detect-click-outside-ui-panel.html?page=1&pageSize=5&sort=votes 
+    //Ziplock9000's answer + BluishGreenPro's comment
+    public void OnDeselect(BaseEventData eventData)
     {
-        transform.position = Input.mousePosition;
-        gameObject.SetActive(true);
-        MoistureLevel.text = moisture.ToString();
-        SetStatus(moisture);
+        if (!_mouseIsOver)
+            gameObject.SetActive(false);
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _mouseIsOver = true;
+        EventSystem.current.SetSelectedGameObject(gameObject);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _mouseIsOver = false;
+        EventSystem.current.SetSelectedGameObject(gameObject);
+    }
+    //https://answers.unity.com/questions/947856/how-to-detect-click-outside-ui-panel.html?page=1&pageSize=5&sort=votes 
+    //Ziplock9000's answer + BluishGreenPro's comment
+
+
+    public void OpenMenu(HouseplantHealth houseplant)
+    {
+        EventSystem.current.SetSelectedGameObject(gameObject);
+
+        _houseplant = houseplant;
+        transform.position = Input.mousePosition;
+        gameObject.SetActive(true);
+
+        UpdateData();
+    }
+
+
+    private void UpdateData()
+    {
+        float moisture = _houseplant.GetWaterLevel();
+
+        MoistureLevel.text = System.Math.Round(moisture, 2).ToString();
+        SetStatus(moisture);
+    }
 
     private void SetStatus(float moisture)
     {
@@ -59,15 +104,13 @@ public class MoistureMeter : MonoBehaviour
         }
     }
 
-    private void HideIfClickedOutside(GameObject panel)
+    public void WaterButtonDown()
     {
-        if (Input.GetMouseButton(0) && panel.activeSelf &&
-            !RectTransformUtility.RectangleContainsScreenPoint(
-                panel.GetComponent<RectTransform>(),
-                Input.mousePosition,
-                Camera.main))
-        {
-            panel.SetActive(false);
-        }
+        _waterButtonPressed = true;
+    }
+
+    public void WaterButtonUp()
+    {
+        _waterButtonPressed = false;
     }
 }

@@ -6,13 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 1.0f;
 
-    private Rigidbody rb;
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    void Update()
+    void FixedUpdate()
     {
         Vector3 pos = transform.position;
 
@@ -33,6 +27,6 @@ public class PlayerMovement : MonoBehaviour
             pos.x -= speed * Time.deltaTime;
         }
 
-        rb.MovePosition(pos);
+        transform.position = new Vector3(Mathf.Clamp(pos.x, -4.78f, 4.33f), 0.8739784f, Mathf.Clamp(pos.z, -2.55f, 5.68f));
     }
 }
