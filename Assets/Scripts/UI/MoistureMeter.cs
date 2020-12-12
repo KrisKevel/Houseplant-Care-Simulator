@@ -18,7 +18,7 @@ public class MoistureMeter : MonoBehaviour, IDeselectHandler, IPointerEnterHandl
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
 
-        Events.OnPopUp += OpenMenu;
+        Events.OnOpenMoistureMeter += OpenMenu;
         gameObject.SetActive(false);
     }
 
@@ -39,7 +39,7 @@ public class MoistureMeter : MonoBehaviour, IDeselectHandler, IPointerEnterHandl
 
     private void OnDestroy()
     {
-        Events.OnPopUp -= OpenMenu;
+        Events.OnOpenMoistureMeter -= OpenMenu;
     }
 
     //https://answers.unity.com/questions/947856/how-to-detect-click-outside-ui-panel.html?page=1&pageSize=5&sort=votes 

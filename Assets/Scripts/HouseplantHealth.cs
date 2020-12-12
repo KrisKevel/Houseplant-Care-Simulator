@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class HouseplantHealth : MonoBehaviour
@@ -51,8 +49,7 @@ public class HouseplantHealth : MonoBehaviour
                     //In the future it's possible to use plant tag instead. (Tag every plant on Instantiation)
                     if (hit.collider.name == "FakeFlower" && Input.GetMouseButton(0))
                     {
-                        print("I was clicked");
-                        Events.PopUp(this);
+                        Events.OpenMoistureMeter(this);
                     }
                 }
             }
@@ -82,6 +79,22 @@ public class HouseplantHealth : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (!EventSystem.current.IsPointerOverGameObject())
+                {
+                    //In the future it's possible to use plant tag instead. (Tag every plant on Instantiation)
+                    if (hit.collider.name == "FakeFlower" && Input.GetMouseButton(0))
+                    {
+                        print(this);
+                        Events.OpenDeadPanel(this);
+                    }
+                }
+            }
+        }
     }
 
 
@@ -105,43 +118,27 @@ public class HouseplantHealth : MonoBehaviour
 
     private void RestoreHealth()
     {
-        if (Health + Houseplant.HealthRegenRate > 100)
-        {
-            Health = 100f;
-        }
-        else
-        {
-            Health += Houseplant.HealthRegenRate;
-        }
+        Health = Mathf.Clamp(Health + Houseplant.HealthRegenRate, 0, 100);
     }
 
 
     private void DecreaseWaterLevel()
     {
-        if (_currentWaterLevel - Houseplant.WaterConsumption < 0)
-        {
-            _currentWaterLevel = 0;
-        }
-        else
-        {
-            _currentWaterLevel -= Houseplant.WaterConsumption;
-        }
+        _currentWaterLevel = Mathf.Clamp(_currentWaterLevel - Houseplant.WaterConsumption, 0, 100);
     }
 
     public void IncreaseWaterLevel()
     {
-        if (_currentWaterLevel + 20 > 100)
-        {
-            _currentWaterLevel = 100;
-        }
-        else
-        {
-            _currentWaterLevel += 0.01f;
-        }
+        _currentWaterLevel = Mathf.Clamp(_currentWaterLevel + 0.01f, 0, 100);
     }
 
     public float GetWaterLevel()
     {
         return _currentWaterLevel;
+    }
+
+    public void TossThePlant()
+    {
+        Destroy(gameObject);
     }
 }
