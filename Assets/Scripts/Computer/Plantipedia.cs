@@ -1,19 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class Monitor : MonoBehaviour
+public class Plantipedia : MonoBehaviour
 {
     void Awake()
     {
-        Events.OnUseComputer += OpenPanel;
+        Events.OnOpenPlantipedia += OpenPanel;
         gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        Events.OnUseComputer -= OpenPanel;
+        Events.OnOpenPlantipedia -= OpenPanel;
     }
 
     void OpenPanel()
@@ -21,8 +20,9 @@ public class Monitor : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    public void CloseMonitor()
+    public void ClosePlantipedia()
     {
         gameObject.SetActive(false);
+        Events.OpenWelcomeScreen();
     }
 }

@@ -22,4 +22,13 @@ public class Events
 
     public static event Action OnUseComputer;
     public static void UseComputer() => OnUseComputer.Invoke();
+
+    public static event Action OnOpenShop;
+    public static void OpenShop() => OnOpenShop.Invoke();
+
+    public static event Action OnOpenPlantipedia;
+    public static void OpenPlantipedia() => OnOpenPlantipedia.Invoke();
+
+    public static event Action OnOpenWelcomeScreen;
+    public static void OpenWelcomeScreen() => OnOpenWelcomeScreen.Invoke();
 }
