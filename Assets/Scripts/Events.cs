@@ -19,4 +19,7 @@ public class Events
 
     public static event Action<HouseplantHealth> OnOpenDeadPanel;
     public static void OpenDeadPanel(HouseplantHealth houseplant) => OnOpenDeadPanel.Invoke(houseplant);
+
+    public static event Action OnUseComputer;
+    public static void UseComputer() => OnUseComputer.Invoke();
 }
