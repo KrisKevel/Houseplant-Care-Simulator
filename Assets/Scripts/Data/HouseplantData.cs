@@ -7,6 +7,7 @@ public class HouseplantData : ScriptableObject
 {
     public string HouseplantName;
     public GameObject HouseplantPrefab;
+    public Sprite HouseplantPicture;
     public float Price;
 
 

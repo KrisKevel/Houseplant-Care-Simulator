@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: 113daac26aae8ae4faaf4e2a1cedb479
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7583302139543176791
+    second: pixel77-free-vector-cactus-0992-650x352_0
+  - first:
+      213: 4441394246085450324
+    second: pixel77-free-vector-cactus-0992-650x352_1
+  - first:
+      213: -5012923528062521625
+    second: pixel77-free-vector-cactus-0992-650x352_2
+  - first:
+      213: -3610628885697044729
+    second: pixel77-free-vector-cactus-0992-650x352_3
+  - first:
+      213: 6572106609007329577
+    second: pixel77-free-vector-cactus-0992-650x352_4
+  - first:
+      213: 7198925471946206493
+    second: pixel77-free-vector-cactus-0992-650x352_5
+  - first:
+      213: 3165202239515607743
+    second: pixel77-free-vector-cactus-0992-650x352_6
+  - first:
+      213: -7996192416765993071
+    second: pixel77-free-vector-cactus-0992-650x352_7
+  - first:
+      213: 950899011672191650
+    second: pixel77-free-vector-cactus-0992-650x352_8
+  - first:
+      213: -7988099033437923390
+    second: pixel77-free-vector-cactus-0992-650x352_9
+  - first:
+      213: 1024862565102603772
+    second: pixel77-free-vector-cactus-0992-650x352_10
+  - first:
+      213: -3670897521029950012
+    second: pixel77-free-vector-cactus-0992-650x352_11
+  - first:
+      213: -5496262680501623091
+    second: pixel77-free-vector-cactus-0992-650x352_12
+  - first:
+      213: 6761028981393361254
+    second: pixel77-free-vector-cactus-0992-650x352_13
+  - first:
+      213: -61908760496131169
+    second: pixel77-free-vector-cactus-0992-650x352_14
+  - first:
+      213: -7929810187251639008
+    second: pixel77-free-vector-cactus-0992-650x352_15
+  - first:
+      213: 1474439855383229652
+    second: pixel77-free-vector-cactus-0992-650x352_16
+  - first:
+      213: 4640891464150454271
+    second: pixel77-free-vector-cactus-0992-650x352_17
+  - first:
+      213: -7805557215573254319
+    second: pixel77-free-vector-cactus-0992-650x352_18
+  - first:
+      213: 6468270000422982127
+    second: pixel77-free-vector-cactus-0992-650x352_19
+  - first:
+      213: 3055169203119983690
+    second: pixel77-free-vector-cactus-0992-650x352_20
+  - first:
+      213: 249353676814163342
+    second: pixel77-free-vector-cactus-0992-650x352_21
+  - first:
+      213: -2836239749356627506
+    second: pixel77-free-vector-cactus-0992-650x352_22
+  - first:
+      213: -4548752038513705432
+    second: pixel77-free-vector-cactus-0992-650x352_23
+  - first:
+      213: -1440547700023192085
+    second: pixel77-free-vector-cactus-0992-650x352_24
+  - first:
+      213: 3522332841672061444
+    second: pixel77-free-vector-cactus-0992-650x352_25
+  - first:
+      213: -807962177300517395
+    second: pixel77-free-vector-cactus-0992-650x352_26
+  - first:
+      213: -6840257861240926734
+    second: pixel77-free-vector-cactus-0992-650x352_27
+  - first:
+      213: -16002715820617751
+    second: pixel77-free-vector-cactus-0992-650x352_28
+  - first:
+      213: -7847240579793004732
+    second: pixel77-free-vector-cactus-0992-650x352_29
+  - first:
+      213: 1111415157963720567
+    second: pixel77-free-vector-cactus-0992-650x352_30
+  - first:
+      213: 1806135298097541883
+    second: pixel77-free-vector-cactus-0992-650x352_31
+  - first:
+      213: 9198380442054122621
+    second: pixel77-free-vector-cactus-0992-650x352_32
+  - first:
+      213: -1518696144388101743
+    second: pixel77-free-vector-cactus-0992-650x352_33
+  - first:
+      213: -5919983989129281428
+    second: pixel77-free-vector-cactus-0992-650x352_34
+  - first:
+      213: 5628188988762014288
+    second: pixel77-free-vector-cactus-0992-650x352_35
+  - first:
+      213: 3746854882588676007
+    second: pixel77-free-vector-cactus-0992-650x352_36
+  - first:
+      213: -2596346219602478465
+    second: pixel77-free-vector-cactus-0992-650x352_37
+  - first:
+      213: -2554354219721392807
+    second: pixel77-free-vector-cactus-0992-650x352_38
+  - first:
+      213: -5818692919237948814
+    second: pixel77-free-vector-cactus-0992-650x352_39
+  - first:
+      213: -7882563886474529382
+    second: pixel77-free-vector-cactus-0992-650x352_40
+  - first:
+      213: 2000099320750646891
+    second: pixel77-free-vector-cactus-0992-650x352_41
+  - first:
+      213: -1228077166676556144
+    second: pixel77-free-vector-cactus-0992-650x352_42
+  - first:
+      213: -2674772066376053572
+    second: pixel77-free-vector-cactus-0992-650x352_43
+  - first:
+      213: -677732968868602674
+    second: pixel77-free-vector-cactus-0992-650x352_44
+  - first:
+      213: 9194118577129666501
+    second: pixel77-free-vector-cactus-0992-650x352_45
+  - first:
+      213: -796950955657708659
+    second: pixel77-free-vector-cactus-0992-650x352_46
+  - first:
+      213: 8487059530639839201
+    second: pixel77-free-vector-cactus-0992-650x352_47
+  - first:
+      213: 8572378843074972432
+    second: pixel77-free-vector-cactus-0992-650x352_48
+  - first:
+      213: -8052865414856369255
+    second: pixel77-free-vector-cactus-0992-650x352_49
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 375, y: 74, z: 61, w: 79}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pixel77-free-vector-cactus-0992-650x352_0
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 78
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a9b114d1e2b2c690800000000000000
+      internalID: -7583302139543176791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel77-free-vector-cactus-0992-650x352_1
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 78
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a1369098003ad30800000000000000
+      internalID: 4441394246085450324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

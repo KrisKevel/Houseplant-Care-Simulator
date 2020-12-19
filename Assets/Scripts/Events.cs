@@ -31,4 +31,7 @@ public class Events
 
     public static event Action OnOpenWelcomeScreen;
     public static void OpenWelcomeScreen() => OnOpenWelcomeScreen.Invoke();
+
+    public static event Action<GameObject> OnBuyPlant;
+    public static void BuyPlant(GameObject houseplant) => OnBuyPlant.Invoke(houseplant);
 }
