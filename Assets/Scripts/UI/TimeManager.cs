@@ -8,14 +8,17 @@ public class TimeManager : MonoBehaviour
     public static TimeManager Instance;
 
     public TextMeshProUGUI TimeText;
+    public TextMeshProUGUI DayText;
     public int StartingTimeH;
     public int StartingTimeMin;
+    public int WorkStartH;
+    public int WorkEndH;
     public int DayEndTimeH;
 
     private int timeH;
     private int timeMin;
     private float second = 1.0f;
-    private int dayCount;
+    private int dayCount = 1;
 
     // Start is called before the first frame update
     void Awake()
@@ -64,8 +67,11 @@ public class TimeManager : MonoBehaviour
         }
         else
         {
-            //Day end event will be called here
             ResetDay();
+        }
+        if(timeH == WorkStartH)
+        {
+            timeH = WorkEndH;
         }
     }
 
@@ -74,6 +80,7 @@ public class TimeManager : MonoBehaviour
         timeH = StartingTimeH;
         timeMin = StartingTimeMin;
         dayCount++;
+        DayText.text = "Day " + dayCount;
     }
 
     private void UpdateClock()
@@ -110,6 +117,6 @@ public class TimeManager : MonoBehaviour
 
     public int GetCurrentTimeHours()
     {
-        return timeMin;
+        return timeH;
     }
 }
