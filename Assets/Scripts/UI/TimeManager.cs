@@ -19,6 +19,7 @@ public class TimeManager : MonoBehaviour
     private int timeMin;
     private float second = 1.0f;
     private int dayCount = 1;
+    private bool working = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -40,7 +41,14 @@ public class TimeManager : MonoBehaviour
 
         if(second <= 0)
         {
-            AddMinute();
+            if (working)
+            {
+                AddHour();
+            }
+            else
+            {
+                AddMinute();
+            }
             UpdateClock();
             second = 1.0f;
         }
@@ -69,9 +77,16 @@ public class TimeManager : MonoBehaviour
         {
             ResetDay();
         }
+
         if(timeH == WorkStartH)
         {
-            timeH = WorkEndH;
+            working = true;
+            Events.ToggleWork(working);
+        }
+        else if(timeH == WorkEndH)
+        {
+            working = false;
+            Events.ToggleWork(working);
         }
     }
 
@@ -85,13 +100,29 @@ public class TimeManager : MonoBehaviour
 
     private void UpdateClock()
     {
+        TimeText.text = GetCurrentTime();
+    }
+
+    public void SetTime(int h, int min)
+    {
+        timeH = h;
+        timeMin = min;
+    }
+
+    public int GetCurrentTimeHours()
+    {
+        return timeH;
+    }
+
+    public string GetCurrentTime()
+    {
         string timeHString;
         string timeMinString;
 
-        if(timeH < 10)
+        if (timeH < 10)
         {
             timeHString = "0" + timeH;
-        } 
+        }
         else
         {
             timeHString = timeH.ToString();
@@ -106,17 +137,6 @@ public class TimeManager : MonoBehaviour
             timeMinString = timeMin.ToString();
         }
 
-        TimeText.text = timeHString + ":" + timeMinString;
-    }
-
-    public void SetTime(int h, int min)
-    {
-        timeH = h;
-        timeMin = min;
-    }
-
-    public int GetCurrentTimeHours()
-    {
-        return timeH;
+        return timeHString + ":" + timeMinString;
     }
 }

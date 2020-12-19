@@ -34,4 +34,7 @@ public class Events
 
     public static event Action<GameObject> OnBuyPlant;
     public static void BuyPlant(GameObject houseplant) => OnBuyPlant.Invoke(houseplant);
+
+    public static event Action<bool> OnToggleWork;
+    public static void ToggleWork(bool toggle) => OnToggleWork.Invoke(toggle);
 }
