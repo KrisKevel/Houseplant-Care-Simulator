@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public float StartingFunds = 100f;
+    public float DailyPay = 50f;
+
     private void Awake()
     {
         Instance = this;
@@ -28,5 +30,10 @@ public class GameManager : MonoBehaviour
     public void UpdateFunds(float amount)
     {
         PlayerPrefs.SetFloat("Funds", GetFunds() + amount);
+    }
+
+    public void AddDailySalary()
+    {
+        UpdateFunds(DailyPay);
     }
 }

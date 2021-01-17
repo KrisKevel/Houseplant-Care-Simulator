@@ -28,8 +28,12 @@ public class WorkTime : MonoBehaviour
         Time.text = TimeManager.Instance.GetCurrentTime();
     }
 
-    private void TogglePanel(bool toggle)
+    private void TogglePanel(bool working)
     {
-        gameObject.transform.parent.gameObject.SetActive(toggle);
+        if (!working)
+        {
+            GameManager.Instance.AddDailySalary();
+        }
+        gameObject.transform.parent.gameObject.SetActive(working);
     }
 }

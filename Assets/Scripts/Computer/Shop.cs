@@ -23,6 +23,7 @@ public class Shop : MonoBehaviour
 
     void OpenPanel()
     {
+        ChangeTextColor(new Color(255, 255, 255));
         gameObject.SetActive(true);
         UpdateFunds();
     }
