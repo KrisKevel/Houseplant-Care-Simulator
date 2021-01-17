@@ -37,4 +37,7 @@ public class Events
 
     public static event Action<bool> OnToggleWork;
     public static void ToggleWork(bool toggle) => OnToggleWork.Invoke(toggle);
+
+    public static event Action<float> OnUpdateFunds;
+    public static void UpdateFunds(float amount) => OnUpdateFunds.Invoke(amount);
 }

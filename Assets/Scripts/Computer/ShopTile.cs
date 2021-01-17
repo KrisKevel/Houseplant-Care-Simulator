@@ -28,6 +28,7 @@ public class ShopTile : MonoBehaviour
 
     public void Buy()
     {
+        Events.UpdateFunds(-Plant.Price);
         Events.BuyPlant(Plant.HouseplantPrefab);
     }
 }
