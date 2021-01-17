@@ -28,7 +28,14 @@ public class ShopTile : MonoBehaviour
 
     public void Buy()
     {
-        Events.UpdateFunds(-Plant.Price);
-        Events.BuyPlant(Plant.HouseplantPrefab);
+        if (GameManager.Instance.GetFunds() < Plant.Price)
+        {
+            Events.InsufficientFunds();
+        }
+        else
+        {
+            GameManager.Instance.UpdateFunds(-Plant.Price);
+            Events.BuyPlant(Plant.HouseplantPrefab);
+        }
     }
 }

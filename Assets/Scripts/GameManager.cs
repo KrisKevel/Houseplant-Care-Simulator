@@ -4,16 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     public float StartingFunds = 100f;
     private void Awake()
     {
+        Instance = this;
         PlayerPrefs.SetFloat("Funds", StartingFunds);
-        Events.OnUpdateFunds += UpdateFunds;
-    }
-
-    private void OnDestroy()
-    {
-        Events.OnUpdateFunds -= UpdateFunds;
     }
 
     void Update()
@@ -24,8 +20,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateFunds(float amount)
+    public float GetFunds()
     {
-        PlayerPrefs.SetFloat("Funds", PlayerPrefs.GetFloat("Funds") + amount);
+        return PlayerPrefs.GetFloat("Funds");
+    }
+
+    public void UpdateFunds(float amount)
+    {
+        PlayerPrefs.SetFloat("Funds", GetFunds() + amount);
     }
 }
