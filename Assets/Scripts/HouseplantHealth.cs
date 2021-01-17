@@ -17,10 +17,8 @@ public class HouseplantHealth : MonoBehaviour
     private int _lastTimeHealthRemoved;
     private int _currentTimeH;
 
-    private bool _dead = false;
-
-    Ray ray;
-    RaycastHit hit;
+    [HideInInspector]
+    public bool Dead = false;
 
     void Start()
     {
@@ -38,21 +36,8 @@ public class HouseplantHealth : MonoBehaviour
 
     void Update() 
     {
-        if (!_dead)
+        if (!Dead)
         {
-
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (!EventSystem.current.IsPointerOverGameObject())
-                {
-                    if (hit.collider.tag == "Plant" && Input.GetMouseButton(0))
-                    {
-                        Events.OpenMoistureMeter(gameObject);
-                    }
-                }
-            }
-
             if (Input.GetMouseButtonDown(1))
             {
                 print(_currentWaterLevel);
@@ -78,22 +63,6 @@ public class HouseplantHealth : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (!EventSystem.current.IsPointerOverGameObject())
-                {
-                    //In the future it's possible to use plant tag instead. (Tag every plant on Instantiation)
-                    if (hit.collider.name == "FakeFlower" && Input.GetMouseButton(0))
-                    {
-                        print(this);
-                        Events.OpenDeadPanel(this);
-                    }
-                }
-            }
-        }
     }
 
 
@@ -104,7 +73,7 @@ public class HouseplantHealth : MonoBehaviour
             Health -= Houseplant.DamageRate;
             if (Health < 0)
             {
-                _dead = true;
+                Dead = true;
                 Events.UpdateStressLevel(Houseplant.StressAddedOnDeath);
             }
             else
