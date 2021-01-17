@@ -18,7 +18,6 @@ public class SalesSystem : MonoBehaviour
 
     void BuyPlant(GameObject houseplant)
     {
-        //pay and then
         Instantiate(houseplant).transform.position = DeliveryPosition;
     }
 }

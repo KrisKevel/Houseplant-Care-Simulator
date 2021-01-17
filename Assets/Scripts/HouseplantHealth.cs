@@ -46,10 +46,9 @@ public class HouseplantHealth : MonoBehaviour
             {
                 if (!EventSystem.current.IsPointerOverGameObject())
                 {
-                    //In the future it's possible to use plant tag instead. (Tag every plant on Instantiation)
-                    if (hit.collider.name == "FakeFlower" && Input.GetMouseButton(0))
+                    if (hit.collider.tag == "Plant" && Input.GetMouseButton(0))
                     {
-                        Events.OpenMoistureMeter(this);
+                        Events.OpenMoistureMeter(gameObject);
                     }
                 }
             }

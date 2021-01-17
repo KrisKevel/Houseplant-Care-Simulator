@@ -65,11 +65,11 @@ public class MoistureMeter : MonoBehaviour, IDeselectHandler, IPointerEnterHandl
     //Ziplock9000's answer + BluishGreenPro's comment
 
 
-    public void OpenMenu(HouseplantHealth houseplant)
+    public void OpenMenu(GameObject houseplant)
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
 
-        _houseplant = houseplant;
+        _houseplant = houseplant.GetComponent<HouseplantHealth>();
         transform.position = Input.mousePosition;
         gameObject.SetActive(true);
 

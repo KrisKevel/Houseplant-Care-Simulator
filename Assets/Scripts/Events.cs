@@ -14,8 +14,8 @@ public class Events
     public static event Action OnOpenMenu;
     public static void OpenMenu() => OnOpenMenu.Invoke();
 
-    public static event Action<HouseplantHealth> OnOpenMoistureMeter;
-    public static void OpenMoistureMeter(HouseplantHealth houseplant) => OnOpenMoistureMeter.Invoke(houseplant);
+    public static event Action<GameObject> OnOpenMoistureMeter;
+    public static void OpenMoistureMeter(GameObject houseplant) => OnOpenMoistureMeter.Invoke(houseplant);
 
     public static event Action<HouseplantHealth> OnOpenDeadPanel;
     public static void OpenDeadPanel(HouseplantHealth houseplant) => OnOpenDeadPanel.Invoke(houseplant);
