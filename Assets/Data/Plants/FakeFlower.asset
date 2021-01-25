@@ -22,7 +22,7 @@ MonoBehaviour:
   LightRequirement: 0
   LightReqDiff: 0
   DamageRate: 10
-  StressRemoved: 1
+  StressRemoved: 0
   StressAdded: 1
   StressAddedOnDeath: 0
   HealthRegenRate: 20

@@ -96,6 +96,10 @@ public class TimeManager : MonoBehaviour
         timeMin = StartingTimeMin;
         dayCount++;
         DayText.text = "Day " + dayCount;
+        if(dayCount == GameManager.Instance.WinDay)
+        {
+            Events.Win();
+        }
     }
 
     private void UpdateClock()

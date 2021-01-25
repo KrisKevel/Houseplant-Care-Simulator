@@ -23,9 +23,10 @@ public class PlayerHealth : MonoBehaviour
     private void UpdateStressLevel(float stress)
     {
         if (Stress + stress > 100) { 
-            Stress = 100f; 
+            Stress = 100f;
+            Events.GameOver();
         } else if (Stress + stress < 0) { 
-            Stress = 0f; 
+            Stress = 0f;
         } else { 
             Stress += stress; 
         }

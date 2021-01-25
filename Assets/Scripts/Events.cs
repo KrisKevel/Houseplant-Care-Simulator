@@ -52,4 +52,12 @@ public class Events
     // Event invoked in order to notify player about insufficient funds
     public static event Action OnInsufficientFunds;
     public static void InsufficientFunds() => OnInsufficientFunds.Invoke();
+
+    // Event invoked in order to bring up the game over menu
+    public static event Action OnGameOver;
+    public static void GameOver() => OnGameOver.Invoke();
+
+    // Event invoked in order to bring up the win menu
+    public static event Action OnWin;
+    public static void Win() => OnWin.Invoke();
 }

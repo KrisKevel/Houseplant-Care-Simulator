@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public float StartingFunds = 100f;
     public float DailyPay = 50f;
+    public int WinDay = 8;
 
     private void Awake()
     {
