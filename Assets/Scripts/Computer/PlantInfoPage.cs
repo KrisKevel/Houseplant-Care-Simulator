@@ -33,4 +33,9 @@ public class PlantInfoPage : MonoBehaviour
         _waterRequirement.text = "Watering: " + data.WaterRequirementText;
         _lightRequirement.text = "Light: " + data.LightRequirementText;
     }
+
+    public void CloseInfo()
+    {
+        gameObject.SetActive(false);
+    }
 }
