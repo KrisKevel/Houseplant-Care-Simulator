@@ -27,17 +27,23 @@ public class HouseplantData : ScriptableObject
     [Range(0, 10)]
     public float DamageRate;
 
-    //Size of decrease in stress when plant is happy
+    // Size of decrease in stress when plant is happy
     [Range(0, 1)]
     public float StressRemoved;
 
-    //Size of increase in stress when plant is unhappy
+    // Size of increase in stress when plant is unhappy
     [Range(0, 1)]
     public float StressAdded;
     [Range(0, 10)]
     public float StressAddedOnDeath;
 
-    //Amount of health restored per in-game hour when the care requirements are met
+    // Amount of health restored per in-game hour when the care requirements are met
     [Range(0, 20)]
     public float HealthRegenRate;
+
+
+    // Plant care information
+    public string GeneralCareInfo;
+    public string WaterRequirementText;
+    public string LightRequirementText;
 }

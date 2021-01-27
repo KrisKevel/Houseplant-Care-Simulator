@@ -60,4 +60,8 @@ public class Events
     // Event invoked in order to bring up the win menu
     public static event Action OnWin;
     public static void Win() => OnWin.Invoke();
+
+    // Event invoked in order to show plant care information
+    public static event Action<HouseplantData> OnBringUpPlantInfo;
+    public static void BringUpPlantInfo(HouseplantData data) => OnBringUpPlantInfo.Invoke(data);
 }
