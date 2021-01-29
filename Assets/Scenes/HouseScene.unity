@@ -2949,50 +2949,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 636907320}
   m_CullTransparentMesh: 0
---- !u!1 &637365245
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 637365246}
-  - component: {fileID: 637365247}
-  m_Layer: 0
-  m_Name: InvisibleWallLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &637365246
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637365245}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -4.32, y: -1.26, z: -6.38}
-  m_LocalScale: {x: 1.2499998, y: 13.6271515, z: 7.296299}
-  m_Children: []
-  m_Father: {fileID: 1027682464}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &637365247
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637365245}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &643906533
 GameObject:
   m_ObjectHideFlags: 0
@@ -3769,6 +3725,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2550463727306718371, guid: e2adaf56e60b039439b841f64d03f057, type: 3}
   m_PrefabInstance: {fileID: 98705088}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &787164258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787164257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24f7605454cd5d74e9986ff2f2c26811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _size: 2
 --- !u!65 &787164261
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5006,11 +4975,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992845973}
   m_CullTransparentMesh: 0
---- !u!4 &1027682464 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e2adaf56e60b039439b841f64d03f057, type: 3}
-  m_PrefabInstance: {fileID: 98705088}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1029770363
 GameObject:
   m_ObjectHideFlags: 0
@@ -6912,50 +6876,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464819707}
   m_CullTransparentMesh: 0
---- !u!1 &1483034020
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1483034021}
-  - component: {fileID: 1483034022}
-  m_Layer: 0
-  m_Name: InvisibleWallRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1483034021
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483034020}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 1.93, y: -0.95, z: -13.64}
-  m_LocalScale: {x: 1.2499998, y: 13.6271515, z: 7.296299}
-  m_Children: []
-  m_Father: {fileID: 1027682464}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
---- !u!65 &1483034022
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1483034020}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1488047177
 GameObject:
   m_ObjectHideFlags: 0
@@ -8560,6 +8480,7 @@ GameObject:
   - component: {fileID: 1918866801}
   - component: {fileID: 1918866800}
   - component: {fileID: 1918866805}
+  - component: {fileID: 1918866806}
   - component: {fileID: 1918866799}
   m_Layer: 0
   m_Name: Player
@@ -8686,6 +8607,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stress: 20
+--- !u!114 &1918866806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918866798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5122e5c84ec2ce648a3a565cde7bad7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FloorGrid: {fileID: 787164258}
+  PlantPrefab: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
 --- !u!1 &1920503936
 GameObject:
   m_ObjectHideFlags: 0
