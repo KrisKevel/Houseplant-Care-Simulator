@@ -26,6 +26,24 @@ public class PlantPlacer : MonoBehaviour
     void PlacePlant(Vector3 nearPoint)
     {
         var finalPosition = FloorGrid.GetNearestPointOnGrid(nearPoint);
-        Instantiate<GameObject>(PlantPrefab).transform.position = finalPosition;
+        if(CheckIfFree(finalPosition))
+        {
+            Instantiate<GameObject>(PlantPrefab).transform.position = finalPosition;
+        }
+    }
+
+    bool CheckIfFree(Vector3 point)
+    {
+        Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
+        print(intersecting.ToString());
+        if (intersecting.Length == 0)
+        {
+            return true;
+        }
+        else
+        {
+
+            return false;
+        }
     }
 }
