@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    public Grid Grid;
     private Transform _theDest;
     private bool _pickedUp = false;
 
@@ -39,13 +38,14 @@ public class PickUp : MonoBehaviour
             GetComponent<Rigidbody>().isKinematic = true;
             gameObject.transform.position = _theDest.position;
             gameObject.transform.parent = _theDest;
+            gameObject.transform.rotation = new Quaternion();
             _pickedUp = true;
         }
     }
 
     void PlacePlant(Vector3 nearPoint)
     {
-        var finalPosition = Grid.GetNearestPointOnGrid(nearPoint);
+        var finalPosition = GridManager.Instance.GetNearestPoint(nearPoint);
         if (CheckIfFree(finalPosition) && finalPosition.z > -3f)
         {
             gameObject.transform.parent = null;
