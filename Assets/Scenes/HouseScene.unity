@@ -8610,7 +8610,6 @@ GameObject:
   - component: {fileID: 1918866801}
   - component: {fileID: 1918866800}
   - component: {fileID: 1918866805}
-  - component: {fileID: 1918866806}
   - component: {fileID: 1918866799}
   m_Layer: 0
   m_Name: Player
@@ -8738,20 +8737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stress: 20
---- !u!114 &1918866806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918866798}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5122e5c84ec2ce648a3a565cde7bad7e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FloorGrid: {fileID: 654934706}
-  PlantPrefab: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
 --- !u!1 &1920503936
 GameObject:
   m_ObjectHideFlags: 0
@@ -10290,6 +10275,10 @@ PrefabInstance:
       propertyPath: theDest
       value: 
       objectReference: {fileID: 1038164169}
+    - target: {fileID: 622355849, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
+      propertyPath: Grid
+      value: 
+      objectReference: {fileID: 654934706}
     - target: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
       propertyPath: m_Name
       value: FakeFlower
