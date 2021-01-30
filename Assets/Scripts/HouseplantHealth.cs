@@ -38,11 +38,7 @@ public class HouseplantHealth : MonoBehaviour
     {
         if (!Dead)
         {
-            if (Input.GetMouseButtonDown(1))
-            {
-                print(_currentWaterLevel);
-            }
-
+            // If an hour has passed, update stats
             if (_currentTimeH != TimeManager.Instance.GetCurrentTimeHours())
             {
 

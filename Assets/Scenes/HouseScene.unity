@@ -2388,6 +2388,7 @@ MonoBehaviour:
   StartingFunds: 100
   DailyPay: 50
   WinDay: 8
+  AOE: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5357,7 +5358,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038164168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.93, z: -0}
+  m_LocalPosition: {x: -0.04, y: 0.93, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1918866804}
@@ -8777,7 +8778,7 @@ GameObject:
   - component: {fileID: 1918866799}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8796,7 +8797,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1918866800
 MonoBehaviour:
@@ -10435,14 +10436,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 622355849, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: theDest
-      value: 
-      objectReference: {fileID: 1038164169}
-    - target: {fileID: 622355849, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: Grid
-      value: 
-      objectReference: {fileID: 654934706}
+    - target: {fileID: 21227306, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
       propertyPath: m_Name
       value: FakeFlower

@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public float StartingFunds = 100f;
     public float DailyPay = 50f;
     public int WinDay = 8;
+    public float AOE = 1f;
 
     private void Awake()
     {

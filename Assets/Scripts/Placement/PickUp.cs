@@ -6,6 +6,7 @@ public class PickUp : MonoBehaviour
 {
     private Transform _theDest;
     private bool _pickedUp = false;
+    private bool _clickable = false;
 
     private void Awake()
     {
@@ -23,7 +24,6 @@ public class PickUp : MonoBehaviour
 
                 if (Physics.Raycast(ray, out hitInfo))
                 {
-
                     PlacePlant(hitInfo.point);
                 }
             }
@@ -32,7 +32,8 @@ public class PickUp : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!_pickedUp)
+        UpdateClickable();
+        if (!_pickedUp && _clickable)
         {
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Rigidbody>().isKinematic = true;
@@ -45,8 +46,9 @@ public class PickUp : MonoBehaviour
 
     void PlacePlant(Vector3 nearPoint)
     {
+        UpdateClickable();
         var finalPosition = GridManager.Instance.GetNearestPoint(nearPoint);
-        if (CheckIfFree(finalPosition) && finalPosition.z > -3f)
+        if (CheckIfFree(finalPosition) && _clickable)
         {
             gameObject.transform.parent = null;
             GetComponent<Rigidbody>().useGravity = true;
@@ -64,5 +66,10 @@ public class PickUp : MonoBehaviour
         }
         Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
         return intersecting.Length == 0;
+    }
+
+    void UpdateClickable()
+    {
+        _clickable = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < GameManager.Instance.AOE;
     }
 }

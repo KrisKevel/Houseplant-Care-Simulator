@@ -7,6 +7,7 @@ public class MoistureMeter : MonoBehaviour
 {
     Ray ray;
     RaycastHit hit;
+    private bool _clickable = false;
     
     void Update()
     {
@@ -15,7 +16,9 @@ public class MoistureMeter : MonoBehaviour
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                if (hit.collider.tag == "Plant" && Input.GetMouseButton(1))
+                _clickable = Vector3.Distance(GameObject.Find("Player").transform.position, hit.collider.transform.position) < GameManager.Instance.AOE;
+
+                if (hit.collider.tag == "Plant" && Input.GetMouseButton(1) && _clickable)
                 {
                     HouseplantHealth plantHealth = hit.collider.gameObject.GetComponent<HouseplantHealth>();
                     if (plantHealth.Dead)
