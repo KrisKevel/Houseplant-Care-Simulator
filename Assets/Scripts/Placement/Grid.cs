@@ -17,11 +17,11 @@ public class Grid : MonoBehaviour
 
         Vector3 result = new Vector3(
             (float)xCount * _size,
-            (float)yCount * _size,
+            0,
             (float)zCount * _size);
 
         result += transform.position;
-
+        result.y = 0.5f;
         return result;
     }
 
