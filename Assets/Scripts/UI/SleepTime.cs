@@ -30,6 +30,10 @@ public class SleepTime : MonoBehaviour
 
     private void TogglePanel(bool sleeping)
     {
+        if (!sleeping)
+        {
+            Events.UpdateStressLevel(Random.Range(GameManager.Instance.MinStressFromSleep, GameManager.Instance.MaxStressFromSleep));
+        }
         gameObject.transform.parent.gameObject.SetActive(sleeping);
     }
 }

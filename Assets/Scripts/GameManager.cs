@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
     public float DailyPay = 50f;
     public int WinDay = 8;
     public float AOE = 1f;
+    public float MinStressFromWork;
+    public float MaxStressFromWork;
+    public float MinStressFromSleep; 
+    public float MaxStressFromSleep;
+    public float InitialStress;
 
     private void Awake()
     {

@@ -30,6 +30,8 @@ public class HouseplantData : ScriptableObject
     // Size of decrease in stress when plant is happy
     [Range(0, 1)]
     public float StressRemoved;
+    [Range(0, 20)]
+    public float StressRemovedOnDelivery;
 
     // Size of increase in stress when plant is unhappy
     [Range(0, 1)]

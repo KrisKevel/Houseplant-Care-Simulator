@@ -4,33 +4,44 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Range(0, 100)]
-    public float Stress = 20f;
+    private float _stress;
 
-    // Start is called before the first frame update
+    private void Awake()
+    {
+        Events.OnToggleSleep += MorningStressCheck;
+        Events.OnUpdateStressLevel += UpdateStressLevel;
+    }
+
     void Start()
     {
-        Events.OnUpdateStressLevel += UpdateStressLevel;
-
-        UpdateStressLevel(0);
+        _stress = GameManager.Instance.InitialStress;
+        Events.UpdateStressUI(_stress);
     }
 
     private void OnDestroy()
     {
         Events.OnUpdateStressLevel -= UpdateStressLevel;
+        Events.OnToggleSleep -= MorningStressCheck;
     }
 
     private void UpdateStressLevel(float stress)
     {
-        if (Stress + stress > 100) { 
-            Stress = 100f;
-            Events.GameOver();
-        } else if (Stress + stress < 0) { 
-            Stress = 0f;
-        } else { 
-            Stress += stress; 
+        if (_stress + stress > 100) {
+            _stress = 100f;
+        } else if (_stress + stress < 0) {
+            _stress = 0f;
+        } else {
+            _stress += stress; 
         }
 
-        Events.UpdateStressUI(Stress);
+        Events.UpdateStressUI(_stress);
+    }
+
+    void MorningStressCheck(bool sleeping)
+    {
+        if (!sleeping && _stress == 100f)
+        {
+            Events.GameOver();
+        }
     }
 }

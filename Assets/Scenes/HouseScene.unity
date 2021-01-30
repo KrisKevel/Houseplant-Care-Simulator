@@ -2536,6 +2536,11 @@ MonoBehaviour:
   DailyPay: 50
   WinDay: 8
   AOE: 2
+  MinStressFromWork: 2.3
+  MaxStressFromWork: 30.7
+  MinStressFromSleep: 11.01
+  MaxStressFromSleep: -18.7
+  InitialStress: 60
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -9540,7 +9545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993ebae94b4c12b47897c9ac543ae635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stress: 20
 --- !u!1 &1920503936
 GameObject:
   m_ObjectHideFlags: 0
@@ -11075,10 +11079,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 21227306, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
       propertyPath: m_Name
       value: FakeFlower
