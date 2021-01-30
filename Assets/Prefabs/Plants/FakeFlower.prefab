@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 3781791436322655993}
   - component: {fileID: 1777808284}
   - component: {fileID: 21227306}
+  - component: {fileID: 622355849}
   m_Layer: 0
   m_Name: FakeFlower
   m_TagString: Plant
@@ -207,6 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   Houseplant: {fileID: 11400000, guid: 74588db60845d1c45b2e90f484ed3c29, type: 2}
+  Dead: 0
 --- !u!54 &21227306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -223,3 +225,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &622355849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3781791436322655990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca16ff46980608e45b141224528607e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theDest: {fileID: 0}
