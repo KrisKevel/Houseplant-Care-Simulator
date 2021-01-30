@@ -34,16 +34,11 @@ public class PlantPlacer : MonoBehaviour
 
     bool CheckIfFree(Vector3 point)
     {
-        Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
-        print(intersecting.Length);
-        if (intersecting.Length == 0)
+        if(point == null)
         {
-            return true;
-        }
-        else
-        {
-
             return false;
         }
+        Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
+        return intersecting.Length == 0;
     }
 }

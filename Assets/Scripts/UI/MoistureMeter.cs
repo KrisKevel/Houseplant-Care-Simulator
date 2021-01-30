@@ -15,7 +15,7 @@ public class MoistureMeter : MonoBehaviour
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                if (hit.collider.tag == "Plant" && Input.GetMouseButton(0))
+                if (hit.collider.tag == "Plant" && Input.GetMouseButton(1))
                 {
                     HouseplantHealth plantHealth = hit.collider.gameObject.GetComponent<HouseplantHealth>();
                     if (plantHealth.Dead)
