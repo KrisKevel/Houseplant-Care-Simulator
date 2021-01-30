@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
+    Destination destObject;
     private Transform _theDest;
     private bool _pickedUp = false;
     private bool _clickable = false;
 
     private void Awake()
     {
-        _theDest = GameObject.Find("Destination").transform;
+        destObject = FindObjectOfType<Destination>();
+        _theDest = destObject.transform;
     }
 
     private void Update()
@@ -33,7 +35,7 @@ public class PickUp : MonoBehaviour
     void OnMouseDown()
     {
         UpdateClickable();
-        if (!_pickedUp && _clickable)
+        if (!_pickedUp && _clickable && !destObject.carrying)
         {
             GetComponent<Rigidbody>().useGravity = false;
             GetComponent<Rigidbody>().isKinematic = true;
@@ -41,6 +43,7 @@ public class PickUp : MonoBehaviour
             gameObject.transform.parent = _theDest;
             gameObject.transform.rotation = new Quaternion();
             _pickedUp = true;
+            destObject.carrying = true;
         }
     }
 
@@ -55,6 +58,7 @@ public class PickUp : MonoBehaviour
             GetComponent<Rigidbody>().isKinematic = false;
             gameObject.transform.position = finalPosition;
             _pickedUp = false;
+            destObject.carrying = false;
         }
     }
 
