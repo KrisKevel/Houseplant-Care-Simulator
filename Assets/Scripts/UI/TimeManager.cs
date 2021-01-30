@@ -20,6 +20,7 @@ public class TimeManager : MonoBehaviour
     private float second = 1.0f;
     private int dayCount = 1;
     private bool working = false;
+    private bool sleeping = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -28,6 +29,13 @@ public class TimeManager : MonoBehaviour
 
         timeH = StartingTimeH;
         timeMin = StartingTimeMin;
+
+        Events.OnToggleSleep += SetSleeping;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnToggleSleep -= SetSleeping;
     }
 
     private void Start()
@@ -41,7 +49,7 @@ public class TimeManager : MonoBehaviour
 
         if(second <= 0)
         {
-            if (working)
+            if (working || sleeping)
             {
                 AddHour();
             }
@@ -69,16 +77,24 @@ public class TimeManager : MonoBehaviour
     private void AddHour()
     {
         timeMin = 0;
-        if(timeH < DayEndTimeH)
+        if (timeH < 23)
         {
             timeH++;
         }
         else
         {
-            ResetDay();
+            timeH = 0;
         }
 
-        if(timeH == WorkStartH)
+        if (timeH == DayEndTimeH)
+        {
+            Events.ToggleSleep(true);
+        }
+        else if (timeH == StartingTimeH)
+        {
+            Events.ToggleSleep(false);
+        }
+        else if(timeH == WorkStartH)
         {
             working = true;
             Events.ToggleWork(working);
@@ -92,8 +108,6 @@ public class TimeManager : MonoBehaviour
 
     private void ResetDay()
     {
-        timeH = StartingTimeH;
-        timeMin = StartingTimeMin;
         dayCount++;
         DayText.text = "Day " + dayCount;
         if(dayCount == GameManager.Instance.WinDay)
@@ -142,5 +156,15 @@ public class TimeManager : MonoBehaviour
         }
 
         return timeHString + ":" + timeMinString;
+    }
+
+    void SetSleeping(bool sleep)
+    {
+        sleeping = sleep;
+
+        if(!sleeping)
+        {
+            ResetDay();
+        }
     }
 }

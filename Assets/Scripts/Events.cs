@@ -49,6 +49,10 @@ public class Events
     public static event Action<bool> OnToggleWork;
     public static void ToggleWork(bool toggle) => OnToggleWork.Invoke(toggle);
 
+    // Event invoked in order to trigger workday start/end
+    public static event Action<bool> OnToggleSleep;
+    public static void ToggleSleep(bool toggle) => OnToggleSleep.Invoke(toggle);
+
     // Event invoked in order to notify player about insufficient funds
     public static event Action OnInsufficientFunds;
     public static void InsufficientFunds() => OnInsufficientFunds.Invoke();
