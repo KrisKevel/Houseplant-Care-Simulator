@@ -75,4 +75,21 @@ public class Grid : MonoBehaviour
             }
         }
     }
+
+    public List<Vector3> GetPossiblePositions()
+    {
+        xMax = _xSize + _x;
+        zMax = _zSize + _z;
+        List<Vector3> positions = new List<Vector3>();
+        for (float x = _x; x < xMax; x += _size)
+        {
+            for (float z = _z; z < zMax; z += _size)
+            {
+                var point = GetNearestPointOnGrid(new Vector3(x, _height, z));
+                positions.Add(point);
+            }
+        }
+
+        return positions;
+    }
 }

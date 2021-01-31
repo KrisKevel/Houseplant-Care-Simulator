@@ -36,9 +36,15 @@ public class DeliverySystem : MonoBehaviour
                 _plantsToBeDelivered[plant] -= 1;
                 if (_plantsToBeDelivered[plant] == 0)
                 {
-                    print("DELIVEREEEED");
-                    Events.UpdateStressLevel(-plant.StressRemovedOnDelivery);
-                    _delivered.Add(plant);
+                    if (PlacePlant(plant.HouseplantPrefab))
+                    {
+                        Events.UpdateStressLevel(-plant.StressRemovedOnDelivery);
+                        _delivered.Add(plant);
+                    }
+                    else
+                    {
+                        // Notify player that his carpet is full??
+                    }
                 }
             }
 
@@ -48,5 +54,29 @@ public class DeliverySystem : MonoBehaviour
             }
             _delivered.Clear();
         }
+    }
+
+    bool PlacePlant(GameObject plant)
+    {
+        foreach (Vector3 position in DeliveryGrid.GetPossiblePositions())
+        {
+            if(CheckIfFree(position))
+            {
+                Instantiate(plant).transform.position = position;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    bool CheckIfFree(Vector3 point)
+    {
+        if (point == null)
+        {
+            return false;
+        }
+        Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
+        return intersecting.Length == 0;
     }
 }
