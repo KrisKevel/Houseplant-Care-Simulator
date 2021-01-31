@@ -5,8 +5,10 @@ using UnityEngine;
 public class DeliverySystem : MonoBehaviour
 {
     public Grid DeliveryGrid;
-    private Dictionary<HouseplantData, int> _plantsToBeDelivered = new Dictionary<HouseplantData, int>();
-    private List<HouseplantData> _delivered = new List<HouseplantData>();
+    private List<KeyVal<HouseplantData, int>> _plantsToBeDelivered = new List<KeyVal<HouseplantData, int>>();
+    private List<KeyVal<HouseplantData, int>> _delivered = new List<KeyVal<HouseplantData, int>>();
+
+    private List<Vector3> possiblePositions;
 
     void Start()
     {
@@ -23,23 +25,23 @@ public class DeliverySystem : MonoBehaviour
     void BuyPlant(GameObject houseplant)
     {
         HouseplantData plantData = houseplant.gameObject.GetComponent<HouseplantHealth>().Houseplant;
-        _plantsToBeDelivered[plantData] = plantData.DaysForDelivery;
+        _plantsToBeDelivered.Add(new KeyVal<HouseplantData, int>(plantData, plantData.DaysForDelivery));
     }
 
     void Deliver(bool sleeping)
     {
         if (!sleeping)
         {
-            List<HouseplantData> keys = new List<HouseplantData>(_plantsToBeDelivered.Keys);
-            foreach (HouseplantData plant in keys)
+            possiblePositions = DeliveryGrid.GetPossiblePositions();
+            foreach (KeyVal<HouseplantData, int> pair in _plantsToBeDelivered)
             {
-                _plantsToBeDelivered[plant] -= 1;
-                if (_plantsToBeDelivered[plant] == 0)
+                pair.value -= 1;
+                if (pair.value <= 0)
                 {
-                    if (PlacePlant(plant.HouseplantPrefab))
+                    if (PlacePlant(pair.key.HouseplantPrefab))
                     {
-                        Events.UpdateStressLevel(-plant.StressRemovedOnDelivery);
-                        _delivered.Add(plant);
+                        Events.UpdateStressLevel(-pair.key.StressRemovedOnDelivery);
+                        _delivered.Add(pair);
                     }
                     else
                     {
@@ -48,9 +50,9 @@ public class DeliverySystem : MonoBehaviour
                 }
             }
 
-            foreach (HouseplantData plant in _delivered)
+            foreach (KeyVal<HouseplantData, int> pair in _delivered)
             {
-                _plantsToBeDelivered.Remove(plant);
+                _plantsToBeDelivered.Remove(pair);
             }
             _delivered.Clear();
         }
@@ -58,11 +60,14 @@ public class DeliverySystem : MonoBehaviour
 
     bool PlacePlant(GameObject plant)
     {
-        foreach (Vector3 position in DeliveryGrid.GetPossiblePositions())
+        if (possiblePositions.Count == 0) return false;
+
+        foreach (Vector3 position in possiblePositions)
         {
             if(CheckIfFree(position))
             {
                 Instantiate(plant).transform.position = position;
+                possiblePositions.Remove(position);
                 return true;
             }
         }
@@ -78,5 +83,19 @@ public class DeliverySystem : MonoBehaviour
         }
         Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
         return intersecting.Length == 0;
+    }
+
+    public class KeyVal<Key, Val>
+    {
+        public Key key { get; set; }
+        public Val value { get; set; }
+
+        public KeyVal() { }
+
+        public KeyVal(Key key, Val val)
+        {
+            this.key = key;
+            this.value = val;
+        }
     }
 }

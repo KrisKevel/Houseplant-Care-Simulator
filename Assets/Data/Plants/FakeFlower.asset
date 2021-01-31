@@ -19,8 +19,8 @@ MonoBehaviour:
   WaterRequirement: 50.6
   WaterReqDiff: 25
   WaterConsumption: 1
-  LightRequirement: 100
-  LightReqDiff: 0
+  LightRequirement: 52.8
+  LightReqDiff: 19.8
   DamageRate: 10
   StressRemoved: 0
   StressRemovedOnDelivery: 0
@@ -30,3 +30,4 @@ MonoBehaviour:
   GeneralCareInfo: Dust it sometimes and it will be fine!
   WaterRequirementText: No water needed!
   LightRequirementText: Any amount of light is great!
+  DaysForDelivery: 0
