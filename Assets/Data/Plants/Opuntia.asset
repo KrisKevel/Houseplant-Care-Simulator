@@ -10,24 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59042cc6ea2e5b64098c1418decb1d90, type: 3}
-  m_Name: FakeFlower
+  m_Name: Opuntia
   m_EditorClassIdentifier: 
-  HouseplantName: FakeFlower
-  HouseplantPrefab: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
+  HouseplantName: Opuntia
+  HouseplantPrefab: {fileID: 6202421351452104822, guid: ad2563de9a86ddf4492644c28588e132, type: 3}
   HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
   Price: 10
   WaterRequirement: 50.6
   WaterReqDiff: 25
   WaterConsumption: 1
-  LightRequirement: 52.8
-  LightReqDiff: 19.8
+  LightRequirement: 49.4
+  LightReqDiff: 18.4
   DamageRate: 10
   StressRemoved: 0
   StressRemovedOnDelivery: 0
   StressAdded: 1
   StressAddedOnDeath: 0
   HealthRegenRate: 20
-  GeneralCareInfo: Dust it sometimes and it will be fine!
-  WaterRequirementText: No water needed!
-  LightRequirementText: Any amount of light is great!
-  DaysForDelivery: 0
+  GeneralCareInfo: It's better not to touch the leaves... Best be kept over 10 degrees
+    C
+  WaterRequirementText: Enjoys drying out completely but needs to be watered thoroughly.
+    Do not water November-March
+  LightRequirementText: Sunny!
+  DaysForDelivery: 1

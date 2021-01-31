@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59042cc6ea2e5b64098c1418decb1d90, type: 3}
-  m_Name: M_Adansonii
+  m_Name: F_Albivenis
   m_EditorClassIdentifier: 
-  HouseplantName: Monstera adansonii
-  HouseplantPrefab: {fileID: 2882745920818485513, guid: f33916d70c711544b9121032b917236c, type: 3}
+  HouseplantName: Fittonia albivenis
+  HouseplantPrefab: {fileID: 2751855585078872616, guid: 9c4edf7aacea7bf429f0edeed3c7ebe5, type: 3}
   HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
-  Price: 30
-  WaterRequirement: 60
-  WaterReqDiff: 25
+  Price: 10
+  WaterRequirement: 75
+  WaterReqDiff: 10
   WaterConsumption: 1
-  LightRequirement: 60
-  LightReqDiff: 15
-  DamageRate: 5
+  LightRequirement: 70
+  LightReqDiff: 10
+  DamageRate: 4
   StressRemoved: 0.6
-  StressRemovedOnDelivery: 15
+  StressRemovedOnDelivery: 10
   StressAdded: 0.7
-  StressAddedOnDeath: 6
-  HealthRegenRate: 12
-  GeneralCareInfo: Enjoys staying warm
-  WaterRequirementText: Don't let the soil dry out entirely
-  LightRequirementText: Well lit space but no direct sun
-  DaysForDelivery: 2
+  StressAddedOnDeath: 4
+  HealthRegenRate: 14
+  GeneralCareInfo: Dust it sometimes and it will be fine!
+  WaterRequirementText: Soil should be kept moist
+  LightRequirementText: Sunny place but no direct sunlight
+  DaysForDelivery: 1

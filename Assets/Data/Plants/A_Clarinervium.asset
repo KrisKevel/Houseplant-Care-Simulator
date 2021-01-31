@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59042cc6ea2e5b64098c1418decb1d90, type: 3}
+  m_Name: A_Clarinervium
+  m_EditorClassIdentifier: 
+  HouseplantName: Anthurium Clarinervium
+  HouseplantPrefab: {fileID: 5663928152478402461, guid: a6ef84d6466bc954e9dbf73cf01e6e77, type: 3}
+  HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
+  Price: 50
+  WaterRequirement: 55
+  WaterReqDiff: 15
+  WaterConsumption: 0.4
+  LightRequirement: 50
+  LightReqDiff: 15
+  DamageRate: 4
+  StressRemoved: 0.9
+  StressRemovedOnDelivery: 12
+  StressAdded: 1
+  StressAddedOnDeath: 10
+  HealthRegenRate: 12
+  GeneralCareInfo: Enjoys high humidity
+  WaterRequirementText: Does not like to dry out completely
+  LightRequirementText: Prefers medium light
+  DaysForDelivery: 3

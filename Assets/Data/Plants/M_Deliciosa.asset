@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59042cc6ea2e5b64098c1418decb1d90, type: 3}
+  m_Name: M_Deliciosa
+  m_EditorClassIdentifier: 
+  HouseplantName: Monstera deliciosa
+  HouseplantPrefab: {fileID: 5733605058389761036, guid: 54a62b803b28ad14fa27735403b1b2fd, type: 3}
+  HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
+  Price: 20
+  WaterRequirement: 50
+  WaterReqDiff: 25
+  WaterConsumption: 0.8
+  LightRequirement: 50
+  LightReqDiff: 15
+  DamageRate: 4
+  StressRemoved: 0.6
+  StressRemovedOnDelivery: 10
+  StressAdded: 0.8
+  StressAddedOnDeath: 7
+  HealthRegenRate: 13
+  GeneralCareInfo: Water will start dripping from leaves when overwatered
+  WaterRequirementText: Let it dry out between thorough waterings
+  LightRequirementText: Bright shade or bright indirect light is good!
+  DaysForDelivery: 1

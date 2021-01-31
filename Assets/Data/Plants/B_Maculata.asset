@@ -10,24 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59042cc6ea2e5b64098c1418decb1d90, type: 3}
-  m_Name: M_Adansonii
+  m_Name: B_Maculata
   m_EditorClassIdentifier: 
-  HouseplantName: Monstera adansonii
-  HouseplantPrefab: {fileID: 2882745920818485513, guid: f33916d70c711544b9121032b917236c, type: 3}
+  HouseplantName: Begonia maculata
+  HouseplantPrefab: {fileID: 8712559120222820923, guid: dbf0021cb9818194fb7d6a37df93915e, type: 3}
   HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
   Price: 30
-  WaterRequirement: 60
-  WaterReqDiff: 25
-  WaterConsumption: 1
+  WaterRequirement: 65
+  WaterReqDiff: 15
+  WaterConsumption: 0.8
   LightRequirement: 60
   LightReqDiff: 15
   DamageRate: 5
-  StressRemoved: 0.6
-  StressRemovedOnDelivery: 15
-  StressAdded: 0.7
-  StressAddedOnDeath: 6
-  HealthRegenRate: 12
-  GeneralCareInfo: Enjoys staying warm
-  WaterRequirementText: Don't let the soil dry out entirely
-  LightRequirementText: Well lit space but no direct sun
+  StressRemoved: 0.7
+  StressRemovedOnDelivery: 9
+  StressAdded: 1
+  StressAddedOnDeath: 5
+  HealthRegenRate: 4
+  GeneralCareInfo: Does not like getting cold, will struggle with temperature below
+    15C
+  WaterRequirementText: Water thoroughly when the top soil is dry
+  LightRequirementText: Prefers medium light
   DaysForDelivery: 2

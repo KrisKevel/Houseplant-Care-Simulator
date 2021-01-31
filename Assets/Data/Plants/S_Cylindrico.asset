@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59042cc6ea2e5b64098c1418decb1d90, type: 3}
+  m_Name: S_Cylindrico
+  m_EditorClassIdentifier: 
+  HouseplantName: Sansevieria cylindrico
+  HouseplantPrefab: {fileID: 6622642500523203323, guid: 81be81c3485cc394cbfb439b35fc10dd, type: 3}
+  HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
+  Price: 40
+  WaterRequirement: 40
+  WaterReqDiff: 30
+  WaterConsumption: 0.3
+  LightRequirement: 70
+  LightReqDiff: 30
+  DamageRate: 4
+  StressRemoved: 0.6
+  StressRemovedOnDelivery: 9
+  StressAdded: 0.5
+  StressAddedOnDeath: 6
+  HealthRegenRate: 7
+  GeneralCareInfo: Likes to be rootbound, don't rush to repot
+  WaterRequirementText: Water when soil is dry
+  LightRequirementText: Can handle conditions from light shade to full sun
+  DaysForDelivery: 4
