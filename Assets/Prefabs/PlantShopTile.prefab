@@ -253,7 +253,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2696857639474436183}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7614210624445927554}
+        m_TargetAssemblyTypeName: ShopTile, Assembly-CSharp
+        m_MethodName: Buy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2696857639938707378
 GameObject:
   m_ObjectHideFlags: 0

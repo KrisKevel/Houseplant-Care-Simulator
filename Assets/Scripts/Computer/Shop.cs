@@ -14,6 +14,7 @@ public class Shop : MonoBehaviour
     void Awake()
     {
         Events.OnOpenShop += OpenPanel;
+        Events.OnBuyPlant += UpdateFunds;
         Events.OnInsufficientFunds += NotifyOfInsufficientFunds;
     }
 
@@ -32,6 +33,7 @@ public class Shop : MonoBehaviour
     {
         Events.OnOpenShop -= OpenPanel;
         Events.OnInsufficientFunds -= NotifyOfInsufficientFunds;
+        Events.OnBuyPlant -= UpdateFunds;
     }
 
     void OpenPanel()
@@ -50,6 +52,11 @@ public class Shop : MonoBehaviour
     public void UpdateFunds()
     {
         Funds.text = PlayerPrefs.GetFloat("Funds").ToString();
+    }
+
+    public void UpdateFunds(GameObject obj)
+    {
+        UpdateFunds();
     }
 
     void NotifyOfInsufficientFunds()
