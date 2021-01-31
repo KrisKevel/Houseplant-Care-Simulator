@@ -67,7 +67,6 @@ public class HouseplantHealth : MonoBehaviour
                 if (_currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel)
                 {
                     RemoveHealth();
-                    print("WRONG LIGHT!!!!");
                 }
                 else
                 {

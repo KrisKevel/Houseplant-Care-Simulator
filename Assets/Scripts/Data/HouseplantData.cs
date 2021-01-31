@@ -48,4 +48,6 @@ public class HouseplantData : ScriptableObject
     public string GeneralCareInfo;
     public string WaterRequirementText;
     public string LightRequirementText;
+
+    public int DaysForDelivery;
 }
