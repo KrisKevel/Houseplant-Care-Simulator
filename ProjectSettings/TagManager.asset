@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Plant
   - Grid
+  - Shelf
+  - Floor
   layers:
   - Default
   - TransparentFX

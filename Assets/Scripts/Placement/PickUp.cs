@@ -64,12 +64,21 @@ public class PickUp : MonoBehaviour
 
     bool CheckIfFree(Vector3 point)
     {
-        if (point == null)
+        if (point.x == 0 && point.y == 0 && point.z == 0)
         {
             return false;
         }
+
         Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
-        return intersecting.Length == 0;
+        print(intersecting.Length);
+        if(intersecting.Length == 0)
+        {
+            return true;
+        }
+        print(intersecting[0].gameObject);
+        return intersecting.Length == 1 &&
+            (intersecting[0].gameObject.tag == "Shelf" || 
+            intersecting[0].gameObject.tag == "Player");
     }
 
     void UpdateClickable()

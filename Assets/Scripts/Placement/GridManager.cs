@@ -15,6 +15,7 @@ public class GridManager : MonoBehaviour
 
     public Vector3 GetNearestPoint(Vector3 position)
     {
+        print("Grids: " + _objectsWithGrid.Length);
         foreach(GameObject grid in _objectsWithGrid)
         {
             Vector3 result = grid.GetComponent<Grid>().GetNearestPointOnGrid(position);
