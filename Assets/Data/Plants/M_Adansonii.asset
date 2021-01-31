@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59042cc6ea2e5b64098c1418decb1d90, type: 3}
-  m_Name: FakeFlower
+  m_Name: M_Adansonii
   m_EditorClassIdentifier: 
   HouseplantName: FakeFlower
   HouseplantPrefab: {fileID: 946152062376153590, guid: 88f7caace05d74041ab651511ec86008, type: 3}
