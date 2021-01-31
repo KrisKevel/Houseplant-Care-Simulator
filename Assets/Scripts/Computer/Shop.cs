@@ -1,17 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class Shop : MonoBehaviour
 {
     public TextMeshProUGUI FundsText;
     public TextMeshProUGUI Funds;
+    public GridLayoutGroup Content;
+    public GameObject TilePrefab;
 
     void Awake()
     {
         Events.OnOpenShop += OpenPanel;
         Events.OnInsufficientFunds += NotifyOfInsufficientFunds;
+    }
+
+    private void Start()
+    {
+        foreach (HouseplantData plant in GameManager.Instance.Plants)
+        {
+            GameObject tile = Instantiate(TilePrefab);
+            tile.transform.SetParent(Content.transform, false);
+            tile.GetComponent<ShopTile>().Plant = plant;
+        }
         gameObject.SetActive(false);
     }
 

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public float MinStressFromSleep; 
     public float MaxStressFromSleep;
     public float InitialStress;
+    public List<HouseplantData> Plants;
 
     private void Awake()
     {
