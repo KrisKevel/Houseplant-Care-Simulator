@@ -19,7 +19,7 @@ MonoBehaviour:
   WaterRequirement: 50.6
   WaterReqDiff: 25
   WaterConsumption: 1
-  LightRequirement: 0
+  LightRequirement: 100
   LightReqDiff: 0
   DamageRate: 10
   StressRemoved: 0

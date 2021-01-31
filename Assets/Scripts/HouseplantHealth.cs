@@ -17,6 +17,8 @@ public class HouseplantHealth : MonoBehaviour
     private int _lastTimeHealthRemoved;
     private int _currentTimeH;
 
+    private LightMeasurer _lightMeasurer;
+
     [HideInInspector]
     public bool Dead = false;
 
@@ -25,8 +27,10 @@ public class HouseplantHealth : MonoBehaviour
         _currentTimeH = TimeManager.Instance.GetCurrentTimeHours();
         _lastTimeHealthRemoved = TimeManager.Instance.GetCurrentTimeHours();
 
+        _lightMeasurer = gameObject.GetComponentInChildren<LightMeasurer>();
+        _currentLightLevel = _lightMeasurer.GetLuminocity();
+
         _currentWaterLevel = Houseplant.WaterRequirement;
-        _currentLightLevel = Houseplant.LightRequirement;
 
         _minWaterLevel = Houseplant.WaterRequirement - Houseplant.WaterReqDiff;
         _maxWaterLevel = Houseplant.WaterRequirement + Houseplant.WaterReqDiff;
@@ -47,10 +51,23 @@ public class HouseplantHealth : MonoBehaviour
 
                 _currentTimeH = TimeManager.Instance.GetCurrentTimeHours();
 
-                //If the plant is unhappy, increase stress, otherwise decrease
+                //If the plant is unhappy (watering), increase stress, otherwise decrease
                 if (_currentWaterLevel < _minWaterLevel || _currentWaterLevel > _maxWaterLevel)
                 {
                     RemoveHealth();
+                }
+                else
+                {
+                    RestoreHealth();
+                    Events.UpdateStressLevel(-Houseplant.StressRemoved);
+                }
+
+
+                //If the plant is unhappy (light level), increase stress, otherwise decrease
+                if (_currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel)
+                {
+                    RemoveHealth();
+                    print("WRONG LIGHT!!!!");
                 }
                 else
                 {

@@ -23,8 +23,12 @@ public class LightMeasurer : MonoBehaviour
             _timeBeforeUpdate = UpdateTime;
             Color colorValue = _targetTexture.toTexture2D().GetPixel(16,16);
             _luminosity = 0.2126 * colorValue.r + 0.7152 * colorValue.g + 0.0722 * colorValue.b;
-            print("Luminocity " + _luminosity);
         }
+    }
+
+    public float GetLuminocity()
+    {
+        return (float)_luminosity * 100;
     }
 }
 

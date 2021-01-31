@@ -1954,7 +1954,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 481319744}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13675fed4eb951342ab0ac56b6c9a431, type: 3}
+  m_Script: {fileID: 11500000, guid: 34957d01e154ad142afeb6201d260513, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &481319747
@@ -7782,7 +7782,7 @@ GameObject:
   - component: {fileID: 1488047180}
   - component: {fileID: 1488047179}
   m_Layer: 5
-  m_Name: GameOverText
+  m_Name: WinText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8712,7 +8712,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 481319746}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+        m_TargetAssemblyTypeName: Win, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
@@ -10352,7 +10352,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 481319746}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+        m_TargetAssemblyTypeName: Win, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
