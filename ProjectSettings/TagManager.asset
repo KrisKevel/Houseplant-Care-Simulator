@@ -8,6 +8,7 @@ TagManager:
   - Grid
   - Shelf
   - Floor
+  - Place
   layers:
   - Default
   - TransparentFX

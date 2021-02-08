@@ -32,7 +32,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    void OnMouseDown()
+    void OnMouseUp()
     {
         UpdateClickable();
         if (!_pickedUp && _clickable && !destObject.carrying)
@@ -49,6 +49,7 @@ public class PickUp : MonoBehaviour
 
     void PlacePlant(Vector3 nearPoint)
     {
+        print("PLACING ");
         UpdateClickable();
         var finalPosition = GridManager.Instance.GetNearestPoint(nearPoint);
         if (CheckIfFree(finalPosition) && _clickable)

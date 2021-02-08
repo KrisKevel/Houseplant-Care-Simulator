@@ -5,32 +5,24 @@ using UnityEngine;
 public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
-    private GameObject[] _objectsWithGrid;
+    private GameObject[] _places;
     // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
-        _objectsWithGrid = GameObject.FindGameObjectsWithTag("Grid");
+        _places = GameObject.FindGameObjectsWithTag("Place");
     }
 
     public Vector3 GetNearestPoint(Vector3 position)
     {
-        print("Grids: " + _objectsWithGrid.Length);
-        foreach(GameObject grid in _objectsWithGrid)
+        foreach(GameObject place in _places)
         {
-            Vector3 result = grid.GetComponent<Grid>().GetNearestPointOnGrid(position);
-            
-            if (PointFound(result))
+            if (place.GetComponent<Placement>().CanBePlaced(position))
             {
-                return result;
+                return place.transform.position;
             }
         }
 
         return new Vector3();
-    }
-
-    bool PointFound(Vector3 position)
-    {
-        return position.x != 0 || position.y != 0 || position.y != 0;
     }
 }
