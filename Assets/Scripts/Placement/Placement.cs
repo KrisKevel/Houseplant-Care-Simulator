@@ -8,13 +8,10 @@ public class Placement : MonoBehaviour
 
     public bool CanBePlaced(Vector3 clickPos)
     {
-        float distance = Vector3.Distance(gameObject.transform.position, clickPos);
+        float distanceToClick = Vector3.Distance(gameObject.transform.position, clickPos);
+        float distanceToPlayer = Vector3.Distance(gameObject.transform.position, GameObject.Find("Player").transform.position);
 
-        if(distance > GameManager.Instance.AOE)
-        {
-            return false;
-        }
-
-        return true;
+        return distanceToClick < RadiusOfInteraction &&
+            distanceToPlayer < GameManager.Instance.AOE;
     }
 }

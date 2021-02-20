@@ -49,10 +49,8 @@ public class PickUp : MonoBehaviour
 
     void PlacePlant(Vector3 nearPoint)
     {
-        print("PLACING ");
-        UpdateClickable();
         var finalPosition = GridManager.Instance.GetNearestPoint(nearPoint);
-        if (CheckIfFree(finalPosition) && _clickable)
+        if (CheckIfFree(finalPosition))
         {
             gameObject.transform.parent = null;
             GetComponent<Rigidbody>().useGravity = true;
@@ -71,15 +69,13 @@ public class PickUp : MonoBehaviour
         }
 
         Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
-        print(intersecting.Length);
+        
         if(intersecting.Length == 0)
         {
             return true;
         }
-        print(intersecting[0].gameObject);
-        return intersecting.Length == 1 &&
-            (intersecting[0].gameObject.tag == "Shelf" || 
-            intersecting[0].gameObject.tag == "Player");
+
+        return intersecting[0].gameObject.tag != "Plant";
     }
 
     void UpdateClickable()
