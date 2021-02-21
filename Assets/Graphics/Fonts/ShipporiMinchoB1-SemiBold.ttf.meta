@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 7b794d0ab9c7ca143825dabc848e6d38
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Shippori Mincho B1
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5a5cf63ef3f50604080eff60d1670fe4, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
