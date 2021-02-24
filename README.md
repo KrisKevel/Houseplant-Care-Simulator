@@ -3,8 +3,7 @@ A game about caring for plants as means of stress/anxiety relief
 
 ## Running the build:
 
-NB! NO BUILD IS CURRENTLY AVAILABLE
-In order to run the game, proceed to the "Build" folder and run the "Houseplant Care Simulator.exe" file.
+Latest build can be accessed through game's [itch.io page](https://kriskevel.itch.io/houseplant-care-simulator).
 
 ## Opening the project
 
