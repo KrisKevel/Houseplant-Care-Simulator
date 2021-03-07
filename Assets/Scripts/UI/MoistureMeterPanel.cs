@@ -8,6 +8,7 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
 {
     public TextMeshProUGUI MoistureLevel;
     public TextMeshProUGUI Status;
+    public TextMeshProUGUI LightLevel;
 
     private HouseplantHealth _houseplant;
 
@@ -80,9 +81,11 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
     private void UpdateData()
     {
         float moisture = _houseplant.GetWaterLevel();
-
         MoistureLevel.text = System.Math.Round(moisture, 2).ToString();
         SetStatus(moisture);
+
+        float light = _houseplant.GetLightLevel();
+        LightLevel.text = System.Math.Round(light, 2).ToString();
     }
 
     private void SetStatus(float moisture)

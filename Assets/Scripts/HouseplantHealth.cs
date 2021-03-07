@@ -62,7 +62,7 @@ public class HouseplantHealth : MonoBehaviour
                     Events.UpdateStressLevel(-Houseplant.StressRemoved);
                 }
 
-
+                _currentLightLevel = _lightMeasurer.GetLuminocity();
                 //If the plant is unhappy (light level), increase stress, otherwise decrease
                 if (_currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel)
                 {
@@ -115,6 +115,12 @@ public class HouseplantHealth : MonoBehaviour
     public float GetWaterLevel()
     {
         return _currentWaterLevel;
+    }
+
+    public float GetLightLevel()
+    {
+        _currentLightLevel = _lightMeasurer.GetLuminocity();
+        return _currentLightLevel;
     }
 
     public void TossThePlant()
