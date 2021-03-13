@@ -68,4 +68,8 @@ public class Events
     // Event invoked in order to show plant care information
     public static event Action<HouseplantData> OnBringUpPlantInfo;
     public static void BringUpPlantInfo(HouseplantData data) => OnBringUpPlantInfo.Invoke(data);
+
+    // Event invoked every hour
+    public static event Action OnHourPassed;
+    public static void HourPassed() => OnHourPassed.Invoke();
 }

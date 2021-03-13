@@ -26,13 +26,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateStressLevel(float stress)
     {
-        if (_stress + stress > 100) {
-            _stress = 100f;
-        } else if (_stress + stress < 0) {
-            _stress = 0f;
-        } else {
-            _stress += stress; 
-        }
+        _stress = Mathf.Clamp(_stress + stress, 0, 100);
 
         Events.UpdateStressUI(_stress);
     }

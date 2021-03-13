@@ -14,19 +14,18 @@ public class HouseplantHealth : MonoBehaviour
     private float _minLightLevel;
     private float _maxLightLevel;
 
-    private int _lastTimeHealthRemoved;
-    private int _currentTimeH;
-
     private LightMeasurer _lightMeasurer;
 
     [HideInInspector]
     public bool Dead = false;
 
+    private void Awake()
+    {
+        Events.OnHourPassed += HealthCheck;
+    }
+
     void Start()
     {
-        _currentTimeH = TimeManager.Instance.GetCurrentTimeHours();
-        _lastTimeHealthRemoved = TimeManager.Instance.GetCurrentTimeHours();
-
         _lightMeasurer = gameObject.GetComponentInChildren<LightMeasurer>();
         _currentLightLevel = _lightMeasurer.GetLuminocity();
 
@@ -38,41 +37,39 @@ public class HouseplantHealth : MonoBehaviour
         _maxLightLevel = Houseplant.LightRequirement + Houseplant.LightReqDiff;
     }
 
-    void Update() 
+    private void OnDestroy()
+    {
+        Events.OnHourPassed -= HealthCheck;
+    }
+
+    private void HealthCheck()
     {
         if (!Dead)
         {
-            // If an hour has passed, update stats
-            if (_currentTimeH != TimeManager.Instance.GetCurrentTimeHours())
+            //Decrease the current water level
+            DecreaseWaterLevel();
+
+            //If the plant is unhappy (watering), increase stress, otherwise decrease
+            if (_currentWaterLevel < _minWaterLevel || _currentWaterLevel > _maxWaterLevel)
             {
+                RemoveHealth();
+            }
+            else
+            {
+                RestoreHealth();
+                Events.UpdateStressLevel(-Houseplant.StressRemoved);
+            }
 
-                //Decrease the current water level
-                DecreaseWaterLevel();
-
-                _currentTimeH = TimeManager.Instance.GetCurrentTimeHours();
-
-                //If the plant is unhappy (watering), increase stress, otherwise decrease
-                if (_currentWaterLevel < _minWaterLevel || _currentWaterLevel > _maxWaterLevel)
-                {
-                    RemoveHealth();
-                }
-                else
-                {
-                    RestoreHealth();
-                    Events.UpdateStressLevel(-Houseplant.StressRemoved);
-                }
-
-                _currentLightLevel = _lightMeasurer.GetLuminocity();
-                //If the plant is unhappy (light level), increase stress, otherwise decrease
-                if (_currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel)
-                {
-                    RemoveHealth();
-                }
-                else
-                {
-                    RestoreHealth();
-                    Events.UpdateStressLevel(-Houseplant.StressRemoved);
-                }
+            _currentLightLevel = _lightMeasurer.GetLuminocity();
+            //If the plant is unhappy (light level), increase stress, otherwise decrease
+            if (_currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel)
+            {
+                RemoveHealth();
+            }
+            else
+            {
+                RestoreHealth();
+                Events.UpdateStressLevel(-Houseplant.StressRemoved);
             }
         }
     }
@@ -80,19 +77,15 @@ public class HouseplantHealth : MonoBehaviour
 
     private void RemoveHealth()
     {
-        if (_lastTimeHealthRemoved != _currentTimeH)
+        Health -= Houseplant.DamageRate;
+        if (Health < 0)
         {
-            Health -= Houseplant.DamageRate;
-            if (Health < 0)
-            {
-                Dead = true;
-                Events.UpdateStressLevel(Houseplant.StressAddedOnDeath);
-            }
-            else
-            {
-                Events.UpdateStressLevel(Houseplant.StressAdded);
-                _lastTimeHealthRemoved = _currentTimeH;
-            }
+            Dead = true;
+            Events.UpdateStressLevel(Houseplant.StressAddedOnDeath);
+        }
+        else
+        {
+            Events.UpdateStressLevel(Houseplant.StressAdded);
         }
     }
 

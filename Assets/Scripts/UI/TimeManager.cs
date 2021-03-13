@@ -77,15 +77,16 @@ public class TimeManager : MonoBehaviour
     private void AddHour()
     {
         timeMin = 0;
-        if (timeH < 23)
+        if (timeH < 23) { timeH++; }
+        else { timeH = 0; }
+
+        // Notify listeners that an hour has passed.
+        if (!working && !sleeping)
         {
-            timeH++;
-        }
-        else
-        {
-            timeH = 0;
+            Events.HourPassed();
         }
 
+        // Notify listeners that 
         if (timeH == DayEndTimeH)
         {
             Events.ToggleSleep(true);
@@ -94,12 +95,12 @@ public class TimeManager : MonoBehaviour
         {
             Events.ToggleSleep(false);
         }
-        else if(timeH == WorkStartH)
+        else if (timeH == WorkStartH)
         {
             working = true;
             Events.ToggleWork(working);
         }
-        else if(timeH == WorkEndH)
+        else if (timeH == WorkEndH)
         {
             working = false;
             Events.ToggleWork(working);
