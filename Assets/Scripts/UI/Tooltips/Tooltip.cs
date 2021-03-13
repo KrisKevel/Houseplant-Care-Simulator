@@ -31,7 +31,6 @@ public class Tooltip : MonoBehaviour
         {
             HeaderField.gameObject.SetActive(true);
             HeaderField.text = header;
-
         }
 
         ContentField.text = content;
@@ -44,21 +43,11 @@ public class Tooltip : MonoBehaviour
 
     private void Update()
     {
-        if (Application.isEditor)
-        {
-            int headerLenght = HeaderField.text.Length;
-            int contentLenght = ContentField.text.Length;
-
-            LayoutElement.enabled = (headerLenght > CharacterWrapLimit || contentLenght > CharacterWrapLimit) ? true : false;
-        }
-
         Vector2 position = Input.mousePosition;
+        int x = (position.x < Screen.width / 2) ? 0 : 1;
+        int y = (position.y < Screen.height / 2) ? 0 : 1;
 
-        float pivotX = position.x / Screen.width;
-        float pivotY = position.y / Screen.height;
-
-
-        _rectTransform.pivot = new Vector2(pivotX, pivotY);
+        _rectTransform.pivot = new Vector2(x, y);
         transform.position = position;
     }
 }
