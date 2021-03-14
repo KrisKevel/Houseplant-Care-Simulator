@@ -15,10 +15,15 @@ public class TooltipSystem : MonoBehaviour
     public static void Show(string content, string header = "")
     {
         current.tooltip.SetText(content, header);
+        print("TEXT SET");
         current.tooltip.gameObject.SetActive(true);
+        print("TOOLTIP ON");
     }
     public static void Hide()
     {
-        current.tooltip.gameObject.SetActive(false);
+        if (current.tooltip != null)
+        {
+            current.tooltip.gameObject.SetActive(false);
+        }
     }
 }
