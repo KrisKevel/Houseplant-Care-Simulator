@@ -6913,7 +6913,7 @@ MonoBehaviour:
   Hints:
   - Header: Plant health
     Content: It's important to know how your plant is doing. To check up on plant's
-      well-being, click on it!
+      well-being, right-click on it!
   - Header: Soil moisture level
     Content: 
   - Header: Watering plants
@@ -8850,7 +8850,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1453954067}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1027071008}
+        m_TargetAssemblyTypeName: TutorialManager, Assembly-CSharp
+        m_MethodName: WaterPlant
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1453954067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10846,7 +10858,7 @@ GameObject:
   - component: {fileID: 1815277323}
   - component: {fileID: 1815277326}
   m_Layer: 5
-  m_Name: Plantipedia
+  m_Name: PlantipediaButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
