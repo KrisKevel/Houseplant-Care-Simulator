@@ -22,6 +22,8 @@ public class TimeManager : MonoBehaviour
     private bool working = false;
     private bool sleeping = false;
 
+    private bool _gameStarted = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -31,11 +33,13 @@ public class TimeManager : MonoBehaviour
         timeMin = StartingTimeMin;
 
         Events.OnToggleSleep += SetSleeping;
+        Events.OnGameStart += StartTheTime;
     }
 
     private void OnDestroy()
     {
         Events.OnToggleSleep -= SetSleeping;
+        Events.OnGameStart -= StartTheTime;
     }
 
     private void Start()
@@ -45,20 +49,23 @@ public class TimeManager : MonoBehaviour
 
     private void Update()
     {
-        second -= Time.deltaTime;
-
-        if(second <= 0)
+        if (_gameStarted)
         {
-            if (working || sleeping)
+            second -= Time.deltaTime;
+
+            if (second <= 0)
             {
-                AddHour();
+                if (working || sleeping)
+                {
+                    AddHour();
+                }
+                else
+                {
+                    AddMinute();
+                }
+                UpdateClock();
+                second = 1.0f;
             }
-            else
-            {
-                AddMinute();
-            }
-            UpdateClock();
-            second = 1.0f;
         }
     }
 
@@ -167,5 +174,10 @@ public class TimeManager : MonoBehaviour
         {
             ResetDay();
         }
+    }
+
+    void StartTheTime()
+    {
+        _gameStarted = true;
     }
 }

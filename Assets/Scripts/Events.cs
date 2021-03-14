@@ -72,4 +72,8 @@ public class Events
     // Event invoked every hour
     public static event Action OnHourPassed;
     public static void HourPassed() => OnHourPassed.Invoke();
+
+    // Event invoked once tutorial is over
+    public static event Action OnGameStart;
+    public static void StartTheGame() => OnGameStart.Invoke();
 }
