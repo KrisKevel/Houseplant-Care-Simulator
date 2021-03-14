@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public float MaxStressFromSleep;
     public float InitialStress;
     public List<HouseplantData> Plants;
+    public SoundAudioClip[] AllGameSounds;
 
     private void Awake()
     {
@@ -43,5 +45,13 @@ public class GameManager : MonoBehaviour
     public void AddDailySalary()
     {
         UpdateFunds(DailyPay);
+    }
+
+    [System.Serializable]
+    public class SoundAudioClip
+    {
+        public SoundManager.Sound sound;
+        public AudioMixerGroup mixerGroup;
+        public AudioClip Clip;
     }
 }
