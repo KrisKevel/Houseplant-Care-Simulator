@@ -23,6 +23,7 @@ public class SettingsMenu : MonoBehaviour
 
     public void SetMasterVolume(float volume)
     {
+        print(volume);
         audioMixer.SetFloat("MasterVolume", volume);
         MasterVolume.text = ((int)((volume + 70) * 1.42858)).ToString();
     }

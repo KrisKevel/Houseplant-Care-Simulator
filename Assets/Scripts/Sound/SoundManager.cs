@@ -28,7 +28,7 @@ public class SoundManager: MonoBehaviour
     private void Start()
     {
         _musicSource.loop = true;
-        _themeSong = Sound.sadMusic;
+        _themeSong = Sound.happyMusic;
         PlayThemeSong();
     }
 
@@ -92,6 +92,7 @@ public class SoundManager: MonoBehaviour
     public void PlayThemeSong()
     {
         _musicSource.clip = GetAudioClip(_themeSong).Clip;
+        _musicSource.Play();
     }
 
     public void PlayNextClip()
