@@ -6915,19 +6915,34 @@ MonoBehaviour:
     Content: It's important to know how your plant is doing. To check up on plant's
       well-being, right-click on it!
   - Header: Soil moisture level
-    Content: 
+    Content: With the help of a moisture meter you can figure out if your plant needs
+      watering. Beware, every plant has different needs when it comes to water. [Enter]
+      to proceed.
   - Header: Watering plants
-    Content: 
+    Content: This plant is looking rather thursty... Go on, water it!
   - Header: Light levels
-    Content: 
-  - Header: Computer time!
-    Content: 
+    Content: Plants have different requirements too! Here you can see how much light
+      your plant is getting. [Enter] to proceed.
   - Header: Want to know more?
-    Content: 
+    Content: But how do you know how much water or light each plant needs? Well,
+      there is one handy tool. Let me show you! To close plant statistics, just click
+      somewhere outside this panel.
+  - Header: Computer time!
+    Content: Come to the computer and click on it
+  - Header: Plantipedia
+    Content: Let's check out Plantipedia!
+  - Header: Plantipedia
+    Content: Here you can learn something about each plant! Click [x] button to go
+      back to the start screen.
   - Header: Need more plants?
-    Content: 
+    Content: If you ever feel like you need some more greenery in the room, shop
+      is the place to be!
+  - Header: The shop
+    Content: Here you can order a variety of houseplants! Keep in mind, they will
+      take some days to arrive. To leave the computer, click the [Log out] button.
   - Header: I swear it's the last one!
-    Content: 
+    Content: Keep your plants happy to keep the stress levels down. [Enter] to start
+      the game.
 --- !u!4 &1027071009
 Transform:
   m_ObjectHideFlags: 0

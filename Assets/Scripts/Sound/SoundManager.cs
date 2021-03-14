@@ -29,7 +29,6 @@ public class SoundManager: MonoBehaviour
     {
         _musicSource.loop = true;
         _themeSong = Sound.happyMusic;
-        PlayThemeSong();
     }
 
     private void OnDestroy()

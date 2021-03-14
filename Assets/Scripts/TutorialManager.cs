@@ -34,15 +34,24 @@ public class TutorialManager : MonoBehaviour
                 ShowLightLevel();
                 break;
             case 4:
-                ShowComputer();
+                QuitStats();
                 break;
             case 5:
-                ShowPlantipedia();
+                ShowComputer();
                 break;
             case 6:
-                ShowShop();
+                ShowPlantipedia();
                 break;
             case 7:
+                AboutPlantipedia();
+                break;
+            case 8:
+                ShowShop();
+                break;
+            case 9:
+                AboutShop();
+                break;
+            case 10:
                 LastWords();
                 break;
             default:
@@ -93,14 +102,26 @@ public class TutorialManager : MonoBehaviour
 
     public void WaterPlant()
     {
-        // Once button clicked, next
-        NextHint();
+        // Once watering button clicked, next
+        if (_step == 2)
+        {
+            NextHint();
+        }
     }
 
     private void ShowLightLevel()
     {
         // On Enter, next
         if (Input.GetKeyDown(KeyCode.Return))
+        {
+            NextHint();
+        }
+    }
+
+    private void QuitStats()
+    {
+        GameObject plantStats = GameObject.Find("PlantStats");
+        if (plantStats == null || !plantStats.activeSelf)
         {
             NextHint();
         }
@@ -126,11 +147,29 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    private void AboutPlantipedia()
+    {
+        GameObject plantipedia = GameObject.Find("Plantipedia");
+        if (plantipedia == null || !plantipedia.activeSelf)
+        {
+            NextHint();
+        }
+    }
+
     private void ShowShop()
     {
         // Once shop open, next
         GameObject shop = GameObject.Find("Shop");
         if (shop != null && shop.activeSelf)
+        {
+            NextHint();
+        }
+    }
+
+    private void AboutShop()
+    {
+        GameObject monitor = GameObject.Find("Log out");
+        if (monitor == null || !monitor.activeSelf)
         {
             NextHint();
         }
