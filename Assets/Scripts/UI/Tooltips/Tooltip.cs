@@ -9,7 +9,7 @@ public class Tooltip : MonoBehaviour
     public TextMeshProUGUI HeaderField;
     public TextMeshProUGUI ContentField;
     public LayoutElement LayoutElement;
-
+    public bool PinToTheCorner;
     public int CharacterWrapLimit;
 
     private RectTransform _rectTransform;
@@ -42,11 +42,14 @@ public class Tooltip : MonoBehaviour
 
     private void Update()
     {
-        Vector2 position = Input.mousePosition;
-        int x = (position.x < Screen.width / 2) ? 0 : 1;
-        int y = (position.y < Screen.height / 2) ? 0 : 1;
+        if (!PinToTheCorner)
+        {
+            Vector2 position = Input.mousePosition;
+            int x = (position.x < Screen.width / 2) ? 0 : 1;
+            int y = (position.y < Screen.height / 2) ? 0 : 1;
 
-        _rectTransform.pivot = new Vector2(x, y);
-        transform.position = position;
+            _rectTransform.pivot = new Vector2(x, y);
+            transform.position = position;
+        }
     }
 }
