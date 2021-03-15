@@ -74,7 +74,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void StartTheGame()
+    public void StartTheGame()
     {
         Events.StartTheGame();
         TutorialStep.gameObject.SetActive(false);
