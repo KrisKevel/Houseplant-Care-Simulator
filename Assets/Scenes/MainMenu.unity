@@ -223,10 +223,10 @@ RectTransform:
   m_Father: {fileID: 1573272298}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 21}
-  m_SizeDelta: {x: 732, y: 524}
+  m_SizeDelta: {x: 2044, y: 1158}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &475802603
 MonoBehaviour:
@@ -303,8 +303,8 @@ Camera:
   m_GameObject: {fileID: 868342315}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.9215687, g: 0.61960787, b: 0.54901963, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1802,27 +1802,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7975527281877328736, guid: b39a0c33b7713e443a362f551de7d5bd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1014.43164
+      value: 1157.5684
       objectReference: {fileID: 0}
     - target: {fileID: 7975527281877328736, guid: b39a0c33b7713e443a362f551de7d5bd, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -484.4864
+      value: 673.5136
       objectReference: {fileID: 0}
     - target: {fileID: 7975527281877328736, guid: b39a0c33b7713e443a362f551de7d5bd, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7975527281877328736, guid: b39a0c33b7713e443a362f551de7d5bd, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7975527281877328736, guid: b39a0c33b7713e443a362f551de7d5bd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7975527281877328736, guid: b39a0c33b7713e443a362f551de7d5bd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7975527281877328736, guid: b39a0c33b7713e443a362f551de7d5bd, type: 3}
       propertyPath: m_Pivot.x

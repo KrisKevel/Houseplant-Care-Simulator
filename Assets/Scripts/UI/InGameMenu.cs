@@ -11,6 +11,14 @@ public class InGameMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Continue();
+        }
+    }
+
     private void OnDestroy()
     {
         Events.OnOpenMenu -= OpenMenu;
@@ -19,11 +27,13 @@ public class InGameMenu : MonoBehaviour
     public void OpenMenu()
     {
         gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void Continue()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void QuitToMenu()
