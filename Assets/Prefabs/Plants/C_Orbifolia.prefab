@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 479496986878564084}
   - component: {fileID: 479496988617900610}
   - component: {fileID: 479496988009365729}
+  - component: {fileID: -6615829974777285012}
   m_Layer: 0
   m_Name: C_Orbifolia
   m_TagString: Plant
@@ -326,3 +327,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca16ff46980608e45b141224528607e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6615829974777285012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3664835800024165278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5237dbe7a201bb24d9c339add9eb285c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Header: Calathea Orbifolia
+  Content: 

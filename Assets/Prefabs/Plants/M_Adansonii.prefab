@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 2882745920818485510}
   - component: {fileID: 2051967295269430371}
   - component: {fileID: 2051967296757575893}
+  - component: {fileID: -42188333311765607}
   - component: {fileID: 2051967296149107318}
   m_Layer: 0
   m_Name: M_Adansonii
@@ -218,6 +219,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-42188333311765607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2882745920818485513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5237dbe7a201bb24d9c339add9eb285c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Header: Monstera Adansonii
+  Content: 
 --- !u!114 &2051967296149107318
 MonoBehaviour:
   m_ObjectHideFlags: 0

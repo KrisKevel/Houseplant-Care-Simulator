@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: 5517654041551693649}
   - component: {fileID: 5517654040082330599}
   - component: {fileID: 5517654040554549572}
+  - component: {fileID: -4718225126732085962}
   m_Layer: 0
   m_Name: B_Maculata
   m_TagString: Plant
@@ -326,3 +327,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca16ff46980608e45b141224528607e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-4718225126732085962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712559120222820923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5237dbe7a201bb24d9c339add9eb285c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Header: Begonia Maculata
+  Content: 

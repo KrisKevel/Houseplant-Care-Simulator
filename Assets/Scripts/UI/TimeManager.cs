@@ -33,12 +33,14 @@ public class TimeManager : MonoBehaviour
         timeMin = StartingTimeMin;
 
         Events.OnToggleSleep += SetSleeping;
+        Events.OnToggleWork += SetWorking;
         Events.OnGameStart += StartTheTime;
     }
 
     private void OnDestroy()
     {
         Events.OnToggleSleep -= SetSleeping;
+        Events.OnToggleWork -= SetWorking;
         Events.OnGameStart -= StartTheTime;
     }
 
@@ -104,13 +106,11 @@ public class TimeManager : MonoBehaviour
         }
         else if (timeH == WorkStartH)
         {
-            working = true;
-            Events.ToggleWork(working);
+            Events.ToggleWork(true);
         }
         else if (timeH == WorkEndH)
         {
-            working = false;
-            Events.ToggleWork(working);
+            Events.ToggleWork(false);
         }
     }
 
@@ -174,6 +174,11 @@ public class TimeManager : MonoBehaviour
         {
             ResetDay();
         }
+    }
+
+    void SetWorking(bool work)
+    {
+        working = work;
     }
 
     void StartTheTime()

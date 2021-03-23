@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 1318166373722650434}
   - component: {fileID: 1318166374118237172}
   - component: {fileID: 1318166374592618839}
+  - component: {fileID: 1928081224198587741}
   m_Layer: 0
   m_Name: F_Albivenis
   m_TagString: Plant
@@ -231,6 +232,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca16ff46980608e45b141224528607e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1928081224198587741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751855585078872616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5237dbe7a201bb24d9c339add9eb285c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Header: Fittonia Albivenis
+  Content: 
 --- !u!1 &4118847078228119458
 GameObject:
   m_ObjectHideFlags: 0
