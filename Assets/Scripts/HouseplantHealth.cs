@@ -102,7 +102,7 @@ public class HouseplantHealth : MonoBehaviour
 
     public void IncreaseWaterLevel()
     {
-        _currentWaterLevel = Mathf.Clamp(_currentWaterLevel + 0.01f, 0, 100);
+        _currentWaterLevel = Mathf.Clamp(_currentWaterLevel + 0.05f, 0, 100);
     }
 
     public float GetWaterLevel()

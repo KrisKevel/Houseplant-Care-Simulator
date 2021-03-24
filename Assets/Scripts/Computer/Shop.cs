@@ -15,6 +15,7 @@ public class Shop : MonoBehaviour
     {
         Events.OnOpenShop += OpenPanel;
         Events.OnBuyPlant += UpdateFunds;
+        Events.OnUseComputer += UpdateFunds;
         Events.OnInsufficientFunds += NotifyOfInsufficientFunds;
     }
 
@@ -34,13 +35,14 @@ public class Shop : MonoBehaviour
         Events.OnOpenShop -= OpenPanel;
         Events.OnInsufficientFunds -= NotifyOfInsufficientFunds;
         Events.OnBuyPlant -= UpdateFunds;
+        Events.OnUseComputer -= UpdateFunds;
     }
 
     void OpenPanel()
     {
         ChangeTextColor(new Color(255, 255, 255));
-        gameObject.SetActive(true);
         UpdateFunds();
+        gameObject.SetActive(true);
     }
 
     public void CloseShop()
