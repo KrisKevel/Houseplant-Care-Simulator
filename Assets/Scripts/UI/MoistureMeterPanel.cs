@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public TextMeshProUGUI MoistureLevel;
-    public TextMeshProUGUI Status;
+    public TextMeshProUGUI WaterStatus;
     public TextMeshProUGUI LightLevel;
+    public TextMeshProUGUI LightStatus;
+    public TextMeshProUGUI HouseplantName;
+    public Image Health;
 
     private HouseplantHealth _houseplant;
 
@@ -80,30 +84,54 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
 
     private void UpdateData()
     {
+        HouseplantName.text = _houseplant.Houseplant.HouseplantName;
+
         float moisture = _houseplant.GetWaterLevel();
         MoistureLevel.text = System.Math.Round(moisture, 2).ToString();
-        SetStatus(moisture);
+        SetWaterStatus(moisture);
 
         float light = _houseplant.GetLightLevel();
         LightLevel.text = System.Math.Round(light, 2).ToString();
+        SetLightStatus(light);
+
+        Health.fillAmount = _houseplant.Health;
     }
 
-    private void SetStatus(float moisture)
+    private void SetWaterStatus(float moisture)
     {
         if(moisture < 33.3)
         {
-            Status.text = "Dry";
-            Status.color = Color.red;
+            WaterStatus.text = "Dry";
+            WaterStatus.color = Color.red;
         }
         else if(moisture < 66.6)
         {
-            Status.text = "Moist";
-            Status.color = Color.green;
+            WaterStatus.text = "Moist";
+            WaterStatus.color = Color.green;
         }
         else
         {
-            Status.text = "Wet";
-            Status.color = Color.blue;
+            WaterStatus.text = "Wet";
+            WaterStatus.color = Color.blue;
+        }
+    }
+
+    private void SetLightStatus(float light)
+    {
+        if (light < 33.3)
+        {
+            LightStatus.text = "Shadow";
+            LightStatus.color = Color.grey;
+        }
+        else if (light < 66.6)
+        {
+            LightStatus.text = "Light";
+            LightStatus.color = new Color(0.9f, 0.82f, 0.6f, 1);
+        }
+        else
+        {
+            LightStatus.text = "Sunny";
+            LightStatus.color = Color.yellow;
         }
     }
 
