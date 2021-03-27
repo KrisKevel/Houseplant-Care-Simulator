@@ -8,18 +8,28 @@ public class PickUp : MonoBehaviour
     private Transform _theDest;
     private bool _pickedUp = false;
     private bool _clickable = false;
+    
+    private GameObject[] _places;
+
+    private Placement currentPosition;
 
     private void Awake()
     {
         destObject = FindObjectOfType<Destination>();
         _theDest = destObject.transform;
+        Events.OnPickupPlant += PickPlantUp;
+        _places = GameObject.FindGameObjectsWithTag("Place");
+    }
+    private void OnDestroy()
+    {
+        Events.OnPickupPlant -= PickPlantUp;
     }
 
     private void Update()
     {
         if (_pickedUp)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 RaycastHit hitInfo;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -32,7 +42,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    void OnMouseUp()
+    void PickPlantUp()
     {
         UpdateClickable();
         if (!_pickedUp && _clickable && !destObject.carrying)
@@ -49,7 +59,10 @@ public class PickUp : MonoBehaviour
 
     void PlacePlant(Vector3 nearPoint)
     {
-        var finalPosition = GridManager.Instance.GetNearestPoint(nearPoint);
+        Placement place = GetNearestPoint(nearPoint);
+        if (place == null) { return; }
+        Vector3 finalPosition = place.transform.position;
+
         if (CheckIfFree(finalPosition))
         {
             gameObject.transform.parent = null;
@@ -58,7 +71,21 @@ public class PickUp : MonoBehaviour
             gameObject.transform.position = finalPosition;
             _pickedUp = false;
             destObject.carrying = false;
+            currentPosition = place;
         }
+    }
+    public Placement GetNearestPoint(Vector3 position)
+    {
+        foreach (GameObject place in _places)
+        {
+            Placement placement = place.GetComponent<Placement>();
+            if (placement.CanBePlaced(position))
+            {
+                return placement;
+            }
+        }
+
+        return null;
     }
 
     bool CheckIfFree(Vector3 point)
@@ -81,5 +108,10 @@ public class PickUp : MonoBehaviour
     void UpdateClickable()
     {
         _clickable = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < GameManager.Instance.AOE;
+    }
+
+    public Placement GetCurrentPlacement()
+    {
+        return currentPosition;
     }
 }

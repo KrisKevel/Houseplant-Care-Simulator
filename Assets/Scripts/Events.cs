@@ -76,4 +76,8 @@ public class Events
     // Event invoked once tutorial is over
     public static event Action OnGameStart;
     public static void StartTheGame() => OnGameStart.Invoke();
+
+    // Event invoked once tutorial is over
+    public static event Action OnPickupPlant;
+    public static void PickupPlant() => OnPickupPlant.Invoke();
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Placement : MonoBehaviour
 {
     public float RadiusOfInteraction = 1.0f;
+    public float Light = 100f;
 
     public bool CanBePlaced(Vector3 clickPos)
     {

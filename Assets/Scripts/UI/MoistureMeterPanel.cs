@@ -29,11 +29,6 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
 
     private void Update()
     {
-        if (Input.GetKeyDown("q"))
-        {
-            gameObject.SetActive(false);
-        }
-
         if (_waterButtonPressed)
         {
             _houseplant.IncreaseWaterLevel();

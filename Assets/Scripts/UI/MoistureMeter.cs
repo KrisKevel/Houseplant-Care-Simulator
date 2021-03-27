@@ -18,16 +18,23 @@ public class MoistureMeter : MonoBehaviour
             {
                 _clickable = Vector3.Distance(GameObject.Find("Player").transform.position, hit.collider.transform.position) < GameManager.Instance.AOE;
 
-                if (hit.collider.tag == "Plant" && Input.GetMouseButton(1) && _clickable)
+                if (hit.collider.tag == "Plant" && _clickable)
                 {
-                    HouseplantHealth plantHealth = hit.collider.gameObject.GetComponent<HouseplantHealth>();
-                    if (plantHealth.Dead)
+                    if (Input.GetMouseButton(0))
                     {
-                        Events.OpenDeadPanel(plantHealth);
-                    } 
-                    else
+                        HouseplantHealth plantHealth = hit.collider.gameObject.GetComponent<HouseplantHealth>();
+                        if (plantHealth.Dead)
+                        {
+                            Events.OpenDeadPanel(plantHealth);
+                        }
+                        else
+                        {
+                            Events.OpenMoistureMeter(plantHealth);
+                        }
+                    }
+                    else if (Input.GetMouseButton(1))
                     {
-                        Events.OpenMoistureMeter(plantHealth);
+                        Events.PickupPlant();
                     }
                 }
             }

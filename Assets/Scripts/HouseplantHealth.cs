@@ -14,8 +14,6 @@ public class HouseplantHealth : MonoBehaviour
     private float _minLightLevel;
     private float _maxLightLevel;
 
-    private LightMeasurer _lightMeasurer;
-
     [HideInInspector]
     public bool Dead = false;
 
@@ -26,8 +24,7 @@ public class HouseplantHealth : MonoBehaviour
 
     void Start()
     {
-        _lightMeasurer = gameObject.GetComponentInChildren<LightMeasurer>();
-        _currentLightLevel = _lightMeasurer.GetLuminocity();
+        UpdateLightLevel();
 
         _currentWaterLevel = Houseplant.WaterRequirement;
 
@@ -60,7 +57,7 @@ public class HouseplantHealth : MonoBehaviour
                 Events.UpdateStressLevel(-Houseplant.StressRemoved);
             }
 
-            _currentLightLevel = _lightMeasurer.GetLuminocity();
+            UpdateLightLevel();
             //If the plant is unhappy (light level), increase stress, otherwise decrease
             if (_currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel)
             {
@@ -112,8 +109,21 @@ public class HouseplantHealth : MonoBehaviour
 
     public float GetLightLevel()
     {
-        _currentLightLevel = _lightMeasurer.GetLuminocity();
+        UpdateLightLevel();
         return _currentLightLevel;
+    }
+
+    public void UpdateLightLevel()
+    {
+        Placement placement = gameObject.GetComponent<PickUp>().GetCurrentPlacement();
+        if (placement == null)
+        {
+            _currentLightLevel = 1000f;
+        }
+        else
+        {
+            _currentLightLevel = placement.Light;
+        }
     }
 
     public void TossThePlant()

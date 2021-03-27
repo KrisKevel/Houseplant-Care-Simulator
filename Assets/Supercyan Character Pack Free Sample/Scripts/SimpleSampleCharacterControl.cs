@@ -17,7 +17,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     [SerializeField] private float m_moveSpeed = 2;
     [SerializeField] private float m_turnSpeed = 200;
-    [SerializeField] private float m_jumpForce = 4;
 
     [SerializeField] private Animator m_animator = null;
     [SerializeField] private Rigidbody m_rigidBody = null;
@@ -28,18 +27,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     private float m_currentH = 0;
 
     private readonly float m_interpolation = 10;
-    private readonly float m_walkScale = 0.33f;
-    private readonly float m_backwardsWalkScale = 0.16f;
-    private readonly float m_backwardRunScale = 0.66f;
 
-    private bool m_wasGrounded;
     private Vector3 m_currentDirection = Vector3.zero;
-
-    private float m_jumpTimeStamp = 0;
-    private float m_minJumpInterval = 0.25f;
-    private bool m_jumpInput = false;
-
-    private bool m_isGrounded;
 
     private List<Collider> m_collisions = new List<Collider>();
 
@@ -47,6 +36,7 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     {
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
+        m_animator.SetBool("Grounded", true);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -60,7 +50,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
                 {
                     m_collisions.Add(collision.collider);
                 }
-                m_isGrounded = true;
             }
         }
     }
@@ -79,7 +68,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
         if (validSurfaceNormal)
         {
-            m_isGrounded = true;
             if (!m_collisions.Contains(collision.collider))
             {
                 m_collisions.Add(collision.collider);
@@ -91,7 +79,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             {
                 m_collisions.Remove(collision.collider);
             }
-            if (m_collisions.Count == 0) { m_isGrounded = false; }
         }
     }
 
@@ -101,20 +88,19 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         {
             m_collisions.Remove(collision.collider);
         }
-        if (m_collisions.Count == 0) { m_isGrounded = false; }
     }
 
     private void Update()
     {
-        if (!m_jumpInput && Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.O))
         {
-            m_jumpInput = true;
+            m_animator.SetTrigger("Pickup");
         }
     }
 
     private void FixedUpdate()
     {
-        m_animator.SetBool("Grounded", m_isGrounded);
+        m_animator.SetBool("Grounded", true);
 
         switch (m_controlMode)
         {
@@ -130,9 +116,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
                 Debug.LogError("Unsupported state");
                 break;
         }
-
-        m_wasGrounded = m_isGrounded;
-        m_jumpInput = false;
     }
 
     private void TankUpdate()
@@ -142,16 +125,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
         bool walk = Input.GetKey(KeyCode.LeftShift);
 
-        if (v < 0)
-        {
-            if (walk) { v *= m_backwardsWalkScale; }
-            else { v *= m_backwardRunScale; }
-        }
-        else if (walk)
-        {
-            v *= m_walkScale;
-        }
-
         m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
         m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
 
@@ -159,8 +132,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         transform.Rotate(0, m_currentH * m_turnSpeed * Time.deltaTime, 0);
 
         m_animator.SetFloat("MoveSpeed", m_currentV);
-
-        JumpingAndLanding();
     }
 
     private void DirectUpdate()
@@ -169,12 +140,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
 
         Transform camera = Camera.main.transform;
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            v *= m_walkScale;
-            h *= m_walkScale;
-        }
 
         m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
         m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
@@ -195,29 +160,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(newPosition.x, -4.78f, 4.33f), newPosition.y, Mathf.Clamp(newPosition.z, -2.55f, 5.68f));
 
             m_animator.SetFloat("MoveSpeed", direction.magnitude);
-        }
-
-        JumpingAndLanding();
-    }
-
-    private void JumpingAndLanding()
-    {
-        bool jumpCooldownOver = (Time.time - m_jumpTimeStamp) >= m_minJumpInterval;
-
-        if (jumpCooldownOver && m_isGrounded && m_jumpInput)
-        {
-            m_jumpTimeStamp = Time.time;
-            m_rigidBody.AddForce(Vector3.up * m_jumpForce, ForceMode.Impulse);
-        }
-
-        if (!m_wasGrounded && m_isGrounded)
-        {
-            m_animator.SetTrigger("Land");
-        }
-
-        if (!m_isGrounded && m_wasGrounded)
-        {
-            m_animator.SetTrigger("Jump");
         }
     }
 }
