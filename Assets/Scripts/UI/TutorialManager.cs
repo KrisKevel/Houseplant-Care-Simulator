@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
     public Tooltip TutorialStep;
     public Hint[] Hints;
+    public Image Arrow;
     private int _step;
     private Hint _currentHint;
 
@@ -67,6 +69,17 @@ public class TutorialManager : MonoBehaviour
         {
             _step++;
             _currentHint = Hints[_step];
+            if (_currentHint.ObjectToPointAt != null)
+            {
+                Vector3 position = _currentHint.ObjectToPointAt.transform.position;
+                position += new Vector3(-120, 0, 0);
+                Arrow.transform.position = position;
+                Arrow.gameObject.SetActive(true);
+            }
+            else
+            {
+                Arrow.gameObject.SetActive(false);
+            }
             TutorialStep.SetText(_currentHint.Content, _currentHint.Header);
         }
         else
@@ -77,6 +90,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTheGame()
     {
+        Arrow.gameObject.SetActive(false);
         GameManager.Instance.GameIsGoing = true;
         TutorialStep.gameObject.SetActive(false);
         gameObject.SetActive(false);
@@ -191,5 +205,6 @@ public class TutorialManager : MonoBehaviour
     {
         public string Header;
         public string Content;
+        public GameObject ObjectToPointAt;
     }
 }

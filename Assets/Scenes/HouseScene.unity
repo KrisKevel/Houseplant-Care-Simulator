@@ -4164,6 +4164,7 @@ RectTransform:
   m_Children:
   - {fileID: 385915572}
   - {fileID: 877219178}
+  - {fileID: 1858039789}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4224,8 +4225,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100.69995, y: 8.500015}
-  m_SizeDelta: {x: 110.01065, y: 21.162209}
+  m_AnchoredPosition: {x: -100.69995, y: 7.6764}
+  m_SizeDelta: {x: 110.01065, y: 19.515083}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608106365
 MonoBehaviour:
@@ -8196,36 +8197,48 @@ MonoBehaviour:
   Hints:
   - Header: Plant health
     Content: It's important to know how your plant is doing. To check up on plant's
-      well-being, right-click on it!
+      well-being, left-click on it!
+    ObjectToPointAt: {fileID: 0}
   - Header: Soil moisture level
     Content: With the help of a moisture meter you can figure out if your plant needs
       watering. Beware, every plant has different needs when it comes to water. [Enter]
       to proceed.
+    ObjectToPointAt: {fileID: 608106363}
   - Header: Watering plants
     Content: This plant is looking rather thursty... Go on, water it!
+    ObjectToPointAt: {fileID: 1453954064}
   - Header: Light levels
-    Content: Plants have different requirements too! Here you can see how much light
-      your plant is getting. [Enter] to proceed.
+    Content: Plants have different light requirements too! Here you can see how much
+      light your plant is getting. [Enter] to proceed.
+    ObjectToPointAt: {fileID: 1621286401}
   - Header: Want to know more?
     Content: But how do you know how much water or light each plant needs? Well,
       there is one handy tool. Let me show you! To close plant statistics, just click
       somewhere outside this panel.
+    ObjectToPointAt: {fileID: 0}
   - Header: Computer time!
     Content: Come to the computer and click on it
+    ObjectToPointAt: {fileID: 0}
   - Header: Plantipedia
     Content: Let's check out Plantipedia!
+    ObjectToPointAt: {fileID: 1815277321}
   - Header: Plantipedia
     Content: Here you can learn something about each plant! Click [x] button to go
       back to the start screen.
+    ObjectToPointAt: {fileID: 160957917}
   - Header: Need more plants?
     Content: If you ever feel like you need some more greenery in the room, shop
       is the place to be!
+    ObjectToPointAt: {fileID: 207714223}
   - Header: The shop
     Content: Here you can order a variety of houseplants! Keep in mind, they will
       take some days to arrive. To leave the computer, click the [Log out] button.
+    ObjectToPointAt: {fileID: 28366088}
   - Header: I swear it's the last one!
     Content: Keep your plants happy to keep the stress levels down. [Enter] to start
       the game.
+    ObjectToPointAt: {fileID: 0}
+  Arrow: {fileID: 1858039790}
 --- !u!224 &1027071009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11639,6 +11652,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400584087}
   m_CullTransparentMesh: 0
+--- !u!1001 &1426917946
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2051967295269430371, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: InitialLight
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7064895
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7077236
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -89.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485509, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2882745920818485513, guid: f33916d70c711544b9121032b917236c, type: 3}
+      propertyPath: m_Name
+      value: M_Adansonii
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f33916d70c711544b9121032b917236c, type: 3}
 --- !u!1001 &1430973473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15564,6 +15638,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18c406f6434dbae46abb3707e8d96b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1858039788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1858039789}
+  - component: {fileID: 1858039791}
+  - component: {fileID: 1858039790}
+  m_Layer: 5
+  m_Name: Arrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1858039789
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858039788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 561739418}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -281, y: -58}
+  m_SizeDelta: {x: 145.87668, y: 64.79233}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1858039790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858039788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 992f97f324be77740af6d166a2c12372, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1858039791
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858039788}
+  m_CullTransparentMesh: 0
 --- !u!1 &1859465397
 GameObject:
   m_ObjectHideFlags: 0
@@ -18230,75 +18379,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b39a0c33b7713e443a362f551de7d5bd, type: 3}
---- !u!1001 &3781791435663572321
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -9118109105676923563, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: Content
-      value: DD
-      objectReference: {fileID: 0}
-    - target: {fileID: 621860451, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: UpdateTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1777808284, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: InitialLight
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_Name
-      value: FakeFlower
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.53
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.7064895
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7077236
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -89.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 3781791436322655994, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
 --- !u!1 &5025357877860812608
 GameObject:
   m_ObjectHideFlags: 0

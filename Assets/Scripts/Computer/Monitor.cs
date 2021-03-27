@@ -49,9 +49,4 @@ public class Monitor : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IP
     }
     //https://answers.unity.com/questions/947856/how-to-detect-click-outside-ui-panel.html?page=1&pageSize=5&sort=votes 
     //Ziplock9000's answer + BluishGreenPro's comment
-
-    private void Update()
-    {
-        //print(_mouseIsOver);
-    }
 }
