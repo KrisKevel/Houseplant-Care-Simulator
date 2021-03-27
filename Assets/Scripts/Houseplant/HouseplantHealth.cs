@@ -6,6 +6,7 @@ public class HouseplantHealth : MonoBehaviour
     public float Health = 100f;
     public HouseplantData Houseplant;
     public float StressRemovedOnCare = 0.002f;
+    public bool Happy;
 
     private float _currentWaterLevel;
     private float _minWaterLevel;
@@ -25,6 +26,7 @@ public class HouseplantHealth : MonoBehaviour
 
     void Start()
     {
+        Happy = true;
         UpdateLightLevel();
 
         _currentWaterLevel = Houseplant.WaterRequirement;
@@ -48,7 +50,8 @@ public class HouseplantHealth : MonoBehaviour
             DecreaseWaterLevel();
 
             //If the plant is unhappy (watering), increase stress, otherwise decrease
-            if (_currentWaterLevel < _minWaterLevel || _currentWaterLevel > _maxWaterLevel)
+            bool wateringRequirementsMet = _currentWaterLevel < _minWaterLevel || _currentWaterLevel > _maxWaterLevel;
+            if (wateringRequirementsMet)
             {
                 RemoveHealth();
             }
@@ -59,8 +62,9 @@ public class HouseplantHealth : MonoBehaviour
             }
 
             UpdateLightLevel();
+            bool lightRequirementsMet = _currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel;
             //If the plant is unhappy (light level), increase stress, otherwise decrease
-            if (_currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel)
+            if (lightRequirementsMet)
             {
                 RemoveHealth();
             }
@@ -69,6 +73,8 @@ public class HouseplantHealth : MonoBehaviour
                 RestoreHealth();
                 UpdateStress(-Houseplant.StressRemoved);
             }
+
+            Happy = wateringRequirementsMet && lightRequirementsMet;
         }
     }
 

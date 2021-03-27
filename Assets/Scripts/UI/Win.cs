@@ -25,6 +25,7 @@ public class Win : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.Instance.UnpauseGame();
     }
 
     public void BackToMenu()

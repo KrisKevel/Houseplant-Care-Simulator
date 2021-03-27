@@ -92,7 +92,7 @@ public class TimeManager : MonoBehaviour
         }
 
         // Notify listeners that 
-        if (timeH == DayEndTimeH)
+        if (timeH == DayEndTimeH && !sleeping)
         {
             Events.ToggleSleep(true);
         }

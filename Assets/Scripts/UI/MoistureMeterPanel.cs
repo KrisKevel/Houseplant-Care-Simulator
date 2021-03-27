@@ -82,7 +82,7 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
         HouseplantName.text = _houseplant.Houseplant.HouseplantName;
 
         float moisture = _houseplant.GetWaterLevel();
-        MoistureLevel.text = System.Math.Round(moisture, 2).ToString();
+        MoistureLevel.text = System.Math.Round(moisture, 1).ToString();
         SetWaterStatus(moisture);
 
         float light = _houseplant.GetLightLevel();
