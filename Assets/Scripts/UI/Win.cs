@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Win : MonoBehaviour
 {
+    public TextMeshProUGUI WinDay;
+
     private void Awake()
     {
         Events.OnWin += ShowWindow;
@@ -28,6 +31,7 @@ public class Win : MonoBehaviour
 
     void ShowWindow()
     {
+        WinDay.text = GameManager.Instance.WinDay.ToString();
         gameObject.SetActive(true);
     }
 }
