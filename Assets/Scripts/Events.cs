@@ -70,10 +70,6 @@ public class Events
     public static void HourPassed() => OnHourPassed.Invoke();
 
     // Event invoked once tutorial is over
-    public static event Action OnGameStart;
-    public static void StartTheGame() => OnGameStart.Invoke();
-
-    // Event invoked once tutorial is over
     public static event Action<Vector3> OnPlacePlant;
     public static void PlacePlant(Vector3 clickPos) => OnPlacePlant.Invoke(clickPos);
 }

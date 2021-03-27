@@ -12,6 +12,7 @@ public class TutorialManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.Instance.GameIsGoing = false;
         _step = -1;
         NextHint();
         TutorialStep.gameObject.SetActive(true);
@@ -76,7 +77,7 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTheGame()
     {
-        Events.StartTheGame();
+        GameManager.Instance.GameIsGoing = true;
         TutorialStep.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public float InitialStress;
     public List<HouseplantData> Plants;
     public SoundAudioClip[] AllGameSounds;
+    public bool GameIsGoing;
 
     private void Awake()
     {
@@ -61,11 +62,13 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
+        GameManager.Instance.GameIsGoing = false;
         Time.timeScale = 0;
     }
 
     public void UnpauseGame()
     {
+        GameManager.Instance.GameIsGoing = true;
         Time.timeScale = 0;
     }
 
