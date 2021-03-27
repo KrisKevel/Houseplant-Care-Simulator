@@ -89,7 +89,7 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
         LightLevel.text = System.Math.Round(light, 2).ToString();
         SetLightStatus(light);
 
-        Health.fillAmount = _houseplant.Health;
+        Health.fillAmount = _houseplant.Health / 100f;
     }
 
     private void SetWaterStatus(float moisture)

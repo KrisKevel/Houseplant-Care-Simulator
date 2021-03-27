@@ -86,10 +86,7 @@ public class TimeManager : MonoBehaviour
         else { timeH = 0; }
 
         // Notify listeners that an hour has passed.
-        if (!working && !sleeping)
-        {
-            Events.HourPassed();
-        }
+        Events.HourPassed();
 
         // Notify listeners that 
         if (timeH == DayEndTimeH && !sleeping)

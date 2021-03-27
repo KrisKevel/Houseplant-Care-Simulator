@@ -7,6 +7,7 @@ public class HouseplantHealth : MonoBehaviour
     public HouseplantData Houseplant;
     public float StressRemovedOnCare = 0.002f;
     public bool Happy;
+    public float InitialLight = 0f;
 
     private float _currentWaterLevel;
     private float _minWaterLevel;
@@ -50,10 +51,11 @@ public class HouseplantHealth : MonoBehaviour
             DecreaseWaterLevel();
 
             //If the plant is unhappy (watering), increase stress, otherwise decrease
-            bool wateringRequirementsMet = _currentWaterLevel < _minWaterLevel || _currentWaterLevel > _maxWaterLevel;
+            bool wateringRequirementsMet = (_currentWaterLevel < _minWaterLevel) || (_currentWaterLevel > _maxWaterLevel);
             if (wateringRequirementsMet)
             {
                 RemoveHealth();
+                print("WATER BAD");
             }
             else
             {
@@ -62,11 +64,12 @@ public class HouseplantHealth : MonoBehaviour
             }
 
             UpdateLightLevel();
-            bool lightRequirementsMet = _currentLightLevel < _minLightLevel || _currentLightLevel > _maxLightLevel;
+            bool lightRequirementsMet = (_currentLightLevel < _minLightLevel) || (_currentLightLevel > _maxLightLevel);
             //If the plant is unhappy (light level), increase stress, otherwise decrease
             if (lightRequirementsMet)
             {
                 RemoveHealth();
+                print("LIGHT BAD");
             }
             else
             {
@@ -82,6 +85,7 @@ public class HouseplantHealth : MonoBehaviour
     private void RemoveHealth()
     {
         Health -= Houseplant.DamageRate;
+        print(Health);
         if (Health < 0)
         {
             Dead = true;
@@ -126,7 +130,14 @@ public class HouseplantHealth : MonoBehaviour
         Placement placement = gameObject.GetComponent<PickUp>().GetCurrentPlacement();
         if (placement == null)
         {
-            _currentLightLevel = 1000f;
+            if (InitialLight != 0)
+            {
+                _currentLightLevel = InitialLight;
+            }
+            else
+            {
+                _currentLightLevel = GameManager.Instance.CarpetLight;
+            }
         }
         else
         {

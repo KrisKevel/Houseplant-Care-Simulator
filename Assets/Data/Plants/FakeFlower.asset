@@ -26,7 +26,7 @@ MonoBehaviour:
   StressRemovedOnDelivery: 0
   StressAdded: 1
   StressAddedOnDeath: 0
-  HealthRegenRate: 20
+  HealthRegenRate: 5
   GeneralCareInfo: Dust it sometimes and it will be fine!
   WaterRequirementText: No water needed!
   LightRequirementText: Any amount of light is great!

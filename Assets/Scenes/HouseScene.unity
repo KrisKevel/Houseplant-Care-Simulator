@@ -3755,6 +3755,7 @@ MonoBehaviour:
     mixerGroup: {fileID: 5046606636463523583, guid: 07cd8841c0bab004592e72a93738242d, type: 2}
     Clip: {fileID: 8300000, guid: c11352bbb39a443d2a69c9bd10695e32, type: 3}
   GameIsGoing: 0
+  CarpetLight: 30
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5642,7 +5643,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 239.81, y: 0}
+  m_AnchoredPosition: {x: 254.26, y: 0}
   m_SizeDelta: {x: 162.12018, y: 31.203918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &762331250
@@ -8788,8 +8789,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 120.1, y: 0}
-  m_SizeDelta: {x: 77.30458, y: 31.203918}
+  m_AnchoredPosition: {x: 127.3, y: 0}
+  m_SizeDelta: {x: 91.80092, y: 31.203918}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073356795
 MonoBehaviour:
@@ -18270,6 +18271,10 @@ PrefabInstance:
     - target: {fileID: 621860451, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
       propertyPath: UpdateTime
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1777808284, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
+      propertyPath: InitialLight
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 3781791436322655990, guid: 716a772ba748cb445ba48711bf77dfdb, type: 3}
       propertyPath: m_Name

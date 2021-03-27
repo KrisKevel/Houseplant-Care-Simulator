@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public List<HouseplantData> Plants;
     public SoundAudioClip[] AllGameSounds;
     public bool GameIsGoing;
+    public float CarpetLight = 30f;
 
     private void Awake()
     {
