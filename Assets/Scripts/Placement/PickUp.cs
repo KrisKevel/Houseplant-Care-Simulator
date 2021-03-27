@@ -17,44 +17,36 @@ public class PickUp : MonoBehaviour
     {
         destObject = FindObjectOfType<Destination>();
         _theDest = destObject.transform;
-        Events.OnPickupPlant += PickPlantUp;
+        Events.OnPlacePlant += PlaceOrPickupPlant;
         _places = GameObject.FindGameObjectsWithTag("Place");
     }
     private void OnDestroy()
     {
-        Events.OnPickupPlant -= PickPlantUp;
+        Events.OnPlacePlant -= PlaceOrPickupPlant;
     }
 
-    private void Update()
+    void PlaceOrPickupPlant(Vector3 clickPos)
     {
+        UpdateClickable();
         if (_pickedUp)
         {
-            if (Input.GetMouseButtonDown(1))
-            {
-                RaycastHit hitInfo;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                if (Physics.Raycast(ray, out hitInfo))
-                {
-                    PlacePlant(hitInfo.point);
-                }
-            }
+            PlacePlant(clickPos);
+        }
+        else if (_clickable && !destObject.carrying)
+        {
+            PickPlantUp();
         }
     }
 
     void PickPlantUp()
     {
-        UpdateClickable();
-        if (!_pickedUp && _clickable && !destObject.carrying)
-        {
-            GetComponent<Rigidbody>().useGravity = false;
-            GetComponent<Rigidbody>().isKinematic = true;
-            gameObject.transform.position = _theDest.position;
-            gameObject.transform.parent = _theDest;
-            gameObject.transform.rotation = new Quaternion();
-            _pickedUp = true;
-            destObject.carrying = true;
-        }
+        GetComponent<Rigidbody>().useGravity = false;
+        GetComponent<Rigidbody>().isKinematic = true;
+        gameObject.transform.position = _theDest.position;
+        gameObject.transform.parent = _theDest;
+        gameObject.transform.rotation = new Quaternion();
+        _pickedUp = true;
+        destObject.carrying = true;
     }
 
     void PlacePlant(Vector3 nearPoint)

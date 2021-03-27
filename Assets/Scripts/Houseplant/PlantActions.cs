@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MoistureMeter : MonoBehaviour
+public class PlantActions : MonoBehaviour
 {
     Ray ray;
     RaycastHit hit;
     private bool _clickable = false;
-    
+
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -18,9 +18,9 @@ public class MoistureMeter : MonoBehaviour
             {
                 _clickable = Vector3.Distance(GameObject.Find("Player").transform.position, hit.collider.transform.position) < GameManager.Instance.AOE;
 
-                if (hit.collider.tag == "Plant" && _clickable)
+                if (Input.GetMouseButton(0))
                 {
-                    if (Input.GetMouseButton(0))
+                    if (hit.collider.tag == "Plant" && _clickable)
                     {
                         HouseplantHealth plantHealth = hit.collider.gameObject.GetComponent<HouseplantHealth>();
                         if (plantHealth.Dead)
@@ -32,10 +32,10 @@ public class MoistureMeter : MonoBehaviour
                             Events.OpenMoistureMeter(plantHealth);
                         }
                     }
-                    else if (Input.GetMouseButton(1))
-                    {
-                        Events.PickupPlant();
-                    }
+                }
+                else if (Input.GetMouseButtonDown(1))
+                {
+                    Events.PlacePlant(hit.point);
                 }
             }
         }
