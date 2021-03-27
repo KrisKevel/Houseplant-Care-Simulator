@@ -11,18 +11,21 @@ public class ShopTile : MonoBehaviour
 
     private TextMeshProUGUI _plantName; 
     private TextMeshProUGUI _plantPrice;
+    private TextMeshProUGUI _plantDeliveryDays;
 
     private void Awake()
     {
         TextMeshProUGUI[] texts = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
         _plantName = texts[0];
         _plantPrice = texts[1];
+        _plantDeliveryDays = texts[2];
     }
 
     private void Start()
     {
         _plantName.text = Plant.HouseplantName;
         _plantPrice.text = Plant.Price.ToString();
+        _plantDeliveryDays.text = Plant.DaysForDelivery.ToString();
         PlantImage.sprite = Plant.HouseplantPicture;
     }
 

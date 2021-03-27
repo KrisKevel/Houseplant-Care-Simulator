@@ -90,14 +90,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            m_animator.SetTrigger("Pickup");
-        }
-    }
-
     private void FixedUpdate()
     {
         m_animator.SetBool("Grounded", true);
