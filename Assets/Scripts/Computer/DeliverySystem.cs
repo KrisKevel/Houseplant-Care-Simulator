@@ -26,6 +26,7 @@ public class DeliverySystem : MonoBehaviour
     {
         HouseplantData plantData = houseplant.gameObject.GetComponent<HouseplantHealth>().Houseplant;
         _plantsToBeDelivered.Add(new KeyVal<HouseplantData, int>(plantData, plantData.DaysForDelivery));
+        Events.DeliveryUpdate(_plantsToBeDelivered);
     }
 
     void Deliver(bool sleeping)
@@ -55,6 +56,7 @@ public class DeliverySystem : MonoBehaviour
                 _plantsToBeDelivered.Remove(pair);
             }
             _delivered.Clear();
+            Events.DeliveryUpdate(_plantsToBeDelivered);
         }
     }
 
@@ -64,7 +66,7 @@ public class DeliverySystem : MonoBehaviour
 
         foreach (Vector3 position in possiblePositions)
         {
-            if(CheckIfFree(position))
+            if (CheckIfFree(position))
             {
                 Instantiate(plant).transform.position = position;
                 possiblePositions.Remove(position);
@@ -84,18 +86,18 @@ public class DeliverySystem : MonoBehaviour
         Collider[] intersecting = Physics.OverlapSphere(point, 0.01f);
         return intersecting.Length == 0;
     }
+}
 
-    public class KeyVal<Key, Val>
+public class KeyVal<Key, Val>
+{
+    public Key key { get; set; }
+    public Val value { get; set; }
+
+    public KeyVal() { }
+
+    public KeyVal(Key key, Val val)
     {
-        public Key key { get; set; }
-        public Val value { get; set; }
-
-        public KeyVal() { }
-
-        public KeyVal(Key key, Val val)
-        {
-            this.key = key;
-            this.value = val;
-        }
+        this.key = key;
+        this.value = val;
     }
 }

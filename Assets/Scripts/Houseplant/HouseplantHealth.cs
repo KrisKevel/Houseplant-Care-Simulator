@@ -5,6 +5,7 @@ public class HouseplantHealth : MonoBehaviour
 {
     public float Health = 100f;
     public HouseplantData Houseplant;
+    public float StressRemovedOnCare = 0.002f;
 
     private float _currentWaterLevel;
     private float _minWaterLevel;
@@ -99,6 +100,7 @@ public class HouseplantHealth : MonoBehaviour
 
     public void IncreaseWaterLevel()
     {
+        GameManager.Instance.UpdateStress(-StressRemovedOnCare);
         _currentWaterLevel = Mathf.Clamp(_currentWaterLevel + 0.05f, 0, 100);
     }
 
