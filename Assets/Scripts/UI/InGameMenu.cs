@@ -27,13 +27,13 @@ public class InGameMenu : MonoBehaviour
     public void OpenMenu()
     {
         gameObject.SetActive(true);
-        Time.timeScale = 0;
+        GameManager.Instance.PauseGame();
     }
 
     public void Continue()
     {
         gameObject.SetActive(false);
-        Time.timeScale = 1;
+        GameManager.Instance.UnpauseGame();
     }
 
     public void QuitToMenu()

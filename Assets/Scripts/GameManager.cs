@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
         PlayerPrefs.SetFloat("Funds", StartingFunds);
+        PlayerPrefs.SetFloat("Stress", InitialStress);
     }
 
     void Update()
@@ -42,9 +43,30 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetFloat("Funds", GetFunds() + amount);
     }
 
+    public float GetStress()
+    {
+        return PlayerPrefs.GetFloat("Stress");
+    }
+
+    public void UpdateStress(float amount)
+    {
+        PlayerPrefs.SetFloat("Stress", Mathf.Clamp(GetStress() + amount, 0, 100));
+        Events.UpdateStress();
+    }
+
     public void AddDailySalary()
     {
         UpdateFunds(DailyPay);
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 0;
     }
 
     [System.Serializable]

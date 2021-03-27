@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class Events
 {
-    // Event invoked in order to update stress level UI
-    public static event Action<float> OnUpdateStressUI;
-    public static void UpdateStressUI(float stress) => OnUpdateStressUI.Invoke(stress);
-
-    // Event invoked in order to update stress levels
-    public static event Action<float> OnUpdateStressLevel;
-    public static void UpdateStressLevel(float stress) => OnUpdateStressLevel.Invoke(stress);
+    // Event invoked in order to notify about stress level update
+    public static event Action OnUpdateStress;
+    public static void UpdateStress() => OnUpdateStress.Invoke();
 
     // Event invoked in order to open menu of the game
     public static event Action OnOpenMenu;

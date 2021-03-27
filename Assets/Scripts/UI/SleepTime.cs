@@ -32,7 +32,7 @@ public class SleepTime : MonoBehaviour
     {
         if (!sleeping)
         {
-            Events.UpdateStressLevel(Random.Range(GameManager.Instance.MinStressFromSleep, GameManager.Instance.MaxStressFromSleep));
+            GameManager.Instance.UpdateStress(Random.Range(GameManager.Instance.MinStressFromSleep, GameManager.Instance.MaxStressFromSleep));
         }
         gameObject.transform.parent.gameObject.SetActive(sleeping);
     }

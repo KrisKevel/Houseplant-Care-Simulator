@@ -22,7 +22,7 @@ public class SoundManager: MonoBehaviour
     {
         Instance = this;
         _musicSource = GetComponent<AudioSource>();
-        Events.OnUpdateStressUI += SetThemeSong;
+        Events.OnUpdateStress += SetThemeSong;
     }
 
     private void Start()
@@ -33,7 +33,7 @@ public class SoundManager: MonoBehaviour
 
     private void OnDestroy()
     {
-        Events.OnUpdateStressUI -= SetThemeSong;
+        Events.OnUpdateStress -= SetThemeSong;
     }
 
     public void PlaySound(Sound sound)
@@ -61,8 +61,9 @@ public class SoundManager: MonoBehaviour
         return null;
     }
 
-    private void SetThemeSong(float stress)
+    private void SetThemeSong()
     {
+        float stress = GameManager.Instance.GetStress();
         AudioClip newSong;
 
         if (stress > 75f)

@@ -8,17 +8,17 @@ public class StressUIManager : MonoBehaviour
 
     private void Awake()
     {
-        Events.OnUpdateStressUI += UpdateStress;
+        Events.OnUpdateStress += UpdateStress;
 
     }
 
     private void OnDestroy()
     {
-        Events.OnUpdateStressUI -= UpdateStress;
+        Events.OnUpdateStress -= UpdateStress;
     }
 
-    private void UpdateStress(float stress)
+    private void UpdateStress()
     {
-        gameObject.GetComponent<Image>().fillAmount = stress / 100;
+        gameObject.GetComponent<Image>().fillAmount = GameManager.Instance.GetStress() / 100;
     }
 }

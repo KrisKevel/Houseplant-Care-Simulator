@@ -33,7 +33,7 @@ public class WorkTime : MonoBehaviour
         if (!working)
         {
             GameManager.Instance.AddDailySalary();
-            Events.UpdateStressLevel(Random.Range(GameManager.Instance.MinStressFromWork, GameManager.Instance.MaxStressFromWork));
+            GameManager.Instance.UpdateStress(Random.Range(GameManager.Instance.MinStressFromWork, GameManager.Instance.MaxStressFromWork));
         }
         gameObject.transform.parent.gameObject.SetActive(working);
     }

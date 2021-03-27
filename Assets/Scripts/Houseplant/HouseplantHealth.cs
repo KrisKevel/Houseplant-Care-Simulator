@@ -54,7 +54,7 @@ public class HouseplantHealth : MonoBehaviour
             else
             {
                 RestoreHealth();
-                Events.UpdateStressLevel(-Houseplant.StressRemoved);
+                UpdateStress(-Houseplant.StressRemoved);
             }
 
             UpdateLightLevel();
@@ -66,7 +66,7 @@ public class HouseplantHealth : MonoBehaviour
             else
             {
                 RestoreHealth();
-                Events.UpdateStressLevel(-Houseplant.StressRemoved);
+                UpdateStress(-Houseplant.StressRemoved);
             }
         }
     }
@@ -78,11 +78,11 @@ public class HouseplantHealth : MonoBehaviour
         if (Health < 0)
         {
             Dead = true;
-            Events.UpdateStressLevel(Houseplant.StressAddedOnDeath);
+            UpdateStress(Houseplant.StressAddedOnDeath);
         }
         else
         {
-            Events.UpdateStressLevel(Houseplant.StressAdded);
+            UpdateStress(Houseplant.StressAdded);
         }
     }
 
@@ -124,6 +124,11 @@ public class HouseplantHealth : MonoBehaviour
         {
             _currentLightLevel = placement.Light;
         }
+    }
+
+    private void UpdateStress(float addedStress)
+    {
+        GameManager.Instance.UpdateStress(addedStress);
     }
 
     public void TossThePlant()

@@ -40,7 +40,7 @@ public class DeliverySystem : MonoBehaviour
                 {
                     if (PlacePlant(pair.key.HouseplantPrefab))
                     {
-                        Events.UpdateStressLevel(-pair.key.StressRemovedOnDelivery);
+                        GameManager.Instance.UpdateStress(-pair.key.StressRemovedOnDelivery);
                         _delivered.Add(pair);
                     }
                     else
