@@ -20,6 +20,11 @@ public class PlantInfoPage : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    void OnDestroy()
+    {
+        Events.OnBringUpPlantInfo -= OpenInfo;
+    }
+
     void OpenInfo(HouseplantData data)
     {
         gameObject.SetActive(true);

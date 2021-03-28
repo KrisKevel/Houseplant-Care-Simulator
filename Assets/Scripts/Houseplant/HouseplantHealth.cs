@@ -55,7 +55,6 @@ public class HouseplantHealth : MonoBehaviour
             if (wateringRequirementsMet)
             {
                 RemoveHealth();
-                print("WATER BAD");
             }
             else
             {
@@ -69,7 +68,6 @@ public class HouseplantHealth : MonoBehaviour
             if (lightRequirementsMet)
             {
                 RemoveHealth();
-                print("LIGHT BAD");
             }
             else
             {

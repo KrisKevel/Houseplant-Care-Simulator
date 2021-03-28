@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
         PlayerPrefs.SetFloat("Funds", StartingFunds);
         PlayerPrefs.SetFloat("Stress", InitialStress);
+        UnpauseGame();
     }
 
     void Update()
@@ -70,7 +71,7 @@ public class GameManager : MonoBehaviour
     public void UnpauseGame()
     {
         GameManager.Instance.GameIsGoing = true;
-        Time.timeScale = 0;
+        Time.timeScale = 1;
     }
 
     [System.Serializable]
