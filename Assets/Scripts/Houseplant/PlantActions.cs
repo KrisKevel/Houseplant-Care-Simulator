@@ -18,9 +18,9 @@ public class PlantActions : MonoBehaviour
             {
                 _clickable = Vector3.Distance(GameObject.Find("Player").transform.position, hit.collider.transform.position) < GameManager.Instance.AOE;
 
-                if (Input.GetMouseButton(0))
+                if (hit.collider.tag == "Plant" && _clickable)
                 {
-                    if (hit.collider.tag == "Plant" && _clickable)
+                    if (Input.GetMouseButton(0))
                     {
                         HouseplantHealth plantHealth = hit.collider.gameObject.GetComponent<HouseplantHealth>();
                         if (plantHealth.Dead)
@@ -31,6 +31,10 @@ public class PlantActions : MonoBehaviour
                         {
                             Events.OpenMoistureMeter(plantHealth);
                         }
+                    }
+                    else if (Input.GetMouseButtonDown(1))
+                    {
+                        Events.PickUpPlant(hit.collider.gameObject);
                     }
                 }
                 else if (Input.GetMouseButtonDown(1))

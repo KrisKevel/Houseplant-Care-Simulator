@@ -73,6 +73,9 @@ public class Events
     public static event Action<Vector3> OnPlacePlant;
     public static void PlacePlant(Vector3 clickPos) => OnPlacePlant.Invoke(clickPos);
 
+    public static event Action<GameObject> OnPickUpPlant;
+    public static void PickUpPlant(GameObject houseplant) => OnPickUpPlant.Invoke(houseplant);
+
     // Event invoked once tutorial is over
     public static event Action<List<KeyVal<HouseplantData, int>>> OnDeliveryUpdate;
     public static void DeliveryUpdate(List<KeyVal<HouseplantData, int>> toBeDelivered) => OnDeliveryUpdate.Invoke(toBeDelivered);

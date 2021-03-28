@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59042cc6ea2e5b64098c1418decb1d90, type: 3}
   m_Name: S_Cylindrico
   m_EditorClassIdentifier: 
-  HouseplantName: Sansevieria cylindrico
+  HouseplantName: Sansevieria cylindrica
   HouseplantPrefab: {fileID: 6622642500523203323, guid: 81be81c3485cc394cbfb439b35fc10dd, type: 3}
   HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
   Price: 40

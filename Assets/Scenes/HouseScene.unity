@@ -14209,7 +14209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Header: Plants that are being delivered
-  Content: No plants in delivery
+  Content: No plants are in delivery
 --- !u!114 &1636053688
 MonoBehaviour:
   m_ObjectHideFlags: 0

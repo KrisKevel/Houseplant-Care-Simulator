@@ -17,53 +17,50 @@ public class PickUp : MonoBehaviour
     {
         destObject = FindObjectOfType<Destination>();
         _theDest = destObject.transform;
-        Events.OnPlacePlant += PlaceOrPickupPlant;
+        Events.OnPlacePlant += PlacePlant;
+        Events.OnPickUpPlant += PickPlantUp;
         _places = GameObject.FindGameObjectsWithTag("Place");
     }
     private void OnDestroy()
     {
-        Events.OnPlacePlant -= PlaceOrPickupPlant;
+        Events.OnPlacePlant -= PlacePlant;
+        Events.OnPickUpPlant -= PickPlantUp;
     }
 
-    void PlaceOrPickupPlant(Vector3 clickPos)
+    void PickPlantUp(GameObject houseplant)
     {
+        if (gameObject != houseplant) { return; }
         UpdateClickable();
-        if (_pickedUp)
+        if (_clickable && !destObject.carrying)
         {
-            PlacePlant(clickPos);
+            GetComponent<Rigidbody>().useGravity = false;
+            GetComponent<Rigidbody>().isKinematic = true;
+            gameObject.transform.position = _theDest.position;
+            gameObject.transform.parent = _theDest;
+            gameObject.transform.rotation = new Quaternion();
+            _pickedUp = true;
+            destObject.carrying = true;
         }
-        else if (_clickable && !destObject.carrying)
-        {
-            PickPlantUp();
-        }
-    }
-
-    void PickPlantUp()
-    {
-        GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().isKinematic = true;
-        gameObject.transform.position = _theDest.position;
-        gameObject.transform.parent = _theDest;
-        gameObject.transform.rotation = new Quaternion();
-        _pickedUp = true;
-        destObject.carrying = true;
     }
 
     void PlacePlant(Vector3 nearPoint)
     {
-        Placement place = GetNearestPoint(nearPoint);
-        if (place == null) { return; }
-        Vector3 finalPosition = place.transform.position;
-
-        if (CheckIfFree(finalPosition))
+        if (_pickedUp)
         {
-            gameObject.transform.parent = null;
-            GetComponent<Rigidbody>().useGravity = true;
-            GetComponent<Rigidbody>().isKinematic = false;
-            gameObject.transform.position = finalPosition;
-            _pickedUp = false;
-            destObject.carrying = false;
-            currentPosition = place;
+            Placement place = GetNearestPoint(nearPoint);
+            if (place == null) { return; }
+            Vector3 finalPosition = place.transform.position;
+
+            if (CheckIfFree(finalPosition))
+            {
+                gameObject.transform.parent = null;
+                GetComponent<Rigidbody>().useGravity = true;
+                GetComponent<Rigidbody>().isKinematic = false;
+                gameObject.transform.position = finalPosition;
+                _pickedUp = false;
+                destObject.carrying = false;
+                currentPosition = place;
+            }
         }
     }
     public Placement GetNearestPoint(Vector3 position)

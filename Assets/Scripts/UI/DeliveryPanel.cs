@@ -17,7 +17,7 @@ public class DeliveryPanel : MonoBehaviour
     void Start()
     {
         _plantsInDelivery = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        _tooltip = FindObjectOfType<TooltipTrigger>();
+        _tooltip = gameObject.GetComponent<TooltipTrigger>();
     }
 
     private void OnDestroy()

@@ -22,10 +22,10 @@ MonoBehaviour:
   LightRequirement: 49.4
   LightReqDiff: 18.4
   DamageRate: 10
-  StressRemoved: 0
-  StressRemovedOnDelivery: 0
-  StressAdded: 1
-  StressAddedOnDeath: 0
+  StressRemoved: 0.3
+  StressRemovedOnDelivery: 7
+  StressAdded: 0.4
+  StressAddedOnDeath: 5
   HealthRegenRate: 20
   GeneralCareInfo: It's better not to touch the leaves... Best be kept over 10 degrees
     C
