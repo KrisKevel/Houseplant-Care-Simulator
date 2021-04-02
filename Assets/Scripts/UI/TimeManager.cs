@@ -27,8 +27,7 @@ public class TimeManager : MonoBehaviour
     {
         Instance = this;
 
-        timeH = StartingTimeH;
-        timeMin = StartingTimeMin;
+        SetTime(StartingTimeH, StartingTimeMin);
 
         Events.OnToggleSleep += SetSleeping;
         Events.OnToggleWork += SetWorking;
@@ -111,7 +110,9 @@ public class TimeManager : MonoBehaviour
     {
         dayCount++;
         DayText.text = "Day " + dayCount;
-        if(dayCount == GameManager.Instance.WinDay)
+        SetTime(StartingTimeH, StartingTimeMin);
+        UpdateClock();
+        if (dayCount == GameManager.Instance.WinDay)
         {
             GameManager.Instance.PauseGame();
             Events.Win();
@@ -166,7 +167,12 @@ public class TimeManager : MonoBehaviour
 
         if(!sleeping)
         {
+            GameManager.Instance.UnpauseGame();
             ResetDay();
+        }
+        else
+        {
+            GameManager.Instance.PauseGame();
         }
     }
 

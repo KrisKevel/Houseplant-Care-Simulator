@@ -5,12 +5,9 @@ using TMPro;
 
 public class SleepTime : MonoBehaviour
 {
-    private TextMeshProUGUI Time;
-
     private void Awake()
     {
         Events.OnToggleSleep += TogglePanel;
-        Time = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     private void OnDestroy()
@@ -23,17 +20,17 @@ public class SleepTime : MonoBehaviour
         TogglePanel(false);
     }
 
-    private void Update()
-    {
-        Time.text = TimeManager.Instance.GetCurrentTime();
-    }
-
     private void TogglePanel(bool sleeping)
     {
         if (!sleeping)
         {
             GameManager.Instance.UpdateStress(Random.Range(GameManager.Instance.MinStressFromSleep, GameManager.Instance.MaxStressFromSleep));
         }
-        gameObject.transform.parent.gameObject.SetActive(sleeping);
+        gameObject.SetActive(sleeping);
+    }
+
+    public void StartNewDay()
+    {
+        Events.ToggleSleep(false);
     }
 }
