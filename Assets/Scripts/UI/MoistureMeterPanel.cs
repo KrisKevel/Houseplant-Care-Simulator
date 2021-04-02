@@ -35,6 +35,7 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
         }
 
         UpdateData();
+        CheckDistanceToPlayer();
     }
 
     private void OnDestroy()
@@ -47,7 +48,9 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
     public void OnDeselect(BaseEventData eventData)
     {
         if (!_mouseIsOver)
+        {
             gameObject.SetActive(false);
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -138,5 +141,18 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
     public void WaterButtonUp()
     {
         _waterButtonPressed = false;
+    }
+    
+    public void CheckDistanceToPlayer()
+    {
+        bool closeEnough = Vector3.Distance(
+            GameObject.Find("Player").transform.position, 
+            _houseplant.gameObject.transform.position
+            ) < GameManager.Instance.AOE;
+
+        if (!closeEnough)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

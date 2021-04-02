@@ -18,6 +18,11 @@ public class Monitor : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IP
         Events.OnUseComputer -= OpenPanel;
     }
 
+    private void Update()
+    {
+        CheckDistanceToPlayer();
+    }
+
     void OpenPanel()
     {
         gameObject.SetActive(true);
@@ -33,7 +38,9 @@ public class Monitor : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IP
     public void OnDeselect(BaseEventData eventData)
     {
         if (!_mouseIsOver)
-            gameObject.SetActive(false);
+        {
+            CloseMonitor();
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -49,4 +56,17 @@ public class Monitor : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IP
     }
     //https://answers.unity.com/questions/947856/how-to-detect-click-outside-ui-panel.html?page=1&pageSize=5&sort=votes 
     //Ziplock9000's answer + BluishGreenPro's comment
+
+    public void CheckDistanceToPlayer()
+    {
+        bool closeEnough = Vector3.Distance(
+            GameObject.Find("Player").transform.position,
+            GameObject.Find("monitor").transform.position
+            ) < GameManager.Instance.AOE;
+
+        if (!closeEnough)
+        {
+            CloseMonitor();
+        }
+    }
 }
