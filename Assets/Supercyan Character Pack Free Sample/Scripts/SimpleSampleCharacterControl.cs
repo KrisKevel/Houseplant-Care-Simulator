@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SimpleSampleCharacterControl : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         /// <summary>
         /// Character freely moves in the chosen direction from the perspective of the camera
         /// </summary>
-        Direct
+        Direct,
+        Agent
     }
 
     [SerializeField] private float m_moveSpeed = 2;
@@ -32,11 +34,28 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private List<Collider> m_collisions = new List<Collider>();
 
+    private NavMeshAgent navMeshAgent;
+
     private void Awake()
     {
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
         m_animator.SetBool("Grounded", true);
+        navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+            {
+                m_controlMode = ControlMode.Agent;
+                navMeshAgent.SetDestination(hit.point);
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -99,31 +118,14 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             case ControlMode.Direct:
                 DirectUpdate();
                 break;
-
-            case ControlMode.Tank:
-                TankUpdate();
+            case ControlMode.Agent:
+                AgentUpdate();
                 break;
 
             default:
                 Debug.LogError("Unsupported state");
                 break;
         }
-    }
-
-    private void TankUpdate()
-    {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
-
-        bool walk = Input.GetKey(KeyCode.LeftShift);
-
-        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
-        m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
-
-        transform.position += transform.forward * m_currentV * m_moveSpeed * Time.deltaTime;
-        transform.Rotate(0, m_currentH * m_turnSpeed * Time.deltaTime, 0);
-
-        m_animator.SetFloat("MoveSpeed", m_currentV);
     }
 
     private void DirectUpdate()
@@ -149,9 +151,49 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             transform.rotation = Quaternion.LookRotation(m_currentDirection);
             Vector3 newPosition = transform.position + m_currentDirection * m_moveSpeed * Time.deltaTime;
 
-            transform.position = new Vector3(Mathf.Clamp(newPosition.x, -4.78f, 4.33f), newPosition.y, Mathf.Clamp(newPosition.z, -2.55f, 5.68f));
+            Vector3 restrictedNewPosition = new Vector3(Mathf.Clamp(newPosition.x, -4.78f, 4.33f), newPosition.y, Mathf.Clamp(newPosition.z, -2.55f, 5.68f));
+            navMeshAgent.SetDestination(restrictedNewPosition);
+            transform.position = restrictedNewPosition;
 
             m_animator.SetFloat("MoveSpeed", direction.magnitude);
         }
+    }
+
+    private void AgentUpdate()
+    {
+        print("HERE");
+        Vector2 smoothDeltaPosition = Vector2.zero;
+        Vector2 velocity = Vector2.zero;
+
+        Vector3 worldDeltaPosition = navMeshAgent.nextPosition - transform.position;
+
+        // Map 'worldDeltaPosition' to local space
+        float dx = Vector3.Dot(transform.right, worldDeltaPosition);
+        float dy = Vector3.Dot(transform.forward, worldDeltaPosition);
+        Vector2 deltaPosition = new Vector2(dx, dy);
+
+        // Low-pass filter the deltaMove
+        float smooth = Mathf.Min(1.0f, Time.deltaTime / 0.15f);
+        smoothDeltaPosition = Vector3.Lerp(smoothDeltaPosition, deltaPosition, smooth);
+
+        // Update velocity if time advances
+        if (Time.deltaTime > 1e-5f)
+        {
+            velocity = smoothDeltaPosition / Time.deltaTime;
+        }
+
+        bool shouldMove = navMeshAgent.remainingDistance > navMeshAgent.radius;
+        if (shouldMove)
+        {
+            m_animator.SetFloat("MoveSpeed", velocity.magnitude);
+        }
+        else
+        {
+            m_controlMode = ControlMode.Direct;
+            print("BACK TO DIRECT");
+            m_animator.SetFloat("MoveSpeed", 0f);
+        }
+
+        transform.rotation = Quaternion.LookRotation(navMeshAgent.destination);
     }
 }
