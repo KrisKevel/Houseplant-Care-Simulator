@@ -91,7 +91,7 @@ public class TutorialManager : MonoBehaviour
     public void StartTheGame()
     {
         Arrow.gameObject.SetActive(false);
-        GameManager.Instance.GameIsGoing = true;
+        GameManager.Instance.StartGame();
         TutorialStep.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }

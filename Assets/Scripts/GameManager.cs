@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public SoundAudioClip[] AllGameSounds;
     public bool GameIsGoing;
     public float CarpetLight = 30f;
+    public GameState CurrentState = GameState.tutorial;
 
     private void Awake()
     {
@@ -62,15 +63,24 @@ public class GameManager : MonoBehaviour
         UpdateFunds(DailyPay);
     }
 
+    public void StartGame()
+    {
+        CurrentState = GameState.game;
+        UnpauseGame();
+    }
+
     public void PauseGame()
     {
-        GameManager.Instance.GameIsGoing = false;
+        GameIsGoing = false;
         Time.timeScale = 0;
     }
 
     public void UnpauseGame()
     {
-        GameManager.Instance.GameIsGoing = true;
+        if (CurrentState == GameState.game)
+        {
+            GameIsGoing = true;
+        }
         Time.timeScale = 1;
     }
 
@@ -80,5 +90,10 @@ public class GameManager : MonoBehaviour
         public SoundManager.Sound sound;
         public AudioMixerGroup mixerGroup;
         public AudioClip Clip;
+    }
+
+    public enum GameState
+    {
+        tutorial, game
     }
 }
