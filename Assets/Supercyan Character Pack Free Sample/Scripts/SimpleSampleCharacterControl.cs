@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.AI;
 
 public class SimpleSampleCharacterControl : MonoBehaviour
@@ -36,24 +37,33 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
 
+    private Vector3 smoothDeltaPosition = Vector3.zero;
+
+    private Vector3 velocity = Vector3.zero;
+
     private void Awake()
     {
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
         m_animator.SetBool("Grounded", true);
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        navMeshAgent.updatePosition = false;
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
                 m_controlMode = ControlMode.Agent;
-                navMeshAgent.SetDestination(hit.point);
+
+                Vector3 destination = hit.point;
+                destination.x = Mathf.Clamp(destination.x, -3.17f, 4.33f);
+                destination.z = Mathf.Clamp(destination.z, -2.55f, 5.68f);
+                navMeshAgent.SetDestination(destination);
             }
         }
     }
@@ -159,12 +169,9 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         }
     }
 
+    // https://docs.unity3d.com/Manual/nav-CouplingAnimationAndNavigation.html
     private void AgentUpdate()
     {
-        print("HERE");
-        Vector2 smoothDeltaPosition = Vector2.zero;
-        Vector2 velocity = Vector2.zero;
-
         Vector3 worldDeltaPosition = navMeshAgent.nextPosition - transform.position;
 
         // Map 'worldDeltaPosition' to local space
@@ -190,10 +197,11 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         else
         {
             m_controlMode = ControlMode.Direct;
-            print("BACK TO DIRECT");
             m_animator.SetFloat("MoveSpeed", 0f);
         }
 
-        transform.rotation = Quaternion.LookRotation(navMeshAgent.destination);
+        Vector3 newPosition = navMeshAgent.nextPosition;
+        newPosition.y = transform.position.y;
+        transform.position = newPosition;
     }
 }
