@@ -83,7 +83,6 @@ public class HouseplantHealth : MonoBehaviour
     private void RemoveHealth()
     {
         Health -= Houseplant.DamageRate;
-        print(Health);
         if (Health < 0)
         {
             Dead = true;

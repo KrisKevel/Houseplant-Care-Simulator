@@ -8,6 +8,7 @@ public class TutorialManager : MonoBehaviour
     public Tooltip TutorialStep;
     public Hint[] Hints;
     public Arrow Arrow;
+    public GameObject FirstPlant;
     private int _step;
     private Hint _currentHint;
 
@@ -57,6 +58,9 @@ public class TutorialManager : MonoBehaviour
             case 10:
                 LastWords();
                 break;
+            case 11:
+                PurchasePlant();
+                break;
             default:
                 StartTheGame();
                 break;
@@ -91,6 +95,7 @@ public class TutorialManager : MonoBehaviour
     public void StartTheGame()
     {
         Arrow.gameObject.SetActive(false);
+        FirstPlant.SetActive(true);
         GameManager.Instance.StartGame();
         TutorialStep.gameObject.SetActive(false);
         gameObject.SetActive(false);
@@ -109,7 +114,7 @@ public class TutorialManager : MonoBehaviour
     private void ShowWaterLevel()
     {
         // On Enter, next
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             NextHint();
         }
@@ -127,7 +132,15 @@ public class TutorialManager : MonoBehaviour
     private void ShowLightLevel()
     {
         // On Enter, next
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NextHint();
+        }
+    }
+
+    private void PurchasePlant()
+    {
+        if (true)
         {
             NextHint();
         }
@@ -193,7 +206,7 @@ public class TutorialManager : MonoBehaviour
     private void LastWords()
     {
         // Once Enter, next
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             NextHint();
         }

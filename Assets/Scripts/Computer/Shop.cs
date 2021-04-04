@@ -17,16 +17,12 @@ public class Shop : MonoBehaviour
         Events.OnBuyPlant += UpdateFunds;
         Events.OnUseComputer += UpdateFunds;
         Events.OnInsufficientFunds += NotifyOfInsufficientFunds;
+        Events.OnUseComputer += LoadShop;
     }
 
     private void Start()
     {
-        foreach (HouseplantData plant in GameManager.Instance.Plants)
-        {
-            GameObject tile = Instantiate(TilePrefab);
-            tile.transform.SetParent(Content.transform, false);
-            tile.GetComponent<ShopTile>().Plant = plant;
-        }
+        LoadShop();
         gameObject.SetActive(false);
     }
 
@@ -36,6 +32,7 @@ public class Shop : MonoBehaviour
         Events.OnInsufficientFunds -= NotifyOfInsufficientFunds;
         Events.OnBuyPlant -= UpdateFunds;
         Events.OnUseComputer -= UpdateFunds;
+        Events.OnUseComputer -= LoadShop;
     }
 
     void OpenPanel()
@@ -70,5 +67,25 @@ public class Shop : MonoBehaviour
     {
         FundsText.color = color;
         Funds.color = color;
+    }
+
+    private void LoadShop()
+    {
+        foreach (Transform child in Content.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        foreach (HouseplantData plant in GameManager.Instance.Plants)
+        {
+            if (GameManager.Instance.CurrentState == GameManager.GameState.tutorial &&
+                plant.HouseplantName != "Fittonia albivenis")
+            {
+                continue;
+            }
+            GameObject tile = Instantiate(TilePrefab);
+            tile.transform.SetParent(Content.transform, false);
+            tile.GetComponent<ShopTile>().Plant = plant;
+        }
     }
 }
