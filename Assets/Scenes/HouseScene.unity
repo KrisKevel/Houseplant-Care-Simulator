@@ -8417,7 +8417,7 @@ MonoBehaviour:
     Content: Keep your plants happy to keep the stress levels down. [Enter] to start
       the game.
     ObjectToPointAt: {fileID: 0}
-  Arrow: {fileID: 1858039790}
+  Arrow: {fileID: 1858039792}
 --- !u!224 &1027071009
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15832,6 +15832,7 @@ GameObject:
   - component: {fileID: 1858039789}
   - component: {fileID: 1858039791}
   - component: {fileID: 1858039790}
+  - component: {fileID: 1858039792}
   m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
@@ -15896,6 +15897,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858039788}
   m_CullTransparentMesh: 0
+--- !u!114 &1858039792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1858039788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc55670f59a464498c160aad9a0d0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1859465397
 GameObject:
   m_ObjectHideFlags: 0

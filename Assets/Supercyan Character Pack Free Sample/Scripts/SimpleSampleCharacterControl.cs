@@ -19,7 +19,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     }
 
     [SerializeField] private float m_moveSpeed = 2;
-    [SerializeField] private float m_turnSpeed = 200;
 
     [SerializeField] private Animator m_animator = null;
     [SerializeField] private Rigidbody m_rigidBody = null;
@@ -203,5 +202,6 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         Vector3 newPosition = navMeshAgent.nextPosition;
         newPosition.y = transform.position.y;
         transform.position = newPosition;
+        transform.rotation = Quaternion.LookRotation(navMeshAgent.destination);
     }
 }
