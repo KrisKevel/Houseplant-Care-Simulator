@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HouseplantName: Sansevieria cylindrica
   HouseplantPrefab: {fileID: 6622642500523203323, guid: 81be81c3485cc394cbfb439b35fc10dd, type: 3}
-  HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
+  HouseplantPicture: {fileID: 21300000, guid: 6497d1de5bb45944ba10c3975db9511a, type: 3}
   Price: 40
   WaterRequirement: 40
   WaterReqDiff: 30

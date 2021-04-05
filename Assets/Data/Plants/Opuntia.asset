@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HouseplantName: Opuntia
   HouseplantPrefab: {fileID: 6202421351452104822, guid: ad2563de9a86ddf4492644c28588e132, type: 3}
-  HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
+  HouseplantPicture: {fileID: 21300000, guid: 5a0c355a9d40b46439fc6f3a18f0b667, type: 3}
   Price: 10
   WaterRequirement: 50.6
   WaterReqDiff: 25

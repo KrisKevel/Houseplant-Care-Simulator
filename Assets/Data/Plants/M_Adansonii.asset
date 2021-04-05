@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HouseplantName: Monstera adansonii
   HouseplantPrefab: {fileID: 2882745920818485513, guid: f33916d70c711544b9121032b917236c, type: 3}
-  HouseplantPicture: {fileID: 4441394246085450324, guid: 113daac26aae8ae4faaf4e2a1cedb479, type: 3}
+  HouseplantPicture: {fileID: 21300000, guid: 4e18f41e02531d443bcba68f077d9f03, type: 3}
   Price: 30
   WaterRequirement: 60
   WaterReqDiff: 25
