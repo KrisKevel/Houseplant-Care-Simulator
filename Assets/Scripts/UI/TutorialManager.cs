@@ -19,6 +19,14 @@ public class TutorialManager : MonoBehaviour
         _step = -1;
         NextHint();
         TutorialStep.gameObject.SetActive(true);
+        Events.OnBringUpPlantInfo += OpenPlantPage;
+        Events.OnBuyPlant += PurchasePlant;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnBringUpPlantInfo -= OpenPlantPage;
+        Events.OnBuyPlant -= PurchasePlant;
     }
 
     // Update is called once per frame
@@ -27,39 +35,43 @@ public class TutorialManager : MonoBehaviour
         switch (_step)
         {
             case 0:
-                ClickThePlant();
-                break;
-            case 1:
-                ShowWaterLevel();
-                break;
-            case 2:
-                break;
-            case 3:
-                ShowLightLevel();
-                break;
-            case 4:
-                QuitStats();
-                break;
-            case 5:
                 ShowComputer();
                 break;
-            case 6:
-                ShowPlantipedia();
-                break;
-            case 7:
-                AboutPlantipedia();
-                break;
-            case 8:
+            case 1:
                 ShowShop();
                 break;
+            case 2:
             case 9:
-                AboutShop();
+            case 13:
                 break;
+            case 3:
             case 10:
-                LastWords();
+                LeaveShop();
+                break;
+            case 4:
+                ShowPlant();
+                break;
+            case 5:
+                CheckLightLevel();
+                break;
+            case 6:
+                ShowComputer();
+                break;
+            case 7:
+                ShowClosed();
+                break;
+            case 8:
+                ShowPlantipedia();
                 break;
             case 11:
-                PurchasePlant();
+                ClickThePlant();
+                break;
+            case 12:
+            case 15:
+                SpaceButton();
+                break;
+            case 14:
+                CloseStats();
                 break;
             default:
                 StartTheGame();
@@ -111,7 +123,17 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void ShowWaterLevel()
+    private void CloseStats()
+    {
+        // If plant status panel open, next
+        GameObject plantStats = GameObject.Find("PlantStats");
+        if (plantStats == null || !plantStats.activeSelf)
+        {
+            NextHint();
+        }
+    }
+
+    private void SpaceButton()
     {
         // On Enter, next
         if (Input.GetKeyDown(KeyCode.Space))
@@ -123,33 +145,22 @@ public class TutorialManager : MonoBehaviour
     public void WaterPlant()
     {
         // Once watering button clicked, next
+        if (_step == 13)
+        {
+            NextHint();
+        }
+    }
+
+    public void PurchasePlant(GameObject plant)
+    {
         if (_step == 2)
         {
             NextHint();
         }
     }
-
-    private void ShowLightLevel()
+    public void OpenPlantPage(HouseplantData houseplant)
     {
-        // On Enter, next
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            NextHint();
-        }
-    }
-
-    private void PurchasePlant()
-    {
-        if (true)
-        {
-            NextHint();
-        }
-    }
-
-    private void QuitStats()
-    {
-        GameObject plantStats = GameObject.Find("PlantStats");
-        if (plantStats == null || !plantStats.activeSelf)
+        if (_step == 9)
         {
             NextHint();
         }
@@ -158,8 +169,8 @@ public class TutorialManager : MonoBehaviour
     private void ShowComputer()
     {
         // Once welcome screen open, next
-        GameObject welcomeScreen = GameObject.Find("WelcomeScreen");
-        if (welcomeScreen != null && welcomeScreen.activeSelf)
+        GameObject monitor = GameObject.Find("WelcomeText");
+        if (monitor != null && monitor.activeSelf)
         {
             NextHint();
         }
@@ -175,10 +186,27 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void AboutPlantipedia()
+    private void ShowPlant()
     {
-        GameObject plantipedia = GameObject.Find("Plantipedia");
-        if (plantipedia == null || !plantipedia.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            NextHint();
+            FirstPlant.SetActive(true);
+        }
+    }
+
+    private void CheckLightLevel()
+    {
+        if (FirstPlant.gameObject.GetComponent<HouseplantHealth>().GetLightLevel() == 65)
+        {
+            NextHint();
+        }
+    }
+
+    private void ShowClosed()
+    {
+        GameObject shop = GameObject.Find("Shop");
+        if (shop == null || !shop.activeSelf)
         {
             NextHint();
         }
@@ -194,19 +222,10 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void AboutShop()
+    private void LeaveShop()
     {
         GameObject monitor = GameObject.Find("Log out");
         if (monitor == null || !monitor.activeSelf)
-        {
-            NextHint();
-        }
-    }
-
-    private void LastWords()
-    {
-        // Once Enter, next
-        if (Input.GetKeyDown(KeyCode.Space))
         {
             NextHint();
         }

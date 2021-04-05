@@ -21,13 +21,13 @@ MonoBehaviour:
   WaterConsumption: 1
   LightRequirement: 70
   LightReqDiff: 10
-  DamageRate: 4
+  DamageRate: 6
   StressRemoved: 0.6
   StressRemovedOnDelivery: 10
   StressAdded: 0.7
   StressAddedOnDeath: 4
   HealthRegenRate: 14
-  GeneralCareInfo: Dust it sometimes and it will be fine!
+  GeneralCareInfo: Relatively fussy, will lose health fast under wrong care
   WaterRequirementText: Soil should be kept moist
   LightRequirementText: Sunny place but no direct sunlight
   DaysForDelivery: 1

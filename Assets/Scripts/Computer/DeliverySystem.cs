@@ -24,9 +24,12 @@ public class DeliverySystem : MonoBehaviour
 
     void BuyPlant(GameObject houseplant)
     {
-        HouseplantData plantData = houseplant.gameObject.GetComponent<HouseplantHealth>().Houseplant;
-        _plantsToBeDelivered.Add(new KeyVal<HouseplantData, int>(plantData, plantData.DaysForDelivery));
-        Events.DeliveryUpdate(_plantsToBeDelivered);
+        if (GameManager.Instance.CurrentState == GameManager.GameState.game)
+        {
+            HouseplantData plantData = houseplant.gameObject.GetComponent<HouseplantHealth>().Houseplant;
+            _plantsToBeDelivered.Add(new KeyVal<HouseplantData, int>(plantData, plantData.DaysForDelivery));
+            Events.DeliveryUpdate(_plantsToBeDelivered);
+        }
     }
 
     void Deliver(bool sleeping)

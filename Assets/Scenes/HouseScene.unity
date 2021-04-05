@@ -609,7 +609,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32923261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.28, y: 3.1, z: 1.8}
+  m_LocalPosition: {x: -4.28, y: 3.02, z: 1.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682157715}
@@ -2421,7 +2421,7 @@ Transform:
   m_LocalScale: {x: 1.37, y: 0.02, z: 3.19}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350350285
 GameObject:
@@ -5695,7 +5695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 52cf0225b6279ff46a07402b0edbec77, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 52cf0225b6279ff46a07402b0edbec77, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6165,15 +6165,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2751855585078872612, guid: 9c4edf7aacea7bf429f0edeed3c7ebe5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.82
+      value: 1.812
       objectReference: {fileID: 0}
     - target: {fileID: 2751855585078872612, guid: 9c4edf7aacea7bf429f0edeed3c7ebe5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.52
+      value: 0.58
       objectReference: {fileID: 0}
     - target: {fileID: 2751855585078872612, guid: 9c4edf7aacea7bf429f0edeed3c7ebe5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.42
+      value: 4.82
       objectReference: {fileID: 0}
     - target: {fileID: 2751855585078872612, guid: 9c4edf7aacea7bf429f0edeed3c7ebe5, type: 3}
       propertyPath: m_LocalRotation.x
@@ -8435,6 +8435,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TutorialStep: {fileID: 877219179}
   Hints:
+  - Header: Hey there!
+    Content: Let's start Eric on his plant adventure with his first plant! To get
+      it, use the computer by clicking on it!
+    ObjectToPointAt: {fileID: 0}
+  - Header: Need more plants?
+    Content: If you ever feel like you need some more greenery in the room, shop
+      is the place to be!
+    ObjectToPointAt: {fileID: 207714223}
+  - Header: The shop
+    Content: Here you can order a variety of houseplants! Keep in mind, they will
+      take some days to arrive. To order a plant, click the [Order] button.
+    ObjectToPointAt: {fileID: 0}
+  - Header: Leave the computer
+    Content: Now you just need to wait for it to arrive! To leave the computer, press
+      [Log out] or click outside the computer window.
+    ObjectToPointAt: {fileID: 0}
+  - Header: Delivery
+    Content: Usually you would need to wait for a day for the Fittonia to arrive...
+      But to speed it up this time around, you can just press [Space].
+    ObjectToPointAt: {fileID: 0}
+  - Header: New plant
+    Content: Here is Eric's new plant! To pick it up, right click on it. Let's place
+      it next to the computer. To place, right click on the place where you want
+      to place the plant.
+    ObjectToPointAt: {fileID: 2102795986}
+  - Header: How does one care for a plant?
+    Content: Let's check out Plantipedia! Back to the computer we go...
+    ObjectToPointAt: {fileID: 0}
+  - Header: Back to the welcome screen
+    Content: Press [x] to get back to the welcome screen.
+    ObjectToPointAt: {fileID: 678024983}
+  - Header: Plantipedia
+    Content: To open Plantipedia, click on the Plantepedia button.
+    ObjectToPointAt: {fileID: 1815277321}
+  - Header: Plantipedia
+    Content: Here you can read up on how to care for some houseplants! Press the
+      [Learn more] button to read about Fittonia.
+    ObjectToPointAt: {fileID: 0}
+  - Header: Fittonia albivenis
+    Content: Hmmm.. Looks like we placed it in a great spot - light but no direct
+      sun. It does need to be kept moist (soil needs to be wet but don't drown it
+      entirely). Let's see how we can use the info we just got! Click out or [Log
+      out] to continue.
+    ObjectToPointAt: {fileID: 0}
   - Header: Plant health
     Content: It's important to know how your plant is doing. To check up on plant's
       well-being, left-click on it!
@@ -8449,34 +8493,7 @@ MonoBehaviour:
     ObjectToPointAt: {fileID: 1453954064}
   - Header: Light levels
     Content: Plants have different light requirements too! Here you can see how much
-      light your plant is getting. [Space] to proceed.
-    ObjectToPointAt: {fileID: 1621286401}
-  - Header: Want to know more?
-    Content: But how do you know how much water or light each plant needs? Well,
-      there is one handy tool. Let me show you! To close plant statistics, just click
-      somewhere outside this panel.
-    ObjectToPointAt: {fileID: 0}
-  - Header: Computer time!
-    Content: Come to the computer and click on it
-    ObjectToPointAt: {fileID: 0}
-  - Header: Plantipedia
-    Content: Let's check out Plantipedia!
-    ObjectToPointAt: {fileID: 1815277321}
-  - Header: Plantipedia
-    Content: Here you can learn something about each plant! Click [x] button to go
-      back to the start screen.
-    ObjectToPointAt: {fileID: 160957917}
-  - Header: Need more plants?
-    Content: If you ever feel like you need some more greenery in the room, shop
-      is the place to be!
-    ObjectToPointAt: {fileID: 207714223}
-  - Header: The shop
-    Content: Here you can order a variety of houseplants! Keep in mind, they will
-      take some days to arrive. To leave the computer, click the [Log out] button.
-    ObjectToPointAt: {fileID: 28366088}
-  - Header: Light levels
-    Content: Plants have different light requirements too! Here you can see how much
-      light your plant is getting. [Space] to proceed.
+      light your plant is getting. Click outside this panel to proceed.
     ObjectToPointAt: {fileID: 1621286401}
   - Header: I swear it's the last one!
     Content: Keep your plants happy to keep the stress levels down. [Space] to start
@@ -8797,7 +8814,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1038164168}
   m_LocalRotation: {x: -0, y: -0.7064895, z: -0, w: 0.7077236}
-  m_LocalPosition: {x: 0.021, y: 0.435, z: 0.269}
+  m_LocalPosition: {x: 0.021, y: 0.403, z: 0.256}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 621128862}
@@ -10599,7 +10616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257337727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.227, y: 0.01, z: 1.802}
+  m_LocalPosition: {x: -4.227, y: -0.07, z: 1.802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682157715}
@@ -10871,7 +10888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287443944}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.25, y: 1.51, z: 1.83}
+  m_LocalPosition: {x: -4.25, y: 1.4300001, z: 1.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682157715}
@@ -11626,7 +11643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1352699578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.06, y: 1.51, z: 1.16}
+  m_LocalPosition: {x: -5.06, y: 1.4300001, z: 1.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682157715}
@@ -14056,7 +14073,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610101586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.06, y: 0.01, z: 1.18}
+  m_LocalPosition: {x: -5.06, y: -0.069999985, z: 1.18}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682157715}
@@ -17883,7 +17900,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080687820}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.06, y: 3.1, z: 1.16}
+  m_LocalPosition: {x: -5.06, y: 3.02, z: 1.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682157715}
