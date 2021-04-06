@@ -44,7 +44,9 @@ public class GameManager : MonoBehaviour
 
     public void UpdateFunds(float amount)
     {
-        PlayerPrefs.SetFloat("Funds", GetFunds() + amount);
+        float newAmount = GetFunds() + amount;
+        PlayerPrefs.SetFloat("Funds", newAmount);
+        Events.UpdateFunds((int)newAmount);
     }
 
     public float GetStress()

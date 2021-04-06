@@ -16,16 +16,16 @@ public class SettingsMenu : MonoBehaviour
     public TextMeshProUGUI SoundsVolume;
 
 
-    private void Awake()
+    private void Start()
     {
+        audioMixer.SetFloat("MasterVolume", -30);
         gameObject.SetActive(false);
     }
 
     public void SetMasterVolume(float volume)
     {
-        print(volume);
-        audioMixer.SetFloat("MasterVolume", volume);
-        MasterVolume.text = ((int)((volume + 70) * 1.42858)).ToString();
+        audioMixer.SetFloat("MasterVolume", volume - 40);
+        MasterVolume.text = ((int)((volume + 30) * 1.42858)).ToString();
     }
 
     public void SetMusicVolume(float volume)
@@ -50,7 +50,7 @@ public class SettingsMenu : MonoBehaviour
         float volume;
 
         audioMixer.GetFloat("MasterVolume", out volume);
-        Master.SetValueWithoutNotify(volume);
+        Master.SetValueWithoutNotify(volume + 40);
         MasterVolume.text = ((int)((volume + 70) * 1.42858)).ToString();
 
         audioMixer.GetFloat("EffectsVolume", out volume);

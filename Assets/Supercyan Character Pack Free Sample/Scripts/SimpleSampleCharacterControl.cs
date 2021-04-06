@@ -36,17 +36,12 @@ public class SimpleSampleCharacterControl : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
 
-    private Vector3 smoothDeltaPosition = Vector3.zero;
-
-    private Vector3 velocity = Vector3.zero;
-
     private void Awake()
     {
         if (!m_animator) { gameObject.GetComponent<Animator>(); }
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
         m_animator.SetBool("Grounded", true);
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
-        navMeshAgent.updatePosition = false;
     }
 
     private void Update()
@@ -168,40 +163,8 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         }
     }
 
-    // https://docs.unity3d.com/Manual/nav-CouplingAnimationAndNavigation.html
     private void AgentUpdate()
     {
-        Vector3 worldDeltaPosition = navMeshAgent.nextPosition - transform.position;
-
-        // Map 'worldDeltaPosition' to local space
-        float dx = Vector3.Dot(transform.right, worldDeltaPosition);
-        float dy = Vector3.Dot(transform.forward, worldDeltaPosition);
-        Vector2 deltaPosition = new Vector2(dx, dy);
-
-        // Low-pass filter the deltaMove
-        float smooth = Mathf.Min(1.0f, Time.deltaTime / 0.15f);
-        smoothDeltaPosition = Vector3.Lerp(smoothDeltaPosition, deltaPosition, smooth);
-
-        // Update velocity if time advances
-        if (Time.deltaTime > 1e-5f)
-        {
-            velocity = smoothDeltaPosition / Time.deltaTime;
-        }
-
-        bool shouldMove = navMeshAgent.remainingDistance > navMeshAgent.radius;
-        if (shouldMove)
-        {
-            m_animator.SetFloat("MoveSpeed", velocity.magnitude);
-        }
-        else
-        {
-            m_controlMode = ControlMode.Direct;
-            m_animator.SetFloat("MoveSpeed", 0f);
-        }
-
-        Vector3 newPosition = navMeshAgent.nextPosition;
-        newPosition.y = transform.position.y;
-        transform.position = newPosition;
-        transform.rotation = Quaternion.LookRotation(navMeshAgent.destination);
+        m_animator.SetFloat("MoveSpeed", navMeshAgent.velocity.magnitude);
     }
 }
