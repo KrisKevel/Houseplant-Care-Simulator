@@ -40,7 +40,6 @@ public class PlantActions : MonoBehaviour
 
     private IEnumerator BringUpPlantPanel(GameObject plant)
     {
-        print("Coroutine started");
         GameObject player = GameObject.Find("Player").gameObject;
         HouseplantHealth plantHealth = plant.GetComponent<HouseplantHealth>();
 

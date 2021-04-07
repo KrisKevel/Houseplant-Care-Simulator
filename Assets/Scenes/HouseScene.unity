@@ -8623,7 +8623,7 @@ MonoBehaviour:
   - Header: Hey there!
     Content: Let's start Eric on his plant adventure with his first plant! To get
       it, use the computer by clicking on it!
-    ObjectToPointAt: {fileID: 0}
+    ObjectToPointAt: {fileID: 1184829993}
   - Header: Need more plants?
     Content: If you ever feel like you need some more greenery in the room, shop
       is the place to be!

@@ -13,9 +13,31 @@ public class Arrow : MonoBehaviour
             HideArrow();
             return; 
         }
-        Vector3 position = ObjectToPointAt.transform.position;
-        position += new Vector3(-500, -100, 0);
-        gameObject.transform.localPosition = position;
+
+        Vector2 canvasPos;
+
+        if (ObjectToPointAt.GetComponent<RectTransform>() == null)
+        {
+            // https://forum.unity.com/threads/create-ui-health-markers-like-in-world-of-tanks.432935/?_ga=2.129965769.417841106.1617821738-405608760.1591295140
+            // Offset position above object bbox (in world space)
+            float offsetPosY = ObjectToPointAt.transform.position.y + 1.5f;
+
+            // Final position of marker above GO in world space
+            Vector3 offsetPos = new Vector3(ObjectToPointAt.transform.position.x, offsetPosY, ObjectToPointAt.transform.position.z);
+
+            // Calculate *screen* position (note, not a canvas/recttransform position)
+            Vector2 screenPoint = Camera.main.WorldToScreenPoint(offsetPos);
+
+            // Convert screen position to Canvas / RectTransform space <- leave camera null if Screen Space Overlay
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(gameObject.GetComponentInParent<RectTransform>(), screenPoint, null, out canvasPos);
+            canvasPos += new Vector2(60, 115);
+        }
+        else
+        {
+            canvasPos = ObjectToPointAt.transform.position + new Vector3(-500, -100);
+        }
+
+        gameObject.transform.localPosition = canvasPos;
         ShowArrow();
     }
 
