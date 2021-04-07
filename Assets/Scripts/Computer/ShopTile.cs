@@ -38,7 +38,8 @@ public class ShopTile : MonoBehaviour
         }
         else
         {
-            if (TutorialPlantAmount > 0)
+            if (GameManager.Instance.CurrentState == GameManager.GameState.game ||
+                TutorialPlantAmount > 0)
             {
                 GameManager.Instance.UpdateFunds(-Plant.Price);
                 Events.BuyPlant(Plant.HouseplantPrefab);
