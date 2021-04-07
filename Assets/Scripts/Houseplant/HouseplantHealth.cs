@@ -8,6 +8,7 @@ public class HouseplantHealth : MonoBehaviour
     public float StressRemovedOnCare = 0.002f;
     public bool Happy;
     public float InitialLight = 0f;
+    public float InitialWater = 0f;
 
     private float _currentWaterLevel;
     private float _minWaterLevel;
@@ -30,7 +31,14 @@ public class HouseplantHealth : MonoBehaviour
         Happy = true;
         UpdateLightLevel();
 
-        _currentWaterLevel = Houseplant.WaterRequirement;
+        if (InitialWater == 0)
+        {
+            _currentWaterLevel = Houseplant.WaterRequirement;
+        } 
+        else
+        {
+            _currentWaterLevel = InitialWater;
+        }
 
         _minWaterLevel = Houseplant.WaterRequirement - Houseplant.WaterReqDiff;
         _maxWaterLevel = Houseplant.WaterRequirement + Houseplant.WaterReqDiff;

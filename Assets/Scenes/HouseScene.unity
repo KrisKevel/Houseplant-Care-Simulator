@@ -4422,7 +4422,7 @@ RectTransform:
   m_Children:
   - {fileID: 385915572}
   - {fileID: 877219178}
-  - {fileID: 1858039789}
+  - {fileID: 1991907171}
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6269,6 +6269,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1318166373722650434, guid: 9c4edf7aacea7bf429f0edeed3c7ebe5, type: 3}
+      propertyPath: InitialWater
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2751855585078872612, guid: 9c4edf7aacea7bf429f0edeed3c7ebe5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.812
@@ -8680,7 +8684,7 @@ MonoBehaviour:
     Content: Keep your plants happy to keep the stress levels down. [Space] to start
       the game.
     ObjectToPointAt: {fileID: 0}
-  Arrow: {fileID: 1858039792}
+  Arrow: {fileID: 1991907172}
   FirstPlant: {fileID: 2127074580}
 --- !u!224 &1027071009
 RectTransform:
@@ -16287,10 +16291,9 @@ GameObject:
   - component: {fileID: 1858039789}
   - component: {fileID: 1858039791}
   - component: {fileID: 1858039790}
-  - component: {fileID: 1858039792}
   - component: {fileID: 1858039793}
   m_Layer: 5
-  m_Name: Arrow
+  m_Name: ArrowImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16307,14 +16310,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 561739418}
-  m_RootOrder: 2
+  m_Father: {fileID: 1991907171}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -43.072}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -166.06168, y: -58}
+  m_AnchoredPosition: {x: -141, y: 183}
   m_SizeDelta: {x: 145.87668, y: 64.79233}
-  m_Pivot: {x: 1, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &1858039790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16353,19 +16356,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1858039788}
   m_CullTransparentMesh: 0
---- !u!114 &1858039792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858039788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bc55670f59a464498c160aad9a0d0cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObjectToPointAt: {fileID: 0}
 --- !u!95 &1858039793
 Animator:
   serializedVersion: 3
@@ -17812,6 +17802,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1988811459}
   m_CullTransparentMesh: 0
+--- !u!1 &1991907170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1991907171}
+  - component: {fileID: 1991907172}
+  m_Layer: 5
+  m_Name: Arrow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1991907171
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991907170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1858039789}
+  m_Father: {fileID: 561739418}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1991907172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1991907170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bc55670f59a464498c160aad9a0d0cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectToPointAt: {fileID: 0}
 --- !u!1001 &1996371848
 PrefabInstance:
   m_ObjectHideFlags: 0

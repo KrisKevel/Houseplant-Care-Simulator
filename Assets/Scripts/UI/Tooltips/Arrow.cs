@@ -14,8 +14,8 @@ public class Arrow : MonoBehaviour
             return; 
         }
         Vector3 position = ObjectToPointAt.transform.position;
-        position += new Vector3(-120, 0, 0);
-        gameObject.transform.position = position;
+        position += new Vector3(-500, -100, 0);
+        gameObject.transform.localPosition = position;
         ShowArrow();
     }
 
