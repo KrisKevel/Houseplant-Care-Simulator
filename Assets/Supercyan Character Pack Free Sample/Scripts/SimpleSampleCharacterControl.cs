@@ -60,6 +60,14 @@ public class SimpleSampleCharacterControl : MonoBehaviour
                 navMeshAgent.SetDestination(destination);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.W) || 
+            Input.GetKeyDown(KeyCode.A) || 
+            Input.GetKeyDown(KeyCode.S) || 
+            Input.GetKeyDown(KeyCode.D))
+        {
+            m_controlMode = ControlMode.Direct;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
