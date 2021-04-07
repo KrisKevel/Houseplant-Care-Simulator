@@ -6,7 +6,6 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    public TextMeshProUGUI FundsText;
     public TextMeshProUGUI Funds;
     public GridLayoutGroup Content;
     public GameObject TilePrefab;
@@ -65,7 +64,6 @@ public class Shop : MonoBehaviour
 
     private void ChangeTextColor(Color color)
     {
-        FundsText.color = color;
         Funds.color = color;
     }
 
