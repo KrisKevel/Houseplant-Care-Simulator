@@ -16,11 +16,11 @@ MonoBehaviour:
   HouseplantPrefab: {fileID: 6202421351452104822, guid: ad2563de9a86ddf4492644c28588e132, type: 3}
   HouseplantPicture: {fileID: 21300000, guid: 5a0c355a9d40b46439fc6f3a18f0b667, type: 3}
   Price: 10
-  WaterRequirement: 50.6
-  WaterReqDiff: 25
+  WaterRequirement: 35
+  WaterReqDiff: 15
   WaterConsumption: 1
-  LightRequirement: 49.4
-  LightReqDiff: 18.4
+  LightRequirement: 80
+  LightReqDiff: 10
   DamageRate: 10
   StressRemoved: 0.3
   StressRemovedOnDelivery: 7

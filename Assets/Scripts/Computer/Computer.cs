@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class Computer : MonoBehaviour
 {
     Ray ray;
     RaycastHit hit;
-
-    private bool _clickable = false;
 
     // Update is called once per frame
     void Update()
@@ -18,13 +17,25 @@ public class Computer : MonoBehaviour
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
-                _clickable = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position) < GameManager.Instance.AOE;
-
-                if (hit.collider.name == "monitor" && Input.GetMouseButton(0) && _clickable)
+                if (hit.collider.name == "monitor" && Input.GetMouseButton(0))
                 {
-                    Events.UseComputer();
+                    StartCoroutine(BringUpMonitor());
                 }
             }
         }
+    }
+
+    private IEnumerator BringUpMonitor()
+    {
+        GameObject player = GameObject.Find("Player").gameObject;
+
+        while (Vector3.Distance(player.transform.position, transform.position) > GameManager.Instance.AOE ||
+            player.GetComponent<NavMeshAgent>().velocity.magnitude != 0)
+        {
+            yield return null;
+        }
+
+        Events.UseComputer();
+        yield break;
     }
 }

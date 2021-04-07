@@ -9,13 +9,13 @@ public class Monitor : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IP
 
     void Awake()
     {
-        Events.OnUseComputer += OpenPanel;
+        Events.OnUseComputer += UseComputer;
         gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        Events.OnUseComputer -= OpenPanel;
+        Events.OnUseComputer -= UseComputer;
     }
 
     private void Update()
@@ -23,7 +23,7 @@ public class Monitor : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IP
         CheckDistanceToPlayer();
     }
 
-    void OpenPanel()
+    void UseComputer()
     {
         gameObject.SetActive(true);
     }

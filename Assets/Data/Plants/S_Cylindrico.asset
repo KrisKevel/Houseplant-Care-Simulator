@@ -26,7 +26,7 @@ MonoBehaviour:
   StressRemovedOnDelivery: 9
   StressAdded: 0.5
   StressAddedOnDeath: 6
-  HealthRegenRate: 7
+  HealthRegenRate: 3
   GeneralCareInfo: Likes to be rootbound, don't rush to repot
   WaterRequirementText: Water when soil is dry
   LightRequirementText: Can handle conditions from light shade to full sun

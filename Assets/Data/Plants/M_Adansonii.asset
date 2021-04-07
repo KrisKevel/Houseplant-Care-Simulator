@@ -26,7 +26,7 @@ MonoBehaviour:
   StressRemovedOnDelivery: 15
   StressAdded: 0.7
   StressAddedOnDeath: 6
-  HealthRegenRate: 12
+  HealthRegenRate: 4
   GeneralCareInfo: Enjoys staying warm
   WaterRequirementText: Don't let the soil dry out entirely
   LightRequirementText: Well lit space but no direct sun

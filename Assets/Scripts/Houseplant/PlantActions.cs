@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 
 public class PlantActions : MonoBehaviour
@@ -18,21 +19,13 @@ public class PlantActions : MonoBehaviour
             {
                 _clickable = Vector3.Distance(GameObject.Find("Player").transform.position, hit.collider.transform.position) < GameManager.Instance.AOE;
 
-                if (hit.collider.tag == "Plant" && _clickable)
+                if (hit.collider.tag == "Plant")
                 {
-                    if (Input.GetMouseButton(0))
+                    if (Input.GetMouseButtonDown(0))
                     {
-                        HouseplantHealth plantHealth = hit.collider.gameObject.GetComponent<HouseplantHealth>();
-                        if (plantHealth.Dead)
-                        {
-                            Events.OpenDeadPanel(plantHealth);
-                        }
-                        else
-                        {
-                            Events.OpenMoistureMeter(plantHealth);
-                        }
+                        StartCoroutine(BringUpPlantPanel(hit.collider.gameObject));
                     }
-                    else if (Input.GetMouseButtonDown(1))
+                    else if (Input.GetMouseButtonDown(1) && _clickable)
                     {
                         Events.PickUpPlant(hit.collider.gameObject);
                     }
@@ -42,6 +35,30 @@ public class PlantActions : MonoBehaviour
                     Events.PlacePlant(hit.point);
                 }
             }
+        }
+    }
+
+    private IEnumerator BringUpPlantPanel(GameObject plant)
+    {
+        print("Coroutine started");
+        GameObject player = GameObject.Find("Player").gameObject;
+        HouseplantHealth plantHealth = plant.GetComponent<HouseplantHealth>();
+
+        while (Vector3.Distance(player.transform.position, plant.transform.position) > GameManager.Instance.AOE ||
+            player.GetComponent<NavMeshAgent>().velocity.magnitude != 0)
+        {
+            yield return null;
+        }
+
+        if (plantHealth.Dead)
+        {
+            Events.OpenDeadPanel(plantHealth);
+            yield break;
+        }
+        else
+        {
+            Events.OpenMoistureMeter(plantHealth);
+            yield break;
         }
     }
 }
