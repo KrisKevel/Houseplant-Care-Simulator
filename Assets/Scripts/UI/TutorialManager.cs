@@ -190,8 +190,8 @@ public class TutorialManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            NextHint();
             FirstPlant.SetActive(true);
+            NextHint();
         }
     }
 
