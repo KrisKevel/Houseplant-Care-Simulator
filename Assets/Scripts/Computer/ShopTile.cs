@@ -8,6 +8,7 @@ public class ShopTile : MonoBehaviour
 {
     public HouseplantData Plant;
     public Image PlantImage;
+    public int TutorialPlantAmount = 1;
 
     private TextMeshProUGUI _plantName; 
     private TextMeshProUGUI _plantPrice;
@@ -37,8 +38,12 @@ public class ShopTile : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.UpdateFunds(-Plant.Price);
-            Events.BuyPlant(Plant.HouseplantPrefab);
+            if (TutorialPlantAmount > 0)
+            {
+                GameManager.Instance.UpdateFunds(-Plant.Price);
+                Events.BuyPlant(Plant.HouseplantPrefab);
+                TutorialPlantAmount--;
+            }
         }
     }
 }
