@@ -37,7 +37,7 @@ public class Statistics : MonoBehaviour
         morningStress = GameManager.Instance.GetStress();
         morningFunds = GameManager.Instance.GetFunds();
         HouseplantHealth[] plantsInScene = FindObjectsOfType<HouseplantHealth>();
-        morningPlants = plantsInScene.Length;
+        morningPlants = 1;
         foreach (HouseplantHealth plant in plantsInScene)
         {
             if (plant.Happy) { morningHappyPlants++; }
