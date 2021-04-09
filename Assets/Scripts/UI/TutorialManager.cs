@@ -98,7 +98,7 @@ public class TutorialManager : MonoBehaviour
         {
             _step++;
             _currentHint = Hints[_step];
-            Arrow.SetObject(_currentHint.ObjectToPointAt);
+            Arrow.SetObject(_currentHint.ObjectToPointAt, _step == 6);
             TutorialStep.SetText(_currentHint.Content, _currentHint.Header);
         }
         else
@@ -148,7 +148,7 @@ public class TutorialManager : MonoBehaviour
     public void WaterPlant()
     {
         // Once watering button clicked, next
-        if (_step == 13)
+        if (_step == 14)
         {
             NextHint();
         }
@@ -163,7 +163,7 @@ public class TutorialManager : MonoBehaviour
     }
     public void OpenPlantPage(HouseplantData houseplant)
     {
-        if (_step == 9)
+        if (_step == 10)
         {
             NextHint();
         }
