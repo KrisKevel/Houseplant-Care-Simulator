@@ -41,36 +41,39 @@ public class TutorialManager : MonoBehaviour
                 ShowShop();
                 break;
             case 2:
-            case 9:
-            case 13:
+            case 10:
+            case 14:
                 break;
             case 3:
-            case 10:
+            case 11:
                 LeaveShop();
                 break;
             case 4:
                 ShowPlant();
                 break;
             case 5:
-                CheckLightLevel();
+                CheckDestination();
                 break;
             case 6:
-                ShowComputer();
+                CheckLightLevel();
                 break;
             case 7:
-                ShowClosed();
+                ShowComputer();
                 break;
             case 8:
+                ShowClosed();
+                break;
+            case 9:
                 ShowPlantipedia();
                 break;
-            case 11:
+            case 12:
                 ClickThePlant();
                 break;
-            case 12:
-            case 15:
+            case 13:
+            case 16:
                 SpaceButton();
                 break;
-            case 14:
+            case 15:
                 CloseStats();
                 break;
             default:
@@ -89,7 +92,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void NextHint()
+    public void NextHint()
     {
         if (_step < Hints.Length - 1)
         {
@@ -191,6 +194,14 @@ public class TutorialManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             FirstPlant.SetActive(true);
+            NextHint();
+        }
+    }
+
+    private void CheckDestination()
+    {
+        if (FindObjectOfType<Destination>().carrying)
+        {
             NextHint();
         }
     }

@@ -30,6 +30,5 @@ MonoBehaviour:
   GeneralCareInfo: It's better not to touch the leaves... Best be kept over 10 degrees
     C
   WaterRequirementText: Enjoys drying out completely but needs to be watered thoroughly.
-    Do not water November-March
   LightRequirementText: Sunny!
   DaysForDelivery: 1

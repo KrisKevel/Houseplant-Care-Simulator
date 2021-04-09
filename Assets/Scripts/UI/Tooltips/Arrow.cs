@@ -30,14 +30,14 @@ public class Arrow : MonoBehaviour
 
             // Convert screen position to Canvas / RectTransform space <- leave camera null if Screen Space Overlay
             RectTransformUtility.ScreenPointToLocalPointInRectangle(gameObject.GetComponentInParent<RectTransform>(), screenPoint, null, out canvasPos);
-            canvasPos += new Vector2(60, 115);
+            canvasPos += new Vector2(690, 450);
+            gameObject.transform.position = canvasPos;
         }
         else
         {
-            canvasPos = ObjectToPointAt.transform.position + new Vector3(-500, -100);
+            gameObject.transform.position = ObjectToPointAt.transform.position + new Vector3(50, 210);
         }
 
-        gameObject.transform.localPosition = canvasPos;
         ShowArrow();
     }
 

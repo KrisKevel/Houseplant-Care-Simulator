@@ -59,28 +59,28 @@ public class HouseplantHealth : MonoBehaviour
             DecreaseWaterLevel();
 
             //If the plant is unhappy (watering), increase stress, otherwise decrease
-            bool wateringRequirementsMet = (_currentWaterLevel < _minWaterLevel) || (_currentWaterLevel > _maxWaterLevel);
+            bool wateringRequirementsMet = (_currentWaterLevel > _minWaterLevel) && (_currentWaterLevel < _maxWaterLevel);
             if (wateringRequirementsMet)
-            {
-                RemoveHealth();
-            }
-            else
             {
                 RestoreHealth();
                 UpdateStress(-Houseplant.StressRemoved);
+            }
+            else
+            {
+                RemoveHealth();
             }
 
             UpdateLightLevel();
-            bool lightRequirementsMet = (_currentLightLevel < _minLightLevel) || (_currentLightLevel > _maxLightLevel);
             //If the plant is unhappy (light level), increase stress, otherwise decrease
+            bool lightRequirementsMet = (_currentLightLevel > _minLightLevel) && (_currentLightLevel < _maxLightLevel);
             if (lightRequirementsMet)
-            {
-                RemoveHealth();
-            }
-            else
             {
                 RestoreHealth();
                 UpdateStress(-Houseplant.StressRemoved);
+            }
+            else
+            {
+                RemoveHealth();
             }
 
             Happy = wateringRequirementsMet && lightRequirementsMet;

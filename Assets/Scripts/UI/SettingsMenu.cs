@@ -22,9 +22,18 @@ public class SettingsMenu : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     public void SetMasterVolume(float volume)
     {
         audioMixer.SetFloat("MasterVolume", volume - 40);
+        Debug.Log((int)((volume + 30) * 1.42858));
         MasterVolume.text = ((int)((volume + 30) * 1.42858)).ToString();
     }
 
