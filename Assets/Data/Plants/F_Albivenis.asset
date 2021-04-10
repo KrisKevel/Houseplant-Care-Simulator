@@ -28,6 +28,6 @@ MonoBehaviour:
   StressAddedOnDeath: 4
   HealthRegenRate: 5
   GeneralCareInfo: Relatively fussy, will lose health fast under wrong care
-  WaterRequirementText: Soil should be kept moist
+  WaterRequirementText: Soil should be kept moist, on the wet side
   LightRequirementText: Sunny place but no direct sunlight
   DaysForDelivery: 1
