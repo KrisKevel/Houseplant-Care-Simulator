@@ -25,9 +25,10 @@ public class PlantActions : MonoBehaviour
                     {
                         StartCoroutine(BringUpPlantPanel(hit.collider.gameObject));
                     }
-                    else if (Input.GetMouseButtonDown(1) && _clickable)
+                    else if (Input.GetMouseButtonDown(1))
                     {
-                        Events.PickUpPlant(hit.collider.gameObject);
+                        Events.RightClickPlant(ray);
+                        StartCoroutine(PickUpPlant(hit.collider.gameObject));
                     }
                 }
                 else if (Input.GetMouseButtonDown(1))
@@ -59,5 +60,19 @@ public class PlantActions : MonoBehaviour
             Events.OpenMoistureMeter(plantHealth);
             yield break;
         }
+    }
+
+    private IEnumerator PickUpPlant(GameObject plant)
+    {
+        GameObject player = GameObject.Find("Player").gameObject;
+
+        while (Vector3.Distance(player.transform.position, plant.transform.position) > GameManager.Instance.AOE ||
+            player.GetComponent<NavMeshAgent>().velocity.magnitude != 0)
+        {
+            yield return null;
+        }
+
+        Events.PickUpPlant(plant);
+        yield break;
     }
 }

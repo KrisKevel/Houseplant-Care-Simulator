@@ -84,4 +84,8 @@ public class Events
     // Event invoked in order to notify player about insufficient funds
     public static event Action<int> OnUpdateFunds;
     public static void UpdateFunds(int funds) => OnUpdateFunds.Invoke(funds);
+
+    // Event invoked in order to notify player about insufficient funds
+    public static event Action<Ray> OnRightClickPlant;
+    public static void RightClickPlant(Ray ray) => OnRightClickPlant.Invoke(ray);
 }

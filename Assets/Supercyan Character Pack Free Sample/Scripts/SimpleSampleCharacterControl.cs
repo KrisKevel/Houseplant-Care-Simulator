@@ -42,23 +42,20 @@ public class SimpleSampleCharacterControl : MonoBehaviour
         if (!m_rigidBody) { gameObject.GetComponent<Animator>(); }
         m_animator.SetBool("Grounded", true);
         navMeshAgent = gameObject.GetComponent<NavMeshAgent>();
+        Events.OnRightClickPlant += EnableActorMode;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnRightClickPlant -= EnableActorMode;
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-            {
-                m_controlMode = ControlMode.Agent;
-
-                Vector3 destination = hit.point;
-                destination.x = Mathf.Clamp(destination.x, -3.17f, 4.33f);
-                destination.z = Mathf.Clamp(destination.z, -2.55f, 5.68f);
-                navMeshAgent.SetDestination(destination);
-            }
+            EnableActorMode(ray);
         }
 
         if (Input.GetKeyDown(KeyCode.W) || 
@@ -67,6 +64,20 @@ public class SimpleSampleCharacterControl : MonoBehaviour
             Input.GetKeyDown(KeyCode.D))
         {
             m_controlMode = ControlMode.Direct;
+        }
+    }
+
+    private void EnableActorMode(Ray ray)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        {
+            m_controlMode = ControlMode.Agent;
+
+            Vector3 destination = hit.point;
+            destination.x = Mathf.Clamp(destination.x, -3.17f, 4.33f);
+            destination.z = Mathf.Clamp(destination.z, -2.55f, 5.68f);
+            navMeshAgent.SetDestination(destination);
         }
     }
 
