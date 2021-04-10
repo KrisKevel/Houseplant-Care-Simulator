@@ -114,7 +114,7 @@ public class TimeManager : MonoBehaviour
         UpdateClock();
         if (dayCount == GameManager.Instance.WinDay)
         {
-            GameManager.Instance.PauseGame();
+            GameManager.Instance.EndGame();
             Events.Win();
         }
     }

@@ -86,6 +86,12 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void EndGame()
+    {
+        CurrentState = GameState.gameOver;
+        PauseGame();
+    }
+
     [System.Serializable]
     public class SoundAudioClip
     {
@@ -96,6 +102,6 @@ public class GameManager : MonoBehaviour
 
     public enum GameState
     {
-        tutorial, game
+        tutorial, game, gameOver
     }
 }

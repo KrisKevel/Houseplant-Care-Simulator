@@ -4512,7 +4512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartingFunds: 30
   DailyPay: 20
-  WinDay: 3
+  WinDay: 8
   AOE: 3.68
   MinStressFromWork: 10
   MaxStressFromWork: 25

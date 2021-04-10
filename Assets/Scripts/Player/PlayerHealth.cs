@@ -18,7 +18,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!sleeping && GameManager.Instance.GetStress() == 100f)
         {
-            GameManager.Instance.PauseGame();
+            GameManager.Instance.EndGame();
             Events.GameOver();
         }
     }

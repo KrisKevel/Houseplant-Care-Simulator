@@ -22,7 +22,7 @@ public class SoundManager: MonoBehaviour
     {
         Instance = this;
         _musicSource = GetComponent<AudioSource>();
-        Events.OnUpdateStress += SetThemeSong;
+        Events.OnHourPassed += SetThemeSong;
     }
 
     private void Start()
@@ -33,7 +33,7 @@ public class SoundManager: MonoBehaviour
 
     private void OnDestroy()
     {
-        Events.OnUpdateStress -= SetThemeSong;
+        Events.OnHourPassed -= SetThemeSong;
     }
 
     public void PlaySound(Sound sound)
