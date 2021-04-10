@@ -9,6 +9,7 @@ TagManager:
   - Shelf
   - Floor
   - Place
+  - Leaves
   layers:
   - Default
   - TransparentFX

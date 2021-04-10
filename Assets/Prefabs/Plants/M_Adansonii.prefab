@@ -113,6 +113,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 100
   Houseplant: {fileID: 11400000, guid: d07487692df3aac4b999a5243eebd216, type: 2}
+  StressRemovedOnCare: 0.002
+  Happy: 0
+  InitialLight: 0
+  InitialWater: 0
   Dead: 0
 --- !u!54 &2051967296757575893
 Rigidbody:
@@ -207,18 +211,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8380157826906577798, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
     - target: {fileID: -6902573867230041995, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6cb3bad0ac053e946b710f56acf07df4, type: 2}
+    - target: {fileID: -6806371582296420944, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: -6733177361254619370, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
     - target: {fileID: -6261840954105015935, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6cb3bad0ac053e946b710f56acf07df4, type: 2}
+    - target: {fileID: -6050306741017434910, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
     - target: {fileID: -5688007039953480251, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6cb3bad0ac053e946b710f56acf07df4, type: 2}
+    - target: {fileID: -5568371526223589888, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
     - target: {fileID: -5002236332296424732, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -227,6 +251,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6cb3bad0ac053e946b710f56acf07df4, type: 2}
+    - target: {fileID: -2433276712465746607, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
     - target: {fileID: -2337371306532120316, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -255,6 +283,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6cb3bad0ac053e946b710f56acf07df4, type: 2}
+    - target: {fileID: 3521444054342101817, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730912016929990331, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228446132644076753, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
     - target: {fileID: 5054566408310241595, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -263,6 +303,22 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6cb3bad0ac053e946b710f56acf07df4, type: 2}
+    - target: {fileID: 5928366638493165460, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492467318558918522, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 6592908655757965070, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 7127177212036840151, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
     - target: {fileID: 7202271454713460447, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -271,6 +327,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6cb3bad0ac053e946b710f56acf07df4, type: 2}
+    - target: {fileID: 8628665689840024274, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81137a32a5c5e3e44b3f5b45532dba0e, type: 3}
 --- !u!4 &701626286582450152 stripped

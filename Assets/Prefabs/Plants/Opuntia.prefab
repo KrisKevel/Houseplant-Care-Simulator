@@ -108,6 +108,7 @@ MonoBehaviour:
   StressRemovedOnCare: 0.002
   Happy: 0
   InitialLight: 0
+  InitialWater: 0
   Dead: 0
 --- !u!54 &7091183820492927402
 Rigidbody:
@@ -225,6 +226,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a7a8333824c6c394595ea7688c7b4669, type: 3}
       propertyPath: m_Name
       value: opuntia
+      objectReference: {fileID: 0}
+    - target: {fileID: 8071484723548983626, guid: a7a8333824c6c394595ea7688c7b4669, type: 3}
+      propertyPath: m_TagString
+      value: Leaves
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a8333824c6c394595ea7688c7b4669, type: 3}

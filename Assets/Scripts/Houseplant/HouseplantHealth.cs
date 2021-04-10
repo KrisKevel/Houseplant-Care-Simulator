@@ -34,7 +34,7 @@ public class HouseplantHealth : MonoBehaviour
         if (InitialWater == 0)
         {
             _currentWaterLevel = Houseplant.WaterRequirement;
-        } 
+        }
         else
         {
             _currentWaterLevel = InitialWater;
@@ -93,8 +93,7 @@ public class HouseplantHealth : MonoBehaviour
         Health -= Houseplant.DamageRate;
         if (Health < 0)
         {
-            Dead = true;
-            UpdateStress(Houseplant.StressAddedOnDeath);
+            SimulatePlantDeath();
         }
         else
         {
@@ -158,5 +157,18 @@ public class HouseplantHealth : MonoBehaviour
     public void TossThePlant()
     {
         Destroy(gameObject);
+    }
+
+    public void SimulatePlantDeath()
+    {
+        Dead = true;
+        foreach (MeshRenderer renderer in gameObject.GetComponentsInChildren<MeshRenderer>())
+        {
+            if (renderer.gameObject.tag == "Leaves")
+            {
+                renderer.enabled = false;
+            }
+        }
+        UpdateStress(Houseplant.StressAddedOnDeath);
     }
 }
