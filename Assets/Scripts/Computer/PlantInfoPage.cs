@@ -7,9 +7,12 @@ using TMPro;
 public class PlantInfoPage : MonoBehaviour
 {
     public Image PlantImage;
+    public TextMeshProUGUI ContentField;
+    public LayoutElement WaterLayoutElement;
+    public LayoutElement LightLayoutElement;
+    public int CharacterWrapLimit;
 
     private TextMeshProUGUI _name;
-    private TextMeshProUGUI _generalName;
     private TextMeshProUGUI _generalInfo;
     private TextMeshProUGUI _wateringName;
     private TextMeshProUGUI _wateringInfo;
@@ -22,10 +25,10 @@ public class PlantInfoPage : MonoBehaviour
         TextMeshProUGUI[] texts = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
         _name = texts[0];
         _generalInfo = texts[2];
-        _wateringName = texts[4];
-        _wateringInfo = texts[5];
-        _lightName = texts[7];
-        _lightinfo = texts[8];
+        _wateringName = texts[5];
+        _wateringInfo = texts[4];
+        _lightName = texts[8];
+        _lightinfo = texts[7];
         gameObject.SetActive(false);
     }
 
@@ -38,6 +41,7 @@ public class PlantInfoPage : MonoBehaviour
     {
         LoadInfo(data);
         UpdateColors(data);
+        SetLayout();
         gameObject.SetActive(true);
     }
 
@@ -98,5 +102,14 @@ public class PlantInfoPage : MonoBehaviour
             _lightName.text = "[ Sunny ]";
             _lightName.color = Color.yellow;
         }
+    }
+
+    private void SetLayout()
+    {
+        int waterContentLenght = _wateringInfo.text.Length;
+        int lightContentLenght = _lightinfo.text.Length;
+
+        LightLayoutElement.enabled = lightContentLenght > CharacterWrapLimit ? true : false;
+        WaterLayoutElement.enabled = waterContentLenght > CharacterWrapLimit ? true : false;
     }
 }
