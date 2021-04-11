@@ -7,6 +7,8 @@ public class SleepTime : MonoBehaviour
 {
     public StressNotification Notification;
 
+    private int _multiplierModifier = 2;
+
     private void Awake()
     {
         Events.OnToggleSleep += TogglePanel;
@@ -28,12 +30,22 @@ public class SleepTime : MonoBehaviour
         {
             float stressBeforeMorning = GameManager.Instance.GetStress();
             float stress = Random.Range(GameManager.Instance.MinStressFromSleep, GameManager.Instance.MaxStressFromSleep);
-            float multiplier = Random.Range(0, 3) == 1 ? 1 : -1;
-            GameManager.Instance.UpdateStress(multiplier*stress);
+            float multiplier = Random.Range(0, _multiplierModifier) == 0 ? 1 : -1;
+            float morningStress = multiplier * stress;
+            GameManager.Instance.UpdateStress(morningStress);
             
-            if (stressBeforeMorning == 100 && multiplier < 0)
+            if (stressBeforeMorning == 100)
             {
-                Notification.ShowNotification();
+                if (morningStress < 0)
+                {
+                    Notification.ShowNotification();
+                    _multiplierModifier--;
+                }
+                else
+                {
+                    GameManager.Instance.EndGame();
+                    Events.GameOver();
+                }
             }
         }
         gameObject.SetActive(sleeping);

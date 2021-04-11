@@ -975,7 +975,6 @@ GameObject:
   - component: {fileID: 136606663363984694}
   - component: {fileID: 95665039525092722}
   - component: {fileID: 8748688856612009363}
-  - component: {fileID: 959878595144508142}
   m_Layer: 0
   m_Name: MaleFreeSimpleMovement1
   m_TagString: Untagged
@@ -1061,23 +1060,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 2
-  m_turnSpeed: 200
-  m_jumpForce: 4
   m_animator: {fileID: 95665039525092722}
   m_rigidBody: {fileID: 54084939265967506}
   m_controlMode: 1
---- !u!114 &959878595144508142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824340380413090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 993ebae94b4c12b47897c9ac543ae635, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1826566120413068
 GameObject:
   m_ObjectHideFlags: 0
