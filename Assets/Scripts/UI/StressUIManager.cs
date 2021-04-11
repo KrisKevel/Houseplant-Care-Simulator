@@ -9,12 +9,14 @@ public class StressUIManager : MonoBehaviour
     private void Awake()
     {
         Events.OnUpdateStress += UpdateStress;
+        Events.OnHourPassed += UpdateStress;
 
     }
 
     private void OnDestroy()
     {
         Events.OnUpdateStress -= UpdateStress;
+        Events.OnHourPassed -= UpdateStress;
     }
 
     private void UpdateStress()

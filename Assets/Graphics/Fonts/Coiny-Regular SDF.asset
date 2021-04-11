@@ -128,6 +128,48 @@ MonoBehaviour:
       m_Height: 28
     m_Scale: 1
     m_AtlasIndex: 0
+  - m_Index: 11
+    m_Metrics:
+      m_Width: 27.546875
+      m_Height: 85.6875
+      m_HorizontalBearingX: 5.84375
+      m_HorizontalBearingY: 71.640625
+      m_HorizontalAdvance: 39.0625
+    m_GlyphRect:
+      m_X: 85
+      m_Y: 526
+      m_Width: 29
+      m_Height: 87
+    m_Scale: 1
+    m_AtlasIndex: 0
+  - m_Index: 12
+    m_Metrics:
+      m_Width: 27.625
+      m_Height: 85.6875
+      m_HorizontalBearingX: 6.84375
+      m_HorizontalBearingY: 71.640625
+      m_HorizontalAdvance: 36.8125
+    m_GlyphRect:
+      m_X: 10
+      m_Y: 608
+      m_Width: 29
+      m_Height: 87
+    m_Scale: 1
+    m_AtlasIndex: 0
+  - m_Index: 14
+    m_Metrics:
+      m_Width: 41.75
+      m_Height: 41.75
+      m_HorizontalBearingX: 3.875
+      m_HorizontalBearingY: 41.9375
+      m_HorizontalAdvance: 49.6875
+    m_GlyphRect:
+      m_X: 812
+      m_Y: 234
+      m_Width: 43
+      m_Height: 42
+    m_Scale: 1
+    m_AtlasIndex: 0
   - m_Index: 15
     m_Metrics:
       m_Width: 21.59375
@@ -632,6 +674,20 @@ MonoBehaviour:
       m_Height: 63
     m_Scale: 1
     m_AtlasIndex: 0
+  - m_Index: 57
+    m_Metrics:
+      m_Width: 58.953125
+      m_Height: 62.1875
+      m_HorizontalBearingX: 3.953125
+      m_HorizontalBearingY: 61.5625
+      m_HorizontalAdvance: 67.6875
+    m_GlyphRect:
+      m_X: 874
+      m_Y: 234
+      m_Width: 60
+      m_Height: 63
+    m_Scale: 1
+    m_AtlasIndex: 0
   - m_Index: 58
     m_Metrics:
       m_Width: 82.515625
@@ -1066,62 +1122,6 @@ MonoBehaviour:
       m_Height: 15
     m_Scale: 1
     m_AtlasIndex: 0
-  - m_Index: 11
-    m_Metrics:
-      m_Width: 27.546875
-      m_Height: 85.6875
-      m_HorizontalBearingX: 5.84375
-      m_HorizontalBearingY: 71.640625
-      m_HorizontalAdvance: 39.0625
-    m_GlyphRect:
-      m_X: 85
-      m_Y: 526
-      m_Width: 29
-      m_Height: 87
-    m_Scale: 1
-    m_AtlasIndex: 0
-  - m_Index: 12
-    m_Metrics:
-      m_Width: 27.625
-      m_Height: 85.6875
-      m_HorizontalBearingX: 6.84375
-      m_HorizontalBearingY: 71.640625
-      m_HorizontalAdvance: 36.8125
-    m_GlyphRect:
-      m_X: 10
-      m_Y: 608
-      m_Width: 29
-      m_Height: 87
-    m_Scale: 1
-    m_AtlasIndex: 0
-  - m_Index: 14
-    m_Metrics:
-      m_Width: 41.75
-      m_Height: 41.75
-      m_HorizontalBearingX: 3.875
-      m_HorizontalBearingY: 41.9375
-      m_HorizontalAdvance: 49.6875
-    m_GlyphRect:
-      m_X: 812
-      m_Y: 234
-      m_Width: 43
-      m_Height: 42
-    m_Scale: 1
-    m_AtlasIndex: 0
-  - m_Index: 57
-    m_Metrics:
-      m_Width: 58.953125
-      m_Height: 62.1875
-      m_HorizontalBearingX: 3.953125
-      m_HorizontalBearingY: 61.5625
-      m_HorizontalAdvance: 67.6875
-    m_GlyphRect:
-      m_X: 874
-      m_Y: 234
-      m_Width: 60
-      m_Height: 63
-    m_Scale: 1
-    m_AtlasIndex: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -1134,6 +1134,18 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 39
     m_GlyphIndex: 10
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 40
+    m_GlyphIndex: 11
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 41
+    m_GlyphIndex: 12
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 43
+    m_GlyphIndex: 14
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 44
@@ -1280,6 +1292,10 @@ MonoBehaviour:
     m_GlyphIndex: 56
     m_Scale: 1
   - m_ElementType: 1
+    m_Unicode: 86
+    m_GlyphIndex: 57
+    m_Scale: 1
+  - m_ElementType: 1
     m_Unicode: 87
     m_GlyphIndex: 58
     m_Scale: 1
@@ -1402,22 +1418,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8230
     m_GlyphIndex: 475
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 40
-    m_GlyphIndex: 11
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 41
-    m_GlyphIndex: 12
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 43
-    m_GlyphIndex: 14
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 86
-    m_GlyphIndex: 57
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -9205332009156492377}
@@ -2109,7 +2109,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.309
+    - _OutlineWidth: 0.4
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
