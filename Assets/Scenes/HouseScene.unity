@@ -8274,7 +8274,7 @@ MonoBehaviour:
   ContentField: {fileID: 1943698515}
   LayoutElement: {fileID: 877219180}
   PinToTheCorner: 1
-  CharacterWrapLimit: 80
+  CharacterWrapLimit: 100
 --- !u!114 &877219180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8290,7 +8290,7 @@ MonoBehaviour:
   m_IgnoreLayout: 0
   m_MinWidth: -1
   m_MinHeight: -1
-  m_PreferredWidth: 500
+  m_PreferredWidth: 570
   m_PreferredHeight: -1
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
