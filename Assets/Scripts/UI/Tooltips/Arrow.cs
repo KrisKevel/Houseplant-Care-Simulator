@@ -15,15 +15,15 @@ public class Arrow : MonoBehaviour
             return; 
         }
 
-        Vector2 offset = new Vector3(-40, 120);
+        Vector2 offset = new Vector3(-80, 210);
 
         if (rotate)
         {
+            offset += new Vector2(110, -50);
             gameObject.transform.rotation = new Quaternion(0, 180, -43.072f, 0);
         }
         else
         {
-            offset += new Vector2(50, 50);
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
 
