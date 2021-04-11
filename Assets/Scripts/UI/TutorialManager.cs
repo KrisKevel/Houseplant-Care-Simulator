@@ -41,7 +41,6 @@ public class TutorialManager : MonoBehaviour
                 ShowShop();
                 break;
             case 2:
-            case 10:
             case 14:
                 break;
             case 3:
@@ -65,6 +64,9 @@ public class TutorialManager : MonoBehaviour
                 break;
             case 9:
                 ShowPlantipedia();
+                break;
+            case 10:
+                OpenPlantInfoPage();
                 break;
             case 12:
                 ClickThePlant();
@@ -169,6 +171,15 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+    public void OpenPlantInfoPage()
+    {
+        GameObject plantInfo = GameObject.Find("PlantInfo");
+        if (plantInfo != null && plantInfo.activeSelf)
+        {
+            NextHint();
+        }
+    }
+
     private void ShowComputer()
     {
         // Once welcome screen open, next
@@ -183,7 +194,9 @@ public class TutorialManager : MonoBehaviour
     {
         // Once Plantipedia open, next
         GameObject plantipedia = GameObject.Find("Plantipedia");
-        if (plantipedia != null && plantipedia.activeSelf)
+        GameObject plantInfo = GameObject.Find("PlantInfo");
+        if (plantipedia != null && plantipedia.activeSelf ||
+            plantInfo != null && plantInfo.activeSelf)
         {
             NextHint();
         }
@@ -208,7 +221,7 @@ public class TutorialManager : MonoBehaviour
 
     private void CheckLightLevel()
     {
-        if (FirstPlant.gameObject.GetComponent<HouseplantHealth>().GetLightLevel() == 65)
+        if (FirstPlant.gameObject.GetComponent<HouseplantHealth>().GetLightLevel() == 68)
         {
             NextHint();
         }
