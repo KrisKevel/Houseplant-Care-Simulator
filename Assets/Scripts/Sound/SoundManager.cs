@@ -9,6 +9,7 @@ public class SoundManager: MonoBehaviour
     private AudioSource _musicSource;
     private Sound _themeSong;
     private AudioClip _nextMusicClip;
+    private float _timeout = 0f;
 
     public enum Sound
     {
@@ -22,7 +23,7 @@ public class SoundManager: MonoBehaviour
     {
         Instance = this;
         _musicSource = GetComponent<AudioSource>();
-        Events.OnHourPassed += SetThemeSong;
+        Events.OnUpdateStress += SetThemeSong;
     }
 
     private void Start()
@@ -33,7 +34,15 @@ public class SoundManager: MonoBehaviour
 
     private void OnDestroy()
     {
-        Events.OnHourPassed -= SetThemeSong;
+        Events.OnUpdateStress -= SetThemeSong;
+    }
+
+    private void Update()
+    {
+        if (_timeout > 0)
+        {
+            _timeout -= Time.deltaTime;
+        }
     }
 
     public void PlaySound(Sound sound)
@@ -63,6 +72,7 @@ public class SoundManager: MonoBehaviour
 
     private void SetThemeSong()
     {
+        if (_timeout > 0) { return; }
         float stress = GameManager.Instance.GetStress();
         AudioClip newSong;
 
@@ -87,6 +97,7 @@ public class SoundManager: MonoBehaviour
         {
             ChangeMusicClip(newSong);
         }
+        _timeout = 5f;
     }
 
     public void PlayThemeSong()

@@ -5,6 +5,8 @@ using TMPro;
 
 public class SleepTime : MonoBehaviour
 {
+    public StressNotification Notification;
+
     private void Awake()
     {
         Events.OnToggleSleep += TogglePanel;
@@ -24,7 +26,15 @@ public class SleepTime : MonoBehaviour
     {
         if (!sleeping)
         {
-            GameManager.Instance.UpdateStress(Random.Range(GameManager.Instance.MinStressFromSleep, GameManager.Instance.MaxStressFromSleep));
+            float stressBeforeMorning = GameManager.Instance.GetStress();
+            float stress = Random.Range(GameManager.Instance.MinStressFromSleep, GameManager.Instance.MaxStressFromSleep);
+            float multiplier = Random.Range(0, 3) == 1 ? 1 : -1;
+            GameManager.Instance.UpdateStress(multiplier*stress);
+            
+            if (stressBeforeMorning == 100 && multiplier < 0)
+            {
+                Notification.ShowNotification();
+            }
         }
         gameObject.SetActive(sleeping);
     }

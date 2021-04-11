@@ -42,7 +42,8 @@ public class DeliveryPanel : MonoBehaviour
 
         foreach (KeyVal<HouseplantData, int> pair in toBeDelivered)
         {
-            result += pair.key.HouseplantName + " will arrive in " + pair.value + " days\n";
+            string days = pair.value == 1 ? " day " : " days ";
+            result += pair.key.HouseplantName + " will arrive in " + pair.value + days + "\n";
         }
 
         return result;
