@@ -9900,7 +9900,7 @@ MonoBehaviour:
       to proceed.
     ObjectToPointAt: {fileID: 608106363}
   - Header: Watering plants
-    Content: This plant is looking rather thursty... Go on, <color=#FFEB04>water</color>
+    Content: This plant is looking rather thirsty... Go on, <color=#FFEB04>water</color>
       it!
     ObjectToPointAt: {fileID: 1453954064}
   - Header: Light levels
