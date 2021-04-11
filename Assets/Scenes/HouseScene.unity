@@ -21319,7 +21319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RadiusOfInteraction: 1
-  Light: 65
+  Light: 68
 --- !u!1 &2108096127
 GameObject:
   m_ObjectHideFlags: 0

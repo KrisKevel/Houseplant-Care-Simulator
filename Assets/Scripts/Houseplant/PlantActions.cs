@@ -33,7 +33,8 @@ public class PlantActions : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonDown(1))
                 {
-                    Events.PlacePlant(hit.point);
+                    Events.RightClickPlant(ray);
+                    StartCoroutine(PlacePlant(hit.point));
                 }
             }
         }
@@ -73,6 +74,20 @@ public class PlantActions : MonoBehaviour
         }
 
         Events.PickUpPlant(plant);
+        yield break;
+    }
+
+    private IEnumerator PlacePlant(Vector3 point)
+    {
+        GameObject player = GameObject.Find("Player").gameObject;
+
+        while (Vector3.Distance(player.transform.position, point) > GameManager.Instance.AOE ||
+            player.GetComponent<NavMeshAgent>().velocity.magnitude != 0)
+        {
+            yield return null;
+        }
+
+        Events.PlacePlant(point);
         yield break;
     }
 }
