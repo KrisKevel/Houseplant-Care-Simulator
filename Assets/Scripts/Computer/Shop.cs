@@ -14,7 +14,6 @@ public class Shop : MonoBehaviour
     {
         Events.OnOpenShop += OpenPanel;
         Events.OnBuyPlant += UpdateFunds;
-        Events.OnUseComputer += UpdateFunds;
         Events.OnInsufficientFunds += NotifyOfInsufficientFunds;
         Events.OnUseComputer += LoadShop;
     }
@@ -30,7 +29,6 @@ public class Shop : MonoBehaviour
         Events.OnOpenShop -= OpenPanel;
         Events.OnInsufficientFunds -= NotifyOfInsufficientFunds;
         Events.OnBuyPlant -= UpdateFunds;
-        Events.OnUseComputer -= UpdateFunds;
         Events.OnUseComputer -= LoadShop;
     }
 
@@ -85,5 +83,7 @@ public class Shop : MonoBehaviour
             tile.transform.SetParent(Content.transform, false);
             tile.GetComponent<ShopTile>().Plant = plant;
         }
+
+        UpdateFunds();
     }
 }

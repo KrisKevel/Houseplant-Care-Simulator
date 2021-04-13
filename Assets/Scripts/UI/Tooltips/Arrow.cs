@@ -6,6 +6,17 @@ using UnityEngine.UI;
 public class Arrow : MonoBehaviour
 {
     public GameObject ObjectToPointAt;
+    public Canvas TooltipCanvas;
+    public float yOffset;
+    public float xOffset;
+
+    public Rect screenRes;
+
+    void Awake()
+    {
+        screenRes.x = Screen.width;
+        screenRes.y = Screen.height;
+    }
 
     public void SetObject(GameObject objectToPointAt, bool rotate)
     {
@@ -15,19 +26,23 @@ public class Arrow : MonoBehaviour
             return; 
         }
 
-        Vector2 offset = new Vector3(-80, 210);
+        float _xOffset;
+        float _yOffset;
 
         if (rotate)
         {
-            offset += new Vector2(110, -50);
+            _xOffset = -screenRes.x * (xOffset+0.01f);
+            _yOffset = screenRes.y * (yOffset-0.05f);
             gameObject.transform.rotation = new Quaternion(0, 180, -43.072f, 0);
         }
         else
         {
+            _xOffset = screenRes.x * xOffset;
+            _yOffset = screenRes.y * yOffset;
             gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
         }
 
-        Vector2 canvasPos;
+        Vector3 canvasPos;
 
         if (ObjectToPointAt.GetComponent<RectTransform>() == null)
         {
@@ -38,7 +53,10 @@ public class Arrow : MonoBehaviour
             canvasPos = ObjectToPointAt.transform.position;
         }
 
-        gameObject.transform.position = canvasPos + offset;
+        canvasPos.x += _xOffset;
+        canvasPos.y += _yOffset;
+
+        transform.position = canvasPos;
         ShowArrow();
     }
 
