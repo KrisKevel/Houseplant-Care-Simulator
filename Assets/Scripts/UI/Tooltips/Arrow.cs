@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Arrow : MonoBehaviour
 {
-    public GameObject ObjectToPointAt;
-    public Canvas TooltipCanvas;
     public float yOffset;
     public float xOffset;
 
+    [HideInInspector]
+    public GameObject ObjectToPointAt;
+    [HideInInspector]
     public Rect screenRes;
 
     void Awake()
