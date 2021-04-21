@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
     public bool GameIsGoing;
     public float CarpetLight = 30f;
     public GameState CurrentState = GameState.tutorial;
+    public bool UIPanelUp = false;
 
     private void Awake()
     {

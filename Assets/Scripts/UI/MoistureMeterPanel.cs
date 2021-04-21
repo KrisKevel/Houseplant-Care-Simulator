@@ -15,6 +15,7 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
     public Image Health;
 
     private HouseplantHealth _houseplant;
+    private bool _panelEnabled = false;
 
     private bool _waterButtonPressed = false;
     private bool _mouseIsOver = false;
@@ -24,6 +25,7 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
         EventSystem.current.SetSelectedGameObject(gameObject);
 
         Events.OnOpenMoistureMeter += OpenMenu;
+        Events.OnEnableMoistureMeter += EnablePanel;
         gameObject.SetActive(false);
     }
 
@@ -41,6 +43,7 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
     private void OnDestroy()
     {
         Events.OnOpenMoistureMeter -= OpenMenu;
+        Events.OnEnableMoistureMeter -= EnablePanel;
     }
 
     //https://answers.unity.com/questions/947856/how-to-detect-click-outside-ui-panel.html?page=1&pageSize=5&sort=votes 
@@ -70,11 +73,13 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
 
     public void OpenMenu(HouseplantHealth houseplant)
     {
+        if (!_panelEnabled) { return; }
         EventSystem.current.SetSelectedGameObject(gameObject);
 
         _houseplant = houseplant;
         transform.position = Input.mousePosition;
         gameObject.SetActive(true);
+        GameManager.Instance.UIPanelUp = true;
 
         UpdateData();
     }
@@ -154,5 +159,10 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
         {
             gameObject.SetActive(false);
         }
+    }
+
+    public void EnablePanel()
+    {
+        _panelEnabled = true;
     }
 }

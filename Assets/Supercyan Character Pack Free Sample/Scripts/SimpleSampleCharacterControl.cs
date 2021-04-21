@@ -54,6 +54,11 @@ public class SimpleSampleCharacterControl : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
+            if (GameManager.Instance.UIPanelUp)
+            {
+                GameManager.Instance.UIPanelUp = false;
+                return;
+            }
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             EnableActorMode(ray);
         }

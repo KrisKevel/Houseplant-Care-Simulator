@@ -26,6 +26,7 @@ public class Monitor : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IP
     void UseComputer()
     {
         gameObject.SetActive(true);
+        GameManager.Instance.UIPanelUp = true;
     }
 
     public void CloseMonitor()

@@ -69,6 +69,10 @@ public class Events
     public static event Action OnHourPassed;
     public static void HourPassed() => OnHourPassed.Invoke();
 
+    // Event invoked to enable moisture meter (post-tutorial)
+    public static event Action OnEnableMoistureMeter;
+    public static void EnableMoistureMeter() => OnEnableMoistureMeter.Invoke();
+
     // Event invoked once tutorial is over
     public static event Action<Vector3> OnPlacePlant;
     public static void PlacePlant(Vector3 clickPos) => OnPlacePlant.Invoke(clickPos);

@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 89
 --- !u!1 &32923261
 GameObject:
@@ -912,7 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 61
 --- !u!1 &59971799
 GameObject:
@@ -10111,7 +10111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 87
 --- !u!1 &1027071007
 GameObject:
@@ -12689,7 +12689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 85
 --- !u!1 &1257337727
 GameObject:
@@ -12734,7 +12734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 45
 --- !u!1 &1269893941
 GameObject:
@@ -13006,7 +13006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 60
 --- !u!1 &1309085038
 GameObject:
@@ -13761,7 +13761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 57
 --- !u!1 &1375601122
 GameObject:
@@ -16833,7 +16833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 40
 --- !u!1 &1620389767
 GameObject:
@@ -20566,10 +20566,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc55670f59a464498c160aad9a0d0cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectToPointAt: {fileID: 0}
-  TooltipCanvas: {fileID: 561739417}
   yOffset: 0.18
   xOffset: -0.03
+  ObjectToPointAt: {fileID: 0}
   screenRes:
     serializedVersion: 2
     x: 0
@@ -21345,7 +21344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d358ee650ca33bd489116cc63329f79e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RadiusOfInteraction: 1
+  RadiusOfInteraction: 0.5
   Light: 48
 --- !u!1 &2088149724
 GameObject:

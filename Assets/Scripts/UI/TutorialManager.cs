@@ -100,6 +100,10 @@ public class TutorialManager : MonoBehaviour
         {
             _step++;
             _currentHint = Hints[_step];
+            if (_step == 12)
+            {
+                Events.EnableMoistureMeter();
+            }
             Arrow.SetObject(_currentHint.ObjectToPointAt, _step == 6);
             TutorialStep.SetText(_currentHint.Content, _currentHint.Header);
         }
@@ -113,6 +117,7 @@ public class TutorialManager : MonoBehaviour
     {
         Arrow.gameObject.SetActive(false);
         FirstPlant.SetActive(true);
+        Events.EnableMoistureMeter();
         GameManager.Instance.StartGame();
         TutorialStep.gameObject.SetActive(false);
         gameObject.SetActive(false);
