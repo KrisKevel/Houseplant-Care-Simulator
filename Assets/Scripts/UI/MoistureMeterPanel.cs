@@ -20,6 +20,10 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
     private bool _waterButtonPressed = false;
     private bool _mouseIsOver = false;
 
+    private float _defaultWaterAddedPerFrame = 0.02f;
+    private float _waterAddedPerFrame = 0.02f;
+    private float _waterAddedPerFrameAccel = 0.00001f;
+
     private void Awake()
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
@@ -33,7 +37,8 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
     {
         if (_waterButtonPressed)
         {
-            _houseplant.IncreaseWaterLevel();
+            _houseplant.IncreaseWaterLevel(_waterAddedPerFrame);
+            _waterAddedPerFrame += _waterAddedPerFrameAccel; 
         }
 
         UpdateData();
@@ -146,6 +151,7 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
     public void WaterButtonUp()
     {
         _waterButtonPressed = false;
+        _waterAddedPerFrame = _defaultWaterAddedPerFrame;
     }
     
     public void CheckDistanceToPlayer()

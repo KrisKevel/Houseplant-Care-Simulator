@@ -41,7 +41,6 @@ public class TutorialManager : MonoBehaviour
                 ShowShop();
                 break;
             case 2:
-            case 14:
                 break;
             case 3:
             case 11:
@@ -74,6 +73,9 @@ public class TutorialManager : MonoBehaviour
             case 13:
             case 16:
                 SpaceButton();
+                break;
+            case 14:
+                WaterPlant();
                 break;
             case 15:
                 CloseStats();
@@ -154,8 +156,8 @@ public class TutorialManager : MonoBehaviour
 
     public void WaterPlant()
     {
-        // Once watering button clicked, next
-        if (_step == 14)
+        // Once water level at 70, next
+        if (FirstPlant.GetComponent<HouseplantHealth>().GetWaterLevel() >= 75)
         {
             NextHint();
         }

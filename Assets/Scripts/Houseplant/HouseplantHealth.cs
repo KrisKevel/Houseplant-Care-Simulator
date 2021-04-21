@@ -112,10 +112,10 @@ public class HouseplantHealth : MonoBehaviour
         _currentWaterLevel = Mathf.Clamp(_currentWaterLevel - Houseplant.WaterConsumption, 0, 100);
     }
 
-    public void IncreaseWaterLevel()
+    public void IncreaseWaterLevel(float diff)
     {
         GameManager.Instance.UpdateStress(-StressRemovedOnCare);
-        _currentWaterLevel = Mathf.Clamp(_currentWaterLevel + 0.05f, 0, 100);
+        _currentWaterLevel = Mathf.Clamp(_currentWaterLevel + diff, 0, 100);
     }
 
     public float GetWaterLevel()
