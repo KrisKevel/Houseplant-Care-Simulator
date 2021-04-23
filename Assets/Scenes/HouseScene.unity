@@ -3791,7 +3791,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 299558354}
   m_HandleRect: {fileID: 299558353}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -10143,79 +10143,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88859fbf322399b4da0510c1303952f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TutorialStep: {fileID: 877219179}
+  Tooltip: {fileID: 877219179}
   Hints:
-  - Header: Hey there!
+  - Ordinal: 0
+    Header: Hey there!
     Content: Let's start Eric on his plant adventure with his first plant! To get
       it, use the computer by <color=#FFEB04>left-clicking</color> on it!
     ObjectToPointAt: {fileID: 1184829993}
-  - Header: Need more plants?
+  - Ordinal: 1
+    Header: Need more plants?
     Content: If you ever feel like you need some more greenery in the room, <color=#FFEB04>shop</color>
       is the place to be!
     ObjectToPointAt: {fileID: 207714223}
-  - Header: The shop
+  - Ordinal: 2
+    Header: The shop
     Content: Here you can order a variety of houseplants! Keep in mind, they will
       take some days to arrive. To order a plant, click the <color=#FFEB04>[Order]</color>
       button.
     ObjectToPointAt: {fileID: 0}
-  - Header: Leave the computer
+  - Ordinal: 3
+    Header: Leave the computer
     Content: Now you just need to wait for it to arrive! To leave the computer, press
       <color=#FFEB04>[Log out]</color> or <color=#FFEB04>left-click</color> outside
       the computer window.
     ObjectToPointAt: {fileID: 0}
-  - Header: Delivery
+  - Ordinal: 4
+    Header: Delivery
     Content: Usually you would need to wait for a day for the Fittonia to arrive...
       But to speed it up this time around, you can just press <color=#FFEB04>[Space]</color>.
     ObjectToPointAt: {fileID: 0}
-  - Header: New plant
+  - Ordinal: 5
+    Header: New plant
     Content: Here is Eric's new plant! To pick it up, <color=#FFEB04>right-click</color>
       on it.
     ObjectToPointAt: {fileID: 2127074580}
-  - Header: New plant
+  - Ordinal: 6
+    Header: New plant
     Content: Let's place it next to the computer. To place, <color=#FFEB04>right-click</color>
       on the place where you want to place the plant.
     ObjectToPointAt: {fileID: 2102795986}
-  - Header: How does one care for a plant?
+  - Ordinal: 7
+    Header: How does one care for a plant?
     Content: Let's check out Plantipedia! Back to the <color=#FFEB04>computer</color>
       we go...
     ObjectToPointAt: {fileID: 0}
-  - Header: Back to the welcome screen
+  - Ordinal: 8
+    Header: Back to the welcome screen
     Content: Press <color=#FFEB04>[x]</color> to get back to the welcome screen.
     ObjectToPointAt: {fileID: 678024983}
-  - Header: Plantipedia
+  - Ordinal: 9
+    Header: Plantipedia
     Content: To open Plantipedia, click on the <color=#FFEB04>Plantipedia</color>
       button.
     ObjectToPointAt: {fileID: 1815277321}
-  - Header: Plantipedia
+  - Ordinal: 10
+    Header: Plantipedia
     Content: Here you can read up on how to care for some houseplants! Press the
       <color=#FFEB04>[Learn more]</color> button to read about Fittonia.
     ObjectToPointAt: {fileID: 0}
-  - Header: Fittonia albivenis
+  - Ordinal: 11
+    Header: Fittonia albivenis
     Content: Hmmm.. Looks like we placed it in a great spot - <color=#FFEB04>light
       but no direct sun</color>. It does need to be kept moist (soil needs to be
       <color=#0A10CF>wet</color> but don't drown it entirely). Let's see how we can
       use the info we just got! Click out or <color=#FFEB04>[Log out]</color> to
       continue.
     ObjectToPointAt: {fileID: 0}
-  - Header: Plant health
+  - Ordinal: 12
+    Header: Plant health
     Content: It's important to know how your plant is doing. To check up on plant's
       well-being, <color=#FFEB04>left-click</color> on it!
     ObjectToPointAt: {fileID: 0}
-  - Header: Soil moisture level
+  - Ordinal: 13
+    Header: Soil moisture level
     Content: With the help of a moisture meter you can figure out if your plant needs
       watering. Beware, every plant has different needs when it comes to water. <color=#FFEB04>[Space]</color>
       to proceed.
     ObjectToPointAt: {fileID: 608106363}
-  - Header: Watering plants
+  - Ordinal: 14
+    Header: Watering plants
     Content: This plant is looking rather thirsty... Go on, <color=#FFEB04>water</color>
       it!
     ObjectToPointAt: {fileID: 1453954064}
-  - Header: Light levels
+  - Ordinal: 15
+    Header: Light levels
     Content: Plants have different light requirements too! Here you can see how much
       light your plant is getting. <color=#FFEB04>Left-click</color> outside this
       panel to proceed.
     ObjectToPointAt: {fileID: 1621286401}
-  - Header: I swear it's the last one!
+  - Ordinal: 16
+    Header: I swear it's the last one!
     Content: Keep your plants happy to keep the stress levels down. <color=#FFEB04>[Space]</color>
       to start the game.
     ObjectToPointAt: {fileID: 0}

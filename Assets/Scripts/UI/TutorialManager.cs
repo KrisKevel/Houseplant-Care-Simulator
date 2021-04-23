@@ -5,94 +5,34 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-    public Tooltip TutorialStep;
+    public Tooltip Tooltip;
     public Hint[] Hints;
     public Arrow Arrow;
     public GameObject FirstPlant;
+    
     private int _step;
-    private Hint _currentHint;
+    private TutorialStep _currentStep;
+    private Dictionary<int, TutorialStep> _stepMap;
 
     // Start is called before the first frame update
     void Start()
     {
         GameManager.Instance.GameIsGoing = false;
+
+        InitializeSteps();
+
         _step = -1;
         NextHint();
-        TutorialStep.gameObject.SetActive(true);
-        Events.OnBringUpPlantInfo += OpenPlantPage;
-        Events.OnBuyPlant += PurchasePlant;
-    }
 
-    private void OnDestroy()
-    {
-        Events.OnBringUpPlantInfo -= OpenPlantPage;
-        Events.OnBuyPlant -= PurchasePlant;
+        Tooltip.gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (_step)
+        if (_currentStep.CheckIfCompleted())
         {
-            case 0:
-                ShowComputer();
-                break;
-            case 1:
-                ShowShop();
-                break;
-            case 2:
-                break;
-            case 3:
-            case 11:
-                LeaveShop();
-                break;
-            case 4:
-                ShowPlant();
-                break;
-            case 5:
-                CheckDestination();
-                break;
-            case 6:
-                CheckLightLevel();
-                break;
-            case 7:
-                ShowComputer();
-                break;
-            case 8:
-                ShowClosed();
-                break;
-            case 9:
-                ShowPlantipedia();
-                break;
-            case 10:
-                OpenPlantInfoPage();
-                break;
-            case 12:
-                ClickThePlant();
-                break;
-            case 13:
-            case 16:
-                SpaceButton();
-                break;
-            case 14:
-                WaterPlant();
-                break;
-            case 15:
-                CloseStats();
-                break;
-            default:
-                StartTheGame();
-                break;
-        }
-
-        if (_currentHint.ObjectToPointAt != null &&
-            _currentHint.ObjectToPointAt.activeInHierarchy)
-        {
-            Arrow.ShowArrow();
-        }
-        else
-        {
-            Arrow.HideArrow();
+            NextHint();
         }
     }
 
@@ -101,13 +41,23 @@ public class TutorialManager : MonoBehaviour
         if (_step < Hints.Length - 1)
         {
             _step++;
-            _currentHint = Hints[_step];
+            _currentStep = _stepMap[_step];
             if (_step == 12)
             {
                 Events.EnableMoistureMeter();
             }
-            Arrow.SetObject(_currentHint.ObjectToPointAt, _step == 6);
-            TutorialStep.SetText(_currentHint.Content, _currentHint.Header);
+            Arrow.SetObject(_currentStep.Hint.ObjectToPointAt, _step == 6);
+            Tooltip.SetText(_currentStep.Hint.Content, _currentStep.Hint.Header);
+
+            if (_currentStep.Hint.ObjectToPointAt != null &&
+            _currentStep.Hint.ObjectToPointAt.activeInHierarchy)
+            {
+                Arrow.ShowArrow();
+            }
+            else
+            {
+                Arrow.HideArrow();
+            }
         }
         else
         {
@@ -121,151 +71,49 @@ public class TutorialManager : MonoBehaviour
         FirstPlant.SetActive(true);
         Events.EnableMoistureMeter();
         GameManager.Instance.StartGame();
-        TutorialStep.gameObject.SetActive(false);
+        Tooltip.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
 
-    private void ClickThePlant()
+    private void InitializeSteps()
     {
-        // If plant status panel open, next
-        GameObject plantStats = GameObject.Find("PlantStats");
-        if (plantStats != null && plantStats.activeSelf)
+        InitializeStepMap();
+
+        foreach (Hint hint in Hints)
         {
-            NextHint();
+            _stepMap[hint.Ordinal].Hint = hint;
+            _stepMap[hint.Ordinal].FirstPlant = FirstPlant;
         }
     }
 
-    private void CloseStats()
+    private void InitializeStepMap()
     {
-        // If plant status panel open, next
-        GameObject plantStats = GameObject.Find("PlantStats");
-        if (plantStats == null || !plantStats.activeSelf)
+        _stepMap = new Dictionary<int, TutorialStep>
         {
-            NextHint();
-        }
+            { 0, new ShowComputerStep() },
+            { 1, new ShopIntroStep() },
+            { 2, new ShopDescStep() },
+            { 3, new LeaveComputerStep() },
+            { 4, new DeliveryIntroStep() },
+            { 5, new PickUpPlantStep() },
+            { 6, new PlacePlantStep() },
+            { 7, new ShowComputerStep() },
+            { 8, new ShopClosedStep() },
+            { 9, new ShowPlantipediaStep() },
+            { 10, new ShowPlantInfoStep() },
+            { 11, new LeaveComputerStep() },
+            { 12, new ShowPlantStatsStep() },
+            { 13, new SpaceStep() },
+            { 14, new WaterPlantStep() },
+            { 15, new ClosePlantStatsStep() },
+            { 16, new SpaceStep() },
+        };
     }
-
-    private void SpaceButton()
-    {
-        // On Enter, next
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            NextHint();
-        }
-    }
-
-    public void WaterPlant()
-    {
-        // Once water level at 70, next
-        if (FirstPlant.GetComponent<HouseplantHealth>().GetWaterLevel() >= 75)
-        {
-            NextHint();
-        }
-    }
-
-    public void PurchasePlant(GameObject plant)
-    {
-        if (_step == 2)
-        {
-            NextHint();
-        }
-    }
-    public void OpenPlantPage(HouseplantData houseplant)
-    {
-        if (_step == 10)
-        {
-            NextHint();
-        }
-    }
-
-    public void OpenPlantInfoPage()
-    {
-        GameObject plantInfo = GameObject.Find("PlantInfo");
-        if (plantInfo != null && plantInfo.activeSelf)
-        {
-            NextHint();
-        }
-    }
-
-    private void ShowComputer()
-    {
-        // Once welcome screen open, next
-        GameObject monitor = GameObject.Find("WelcomeText");
-        if (monitor != null && monitor.activeSelf)
-        {
-            NextHint();
-        }
-    }
-
-    private void ShowPlantipedia()
-    {
-        // Once Plantipedia open, next
-        GameObject plantipedia = GameObject.Find("Plantipedia");
-        GameObject plantInfo = GameObject.Find("PlantInfo");
-        if (plantipedia != null && plantipedia.activeSelf ||
-            plantInfo != null && plantInfo.activeSelf)
-        {
-            NextHint();
-        }
-    }
-
-    private void ShowPlant()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            FirstPlant.SetActive(true);
-            NextHint();
-        }
-    }
-
-    private void CheckDestination()
-    {
-        if (FindObjectOfType<Destination>().carrying)
-        {
-            NextHint();
-        }
-    }
-
-    private void CheckLightLevel()
-    {
-        if (FirstPlant.gameObject.GetComponent<HouseplantHealth>().GetLightLevel() == 68)
-        {
-            NextHint();
-        }
-    }
-
-    private void ShowClosed()
-    {
-        GameObject shop = GameObject.Find("Shop");
-        if (shop == null || !shop.activeSelf)
-        {
-            NextHint();
-        }
-    }
-
-    private void ShowShop()
-    {
-        // Once shop open, next
-        GameObject shop = GameObject.Find("Shop");
-        if (shop != null && shop.activeSelf)
-        {
-            NextHint();
-        }
-    }
-
-    private void LeaveShop()
-    {
-        GameObject monitor = GameObject.Find("Log out");
-        if (monitor == null || !monitor.activeSelf)
-        {
-            NextHint();
-        }
-    }
-
 
     [System.Serializable]
     public class Hint
     {
+        public int Ordinal;
         public string Header;
         public string Content;
         public GameObject ObjectToPointAt;
