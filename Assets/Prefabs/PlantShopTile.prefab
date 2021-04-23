@@ -142,8 +142,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Order
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b3fbcf0212225d24b8a6bc8d39cf2a50, type: 2}
-  m_sharedMaterial: {fileID: 5691311457640443114, guid: b3fbcf0212225d24b8a6bc8d39cf2a50, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c883dc24a74ada4f88ab4fb1eeee56c, type: 2}
+  m_sharedMaterial: {fileID: 9172236359968245725, guid: 7c883dc24a74ada4f88ab4fb1eeee56c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -579,8 +579,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b3fbcf0212225d24b8a6bc8d39cf2a50, type: 2}
-  m_sharedMaterial: {fileID: 5691311457640443114, guid: b3fbcf0212225d24b8a6bc8d39cf2a50, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c883dc24a74ada4f88ab4fb1eeee56c, type: 2}
+  m_sharedMaterial: {fileID: 9172236359968245725, guid: 7c883dc24a74ada4f88ab4fb1eeee56c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -713,8 +713,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Anthurium Clavinervium
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b3fbcf0212225d24b8a6bc8d39cf2a50, type: 2}
-  m_sharedMaterial: {fileID: 5691311457640443114, guid: b3fbcf0212225d24b8a6bc8d39cf2a50, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c883dc24a74ada4f88ab4fb1eeee56c, type: 2}
+  m_sharedMaterial: {fileID: 9172236359968245725, guid: 7c883dc24a74ada4f88ab4fb1eeee56c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1016,8 +1016,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 4
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b3fbcf0212225d24b8a6bc8d39cf2a50, type: 2}
-  m_sharedMaterial: {fileID: 5691311457640443114, guid: b3fbcf0212225d24b8a6bc8d39cf2a50, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7c883dc24a74ada4f88ab4fb1eeee56c, type: 2}
+  m_sharedMaterial: {fileID: 9172236359968245725, guid: 7c883dc24a74ada4f88ab4fb1eeee56c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
