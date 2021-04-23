@@ -12104,7 +12104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbc2aa0a5332d044593fdb693fbc46af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StressNotification: {fileID: 0}
+  StressNotification: {fileID: 508787826}
 --- !u!1 &1142091531
 GameObject:
   m_ObjectHideFlags: 0

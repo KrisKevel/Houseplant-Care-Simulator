@@ -38,11 +38,12 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
         if (_waterButtonPressed)
         {
             _houseplant.IncreaseWaterLevel(_waterAddedPerFrame);
-            _waterAddedPerFrame += _waterAddedPerFrameAccel; 
+            _waterAddedPerFrame += _waterAddedPerFrameAccel;
         }
 
         UpdateData();
         CheckDistanceToPlayer();
+        CheckPlantHealth();
     }
 
     private void OnDestroy()
@@ -164,6 +165,15 @@ public class MoistureMeterPanel : MonoBehaviour, IDeselectHandler, IPointerEnter
         if (!closeEnough)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    public void CheckPlantHealth()
+    {
+        if (_houseplant.Dead)
+        {
+            gameObject.SetActive(false);
+            Events.OpenDeadPanel(_houseplant);
         }
     }
 
