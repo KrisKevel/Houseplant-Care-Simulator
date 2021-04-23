@@ -32,8 +32,8 @@ public class Arrow : MonoBehaviour
 
         if (rotate)
         {
-            _xOffset = -screenRes.x * (xOffset+0.01f);
-            _yOffset = screenRes.y * (yOffset-0.05f);
+            _xOffset = -screenRes.x * (xOffset);
+            _yOffset = screenRes.y * (yOffset-0.01f);
             gameObject.transform.rotation = new Quaternion(0, 180, -43.072f, 0);
         }
         else

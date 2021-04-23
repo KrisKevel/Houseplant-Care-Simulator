@@ -9,6 +9,7 @@ public class DeliveryIntroStep : TutorialStep
         if (Input.GetKeyDown(KeyCode.Space))
         {
             FirstPlant.SetActive(true);
+            Events.ClearDeliverySystem();
             return true;
         }
 

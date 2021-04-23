@@ -92,4 +92,8 @@ public class Events
     // Event invoked in order to notify player about insufficient funds
     public static event Action<Ray> OnRightClickPlant;
     public static void RightClickPlant(Ray ray) => OnRightClickPlant.Invoke(ray);
+
+    // Event invoked to clear the delivery system and panel (tutorial)
+    public static event Action OnClearDeliverySystem;
+    public static void ClearDeliverySystem() => OnClearDeliverySystem.Invoke();
 }

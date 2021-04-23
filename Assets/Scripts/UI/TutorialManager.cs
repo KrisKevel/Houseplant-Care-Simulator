@@ -46,7 +46,7 @@ public class TutorialManager : MonoBehaviour
             {
                 Events.EnableMoistureMeter();
             }
-            Arrow.SetObject(_currentStep.Hint.ObjectToPointAt, _step == 6);
+            Arrow.SetObject(_currentStep.Hint.ObjectToPointAt, _currentStep.Hint.RotateArrow);
             Tooltip.SetText(_currentStep.Hint.Content, _currentStep.Hint.Header);
 
             if (_currentStep.Hint.ObjectToPointAt != null &&
@@ -95,19 +95,20 @@ public class TutorialManager : MonoBehaviour
             { 1, new ShopIntroStep() },
             { 2, new ShopDescStep() },
             { 3, new LeaveComputerStep() },
-            { 4, new DeliveryIntroStep() },
-            { 5, new PickUpPlantStep() },
-            { 6, new PlacePlantStep() },
-            { 7, new ShowComputerStep() },
-            { 8, new ShopClosedStep() },
-            { 9, new ShowPlantipediaStep() },
-            { 10, new ShowPlantInfoStep() },
-            { 11, new LeaveComputerStep() },
-            { 12, new ShowPlantStatsStep() },
-            { 13, new SpaceStep() },
-            { 14, new WaterPlantStep() },
-            { 15, new ClosePlantStatsStep() },
-            { 16, new SpaceStep() },
+            { 4, new SpaceStep() },
+            { 5, new DeliveryIntroStep() },
+            { 6, new PickUpPlantStep() },
+            { 7, new PlacePlantStep() },
+            { 8, new ShowComputerStep() },
+            { 9, new ShopClosedStep() },
+            { 10, new ShowPlantipediaStep() },
+            { 11, new ShowPlantInfoStep() },
+            { 12, new LeaveComputerStep() },
+            { 13, new ShowPlantStatsStep() },
+            { 14, new SpaceStep() },
+            { 15, new WaterPlantStep() },
+            { 16, new ClosePlantStatsStep() },
+            { 17, new SpaceStep() },
         };
     }
 
@@ -118,5 +119,6 @@ public class TutorialManager : MonoBehaviour
         public string Header;
         public string Content;
         public GameObject ObjectToPointAt;
+        public bool RotateArrow;
     }
 }

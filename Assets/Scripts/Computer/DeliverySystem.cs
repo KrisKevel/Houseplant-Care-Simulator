@@ -14,22 +14,21 @@ public class DeliverySystem : MonoBehaviour
     {
         Events.OnBuyPlant += BuyPlant;
         Events.OnToggleSleep += Deliver;
+        Events.OnClearDeliverySystem += ClearDelivery;
     }
 
     private void OnDestroy()
     {
         Events.OnBuyPlant -= BuyPlant;
         Events.OnToggleSleep -= Deliver;
+        Events.OnClearDeliverySystem -= ClearDelivery;
     }
 
     void BuyPlant(GameObject houseplant)
     {
-        if (GameManager.Instance.CurrentState == GameManager.GameState.game)
-        {
-            HouseplantData plantData = houseplant.gameObject.GetComponent<HouseplantHealth>().Houseplant;
-            _plantsToBeDelivered.Add(new KeyVal<HouseplantData, int>(plantData, plantData.DaysForDelivery));
-            Events.DeliveryUpdate(_plantsToBeDelivered);
-        }
+        HouseplantData plantData = houseplant.gameObject.GetComponent<HouseplantHealth>().Houseplant;
+        _plantsToBeDelivered.Add(new KeyVal<HouseplantData, int>(plantData, plantData.DaysForDelivery));
+        Events.DeliveryUpdate(_plantsToBeDelivered);
     }
 
     void Deliver(bool sleeping)
@@ -61,6 +60,13 @@ public class DeliverySystem : MonoBehaviour
             _delivered.Clear();
             Events.DeliveryUpdate(_plantsToBeDelivered);
         }
+    }
+
+    void ClearDelivery()
+    {
+        _plantsToBeDelivered.Clear();
+        _delivered.Clear();
+        Events.DeliveryUpdate(_plantsToBeDelivered);
     }
 
     bool PlacePlant(GameObject plant)
