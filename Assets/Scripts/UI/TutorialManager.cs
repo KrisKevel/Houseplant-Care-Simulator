@@ -70,6 +70,7 @@ public class TutorialManager : MonoBehaviour
         Arrow.gameObject.SetActive(false);
         FirstPlant.SetActive(true);
         Events.EnableMoistureMeter();
+        Events.ToggleSleep(false);
         GameManager.Instance.StartGame();
         Tooltip.gameObject.SetActive(false);
         gameObject.SetActive(false);

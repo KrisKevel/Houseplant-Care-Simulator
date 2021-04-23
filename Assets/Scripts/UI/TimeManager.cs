@@ -15,6 +15,8 @@ public class TimeManager : MonoBehaviour
     public int WorkEndH;
     public int DayEndTimeH;
 
+    public Notification WorkNotification;
+
     private int timeH;
     private int timeMin;
     private float second = 1.0f;
@@ -76,6 +78,11 @@ public class TimeManager : MonoBehaviour
         {
             AddHour();
         }
+
+        if (timeMin == 50 && timeH == WorkStartH - 1)
+        {
+            WorkNotification.ShowNotification();
+        }
     }
 
     private void AddHour()
@@ -95,10 +102,6 @@ public class TimeManager : MonoBehaviour
         else if (timeH == StartingTimeH)
         {
             Events.ToggleSleep(false);
-        }
-        else if (timeH == WorkStartH)
-        {
-            Events.ToggleWork(true);
         }
         else if (timeH == WorkEndH)
         {
@@ -168,7 +171,10 @@ public class TimeManager : MonoBehaviour
         if(!sleeping)
         {
             GameManager.Instance.UnpauseGame();
-            ResetDay();
+            if (GameManager.Instance.CurrentState != GameManager.GameState.tutorial)
+            {
+                ResetDay();
+            }
         }
         else
         {
@@ -179,5 +185,22 @@ public class TimeManager : MonoBehaviour
     void SetWorking(bool work)
     {
         working = work;
+
+        if (working)
+        {
+            CheckIfInTimeForWork();
+        }
+    }
+
+    void CheckIfInTimeForWork()
+    {
+        // Late for work
+        if (timeH == WorkStartH && timeMin > 0 || timeH > WorkStartH)
+        {
+            float lateMin = (timeH - WorkStartH) * 60 + timeMin;
+            float workDayLenghtMin = (WorkEndH - WorkStartH) * 60;
+            float amountToDeduct = (lateMin / workDayLenghtMin) * GameManager.Instance.DailyPay;
+            GameManager.Instance.UpdateFunds(-amountToDeduct);
+        }
     }
 }

@@ -5,7 +5,7 @@ using TMPro;
 
 public class SleepTime : MonoBehaviour
 {
-    public StressNotification Notification;
+    public Notification StressNotification;
 
     private int _multiplierModifier = 2;
 
@@ -38,7 +38,7 @@ public class SleepTime : MonoBehaviour
             {
                 if (morningStress < 0)
                 {
-                    Notification.ShowNotification();
+                    StressNotification.ShowNotification();
                     _multiplierModifier--;
                 }
                 else

@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StressNotification : MonoBehaviour
+public class Notification : MonoBehaviour
 {
-    private void Awake()
-    {
-        
-    }
+    public int ShowForSeconds = 5;
 
     public void ShowNotification()
     {
@@ -17,7 +14,7 @@ public class StressNotification : MonoBehaviour
 
     private IEnumerator ShowAndHide()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(ShowForSeconds);
 
         gameObject.SetActive(false);
     }
